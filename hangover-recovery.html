@@ -2,238 +2,646 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Hangover Recovery Guide — howbhandami</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>4-Hour Hangover Recovery Plan — Recovery Protocol Lab</title>
-
-  <meta name="description" content="A structured hangover recovery plan: Hour 0 stabilise, Hour 1 repair, Hour 2–4 restore. Includes hydration, food guidance, and optional supplement stack." />
+  <meta name="description" content="Evidence-informed hangover recovery guidance. What actually helps, what does not, and when to seek emergency care." />
   <meta name="theme-color" content="#0b0b0f" />
-
-  <meta property="og:title" content="4-Hour Hangover Recovery Plan" />
-  <meta property="og:description" content="A structured protocol designed to reduce hangover symptoms fast." />
-  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg:#0b0b0f; --text:rgba(255,255,255,.92); --muted:rgba(255,255,255,.68);
-      --faint:rgba(255,255,255,.45); --border:rgba(255,255,255,.12);
-      --shadow:0 20px 60px rgba(0,0,0,.45);
-      --radius:18px; --radius2:24px; --max:980px;
+    :root {
+      --bg: #080910;
+      --surface: #0f1018;
+      --surface2: #13141f;
+      --surface3: #1a1b28;
+      --text: #eeeef5;
+      --muted: #8b8ba7;
+      --muted2: #5a5a72;
+      --border: rgba(255,255,255,0.09);
+      --border-h: rgba(255,255,255,0.18);
+      --accent: #22c55e;
+      --accent-dim: rgba(34,197,94,0.12);
+      --accent-glow: rgba(34,197,94,0.28);
+      --danger: #ff5c5c;
+      --danger-dim: rgba(255,92,92,0.1);
+      --danger-border: rgba(255,92,92,0.25);
+      --warning: #f59e0b;
+      --radius: 16px;
+      --ff-display: 'Syne', sans-serif;
+      --ff-serif: 'Playfair Display', Georgia, serif;
+      --ff-body: 'DM Sans', sans-serif;
     }
-    *{box-sizing:border-box;}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 800px at 20% -10%, rgba(255,255,255,0.10), transparent 60%),
-                  radial-gradient(900px 600px at 80% 0%, rgba(255,255,255,0.08), transparent 55%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.6;
+
+    [data-theme="light"] {
+      --bg: #f2f2f7;
+      --surface: #ffffff;
+      --surface2: #f5f5fa;
+      --surface3: #eaeaf2;
+      --text: #0d0d14;
+      --muted: #6c6c88;
+      --muted2: #a0a0b8;
+      --border: rgba(0,0,0,0.1);
+      --border-h: rgba(0,0,0,0.2);
+      --accent: #16a34a;
+      --accent-dim: rgba(22,163,74,0.1);
+      --accent-glow: rgba(22,163,74,0.22);
+      --danger: #c0392b;
+      --danger-dim: rgba(192,57,43,0.08);
+      --danger-border: rgba(192,57,43,0.2);
     }
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 70px;}
-    a{color:inherit;}
-    .top{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 4px;}
-    .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
-    .logo{
-      width:34px; height:34px; border-radius:12px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.05));
-      border:1px solid var(--border);
-      box-shadow:0 10px 24px rgba(0,0,0,0.25);
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ff-body);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      transition: background .3s, color .3s;
     }
-    .brand strong{letter-spacing:.4px; font-weight:750;}
-    .brand span{display:block; font-size:12px; color:var(--muted); margin-top:-2px;}
-    .chip{
-      text-decoration:none; padding:8px 12px; border:1px solid var(--border);
-      background:rgba(255,255,255,0.04); border-radius:999px; color:var(--muted); font-size:13px;
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 0;
+      background:
+        radial-gradient(900px 600px at 10% -10%, rgba(34,197,94,.06), transparent 60%),
+        radial-gradient(500px 400px at 90% 90%, rgba(34,197,94,.04), transparent 60%);
     }
-    .chip:hover{background:rgba(255,255,255,0.07); color:var(--text);}
-    header{
+
+    /* ---- TOPBAR ---- */
+    .topbar {
+      position: relative; z-index: 10;
+      display: flex; justify-content: flex-end; align-items: center; gap: 8px;
+      max-width: 920px; margin: 0 auto;
+      padding: 14px 20px 0;
+      flex-wrap: wrap;
+    }
+    .tb-btn, a.tb-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 13px; border-radius: 11px;
+      border: 1px solid var(--border); background: var(--surface2);
+      color: var(--text); font-family: var(--ff-body);
+      font-size: 13px; font-weight: 600;
+      cursor: pointer; transition: .2s;
+      white-space: nowrap; text-decoration: none;
+    }
+    .tb-btn:hover, a.tb-btn:hover { background: var(--surface3); border-color: var(--border-h); }
+    .tb-btn.active { background: var(--accent-dim); border-color: var(--accent-glow); color: var(--accent); }
+
+    /* ---- PAGE ---- */
+    .page {
+      position: relative; z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 44px 20px 100px;
+    }
+
+    /* ---- BREADCRUMB ---- */
+    .breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; color: var(--muted);
+      margin-bottom: 36px;
+    }
+    .breadcrumb a {
+      color: var(--accent); text-decoration: none; font-weight: 500;
+    }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb-sep { color: var(--muted2); }
+
+    /* ---- HERO ---- */
+    .hero { margin-bottom: 56px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.13em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 18px;
+    }
+    .eyebrow::before {
+      content: '';
+      display: block; width: 24px; height: 1.5px;
+      background: var(--accent);
+    }
+    h1 {
+      font-family: var(--ff-serif);
+      font-size: clamp(32px, 5.5vw, 52px);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .lead {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 620px;
+      padding-left: 18px;
+      border-left: 2px solid var(--accent);
+    }
+
+    /* ---- DIVIDER ---- */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0;
+    }
+
+    /* ---- SECTIONS ---- */
+    section { margin-bottom: 52px; }
+
+    .section-label {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted2); margin-bottom: 12px;
+    }
+
+    h2 {
+      font-family: var(--ff-serif);
+      font-size: clamp(20px, 2.8vw, 28px);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--muted); margin: 24px 0 8px;
+    }
+
+    p {
+      font-size: 15px; font-weight: 300;
+      line-height: 1.78; color: var(--muted);
+      margin-bottom: 14px; max-width: 660px;
+    }
+    p:last-child { margin-bottom: 0; }
+    p strong { font-weight: 600; color: var(--text); }
+
+    /* ---- CAUSE GRID ---- */
+    .cause-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 24px 0;
+    }
+    .cause-item {
+      background: var(--surface);
+      padding: 18px 16px 16px;
+      transition: background .2s;
+    }
+    .cause-item:hover { background: var(--surface2); }
+    .cause-num {
+      display: block;
+      font-family: var(--ff-display);
+      font-size: 26px; font-weight: 900;
+      color: var(--border-h);
+      line-height: 1; margin-bottom: 10px;
+      letter-spacing: -0.03em;
+    }
+    .cause-title {
+      display: block; font-size: 13px; font-weight: 600;
+      color: var(--text); margin-bottom: 5px;
+    }
+    .cause-desc {
+      font-size: 12px; font-weight: 300;
+      color: var(--muted); line-height: 1.55;
+    }
+
+    /* ---- RATE CALLOUT ---- */
+    .rate-callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      padding: 22px 24px;
+      margin: 24px 0;
+      display: flex; gap: 24px;
+      align-items: flex-start; flex-wrap: wrap;
+    }
+    .rate-fig { flex-shrink: 0; }
+    .rate-num {
+      font-family: var(--ff-display);
+      font-size: 44px; font-weight: 900;
+      color: var(--accent); line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .rate-unit {
+      font-size: 12px; font-weight: 300;
+      color: var(--muted); letter-spacing: 0.03em;
+      display: block; margin-top: 4px;
+    }
+    .rate-body { flex: 1; min-width: 200px; }
+    .rate-body p { font-size: 14px; margin: 0; }
+
+    /* ---- GUIDANCE LIST ---- */
+    .guidance-list {
+      list-style: none;
+      margin: 20px 0;
+    }
+    .guidance-item {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 16px; align-items: flex-start;
+      padding: 18px 0;
+      border-top: 1px solid var(--border);
+    }
+    .guidance-item:last-child { border-bottom: 1px solid var(--border); }
+    .g-index {
+      font-family: var(--ff-display);
+      font-size: 13px; font-weight: 700;
+      color: var(--muted2); padding-top: 2px;
+    }
+    .g-title {
+      display: block; font-size: 15px; font-weight: 600;
+      color: var(--text); margin-bottom: 5px;
+    }
+    .g-text {
+      font-size: 14px; font-weight: 300;
+      color: var(--muted); line-height: 1.65; margin: 0;
+    }
+    .g-warning {
+      display: inline-block; margin-top: 8px;
+      font-size: 12px; font-weight: 600;
+      color: var(--danger); letter-spacing: 0.04em;
+    }
+
+    /* ---- MYTH GRID ---- */
+    .myth-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 10px; margin: 20px 0;
+    }
+    .myth-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 18px;
+      transition: border-color .2s;
+    }
+    .myth-card:hover { border-color: var(--border-h); }
+    .myth-label {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted2); margin-bottom: 8px; display: block;
+    }
+    .myth-claim {
+      font-family: var(--ff-serif);
+      font-size: 15px; font-weight: 700; font-style: italic;
+      color: var(--text); margin-bottom: 10px; line-height: 1.3;
+    }
+    .myth-verdict {
+      font-size: 13px; font-weight: 300;
+      color: var(--muted); line-height: 1.6;
+    }
+    .myth-verdict strong {
+      display: block; font-size: 11px; font-weight: 600;
+      color: var(--danger); letter-spacing: 0.07em;
+      text-transform: uppercase; margin-bottom: 5px;
+    }
+
+    /* ---- DANGER SECTION ---- */
+    .danger-section {
+      background: var(--danger-dim);
+      border: 1px solid var(--danger-border);
+      border-radius: 12px;
+      padding: 24px 28px;
+    }
+    .danger-section .section-label { color: var(--danger); opacity: .8; }
+    .danger-section h2 { color: var(--danger); }
+    .danger-section p { color: var(--text); }
+    .symptom-grid {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin: 16px 0;
+    }
+    .symptom-tag {
+      font-size: 12px; font-weight: 500;
+      color: var(--danger);
+      background: rgba(255,92,92,.08);
+      border: 1px solid var(--danger-border);
+      border-radius: 6px; padding: 5px 11px;
+    }
+    [data-theme="light"] .symptom-tag { background: rgba(192,57,43,0.06); }
+    .emergency-cta {
       margin-top: 18px;
-      padding: 26px 22px;
-      border-radius: var(--radius2);
+      padding: 14px 18px;
+      background: rgba(255,92,92,.12);
+      border: 1px solid var(--danger-border);
+      border-radius: 10px;
+      font-size: 14px; font-weight: 600;
+      color: var(--danger); line-height: 1.5;
+    }
+
+    /* ---- LEGAL FOOTER ---- */
+    .legal-bar {
+      margin-top: 52px;
+      padding: 18px 20px;
+      background: var(--surface);
       border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-      box-shadow: var(--shadow);
+      border-radius: 12px;
     }
-    h1{
-      margin: 8px 0 10px;
-      font-size: clamp(30px, 4.2vw, 46px);
-      line-height: 1.08;
-      letter-spacing: -0.5px;
+    .legal-bar p {
+      font-size: 11.5px; font-weight: 300;
+      color: var(--muted2); line-height: 1.7; margin: 0;
     }
-    .sub{color:var(--muted); max-width: 75ch; margin:0;}
-    .section{
-      margin-top: 16px;
-      padding: 20px 22px;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.04);
+    .legal-bar strong { font-weight: 600; color: var(--muted); }
+
+    /* ---- BACK LINK ---- */
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 600; color: var(--accent);
+      text-decoration: none; margin-bottom: 32px;
+      transition: gap .2s;
     }
-    .section h2{margin:0 0 10px; font-size:20px; letter-spacing:-0.2px;}
-    .muted{color:var(--muted);}
-    .small{font-size:13px; color:var(--faint);}
-    ul{margin:10px 0 0; padding-left:18px; color:var(--muted);}
-    li{margin:6px 0;}
-    .grid{display:grid; gap:12px; grid-template-columns:1fr;}
-    @media (min-width: 860px){ .grid{grid-template-columns: repeat(3, 1fr);} }
-    .card{
-      padding: 16px;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.05);
+    .back-link:hover { gap: 12px; }
+    .back-arrow { font-size: 16px; }
+
+    /* ---- SCROLL PROGRESS ---- */
+    .progress-bar {
+      position: fixed; top: 0; left: 0; z-index: 300;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent-glow);
+      transition: width .1s linear;
     }
-    .pill{
-      display:inline-block; font-size:12px; padding:5px 10px; border-radius:999px;
-      border:1px solid var(--border); background:rgba(255,255,255,0.04); color:var(--muted); margin-bottom:10px;
+
+    /* ---- ANIMATIONS ---- */
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    details{
-      border:1px solid var(--border); background:rgba(255,255,255,0.04);
-      border-radius:14px; padding:12px 14px;
+    .hero   { animation: slideUp .5s ease .05s both; }
+    section { animation: slideUp .5s ease .1s both; }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 600px) {
+      .page { padding: 32px 16px 80px; }
+      .cause-grid { grid-template-columns: 1fr 1fr; }
+      .myth-grid  { grid-template-columns: 1fr; }
+      .rate-callout { flex-direction: column; gap: 10px; }
+      .danger-section { padding: 18px; }
     }
-    details + details{margin-top:10px;}
-    summary{cursor:pointer; list-style:none; font-weight:650;}
-    summary::-webkit-details-marker{display:none;}
-    details p{margin:10px 0 0; color:var(--muted);}
-    footer{margin-top:28px; padding-top:18px; border-top:1px solid var(--border); color:var(--faint); font-size:12px;}
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
   </style>
 </head>
-
 <body>
-  <div class="wrap">
-    <div class="top">
-      <a class="brand" href="/">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <strong>Recovery Protocol Lab</strong>
-          <span>4-hour hangover recovery plan</span>
-        </div>
-      </a>
-      <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;">
-        <a class="chip" href="#timeline">Timeline</a>
-        <a class="chip" href="#food">Food</a>
-        <a class="chip" href="#stack">Stack</a>
-        <a class="chip" href="#faq">FAQ</a>
+
+<!-- Scroll progress bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- TOPBAR -->
+<nav class="topbar" aria-label="Site navigation">
+  <a class="tb-btn" href="/" style="margin-right:auto; text-decoration:none;">
+    <span style="font-size:16px;">🍺</span> howbhandami
+  </a>
+  <a class="tb-btn active" href="/hangover-recovery">Recovery Guide</a>
+  <button class="tb-btn" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle theme">🌙</button>
+</nav>
+
+<!-- PAGE -->
+<main class="page">
+
+  <a class="back-link" href="/" aria-label="Back to BAC calculator">
+    <span class="back-arrow">←</span> BAC Calculator
+  </a>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="eyebrow">Recovery Guide</div>
+    <h1>Hangover Recovery:<br><em>What Actually Helps</em></h1>
+    <p class="lead">
+      A hangover is not one condition. It is the convergence of several physiological processes — each addressable, none quickly. Understanding what is happening inside the body is the first step toward managing it sensibly.
+    </p>
+  </header>
+
+  <hr>
+
+  <!-- 01: CAUSES -->
+  <section aria-labelledby="causes-h">
+    <div class="section-label">01 — The Biology</div>
+    <h2 id="causes-h">What Is Actually Happening</h2>
+    <p>
+      A hangover is a systemic response triggered by alcohol metabolism and its byproducts — not simply the aftermath of intoxication. Five primary mechanisms drive the experience.
+    </p>
+
+    <div class="cause-grid" role="list">
+      <div class="cause-item" role="listitem">
+        <span class="cause-num">01</span>
+        <span class="cause-title">Dehydration</span>
+        <span class="cause-desc">Alcohol suppresses ADH, an antidiuretic hormone, causing the kidneys to excrete more fluid than is consumed. The result is systemic dehydration.</span>
+      </div>
+      <div class="cause-item" role="listitem">
+        <span class="cause-num">02</span>
+        <span class="cause-title">Electrolyte Imbalance</span>
+        <span class="cause-desc">Increased urination depletes sodium, potassium, and magnesium — contributing to headaches, muscle weakness, and fatigue.</span>
+      </div>
+      <div class="cause-item" role="listitem">
+        <span class="cause-num">03</span>
+        <span class="cause-title">Inflammation</span>
+        <span class="cause-desc">Alcohol triggers cytokine release — pro-inflammatory signalling molecules associated with nausea, fatigue, and impaired cognition.</span>
+      </div>
+      <div class="cause-item" role="listitem">
+        <span class="cause-num">04</span>
+        <span class="cause-title">Blood Sugar Disruption</span>
+        <span class="cause-desc">Alcohol inhibits gluconeogenesis in the liver. The resulting hypoglycaemia drives shakiness, weakness, and difficulty concentrating.</span>
+      </div>
+      <div class="cause-item" role="listitem">
+        <span class="cause-num">05</span>
+        <span class="cause-title">Sleep Fragmentation</span>
+        <span class="cause-desc">Alcohol suppresses REM sleep architecture. Even a full night in bed produces non-restorative sleep, compounding physical and cognitive fatigue.</span>
       </div>
     </div>
+  </section>
 
-    <header>
-      <div class="pill">⚗️ Evidence-informed · Simple · Actionable</div>
-      <h1>The 4-Hour Hangover Recovery Plan</h1>
-      <p class="sub">
-        The goal is to reduce symptom intensity fast by doing the right basics in the right order:
-        <strong>rehydrate + electrolytes</strong>, <strong>calm inflammation/irritation</strong>, then <strong>restore energy + sleep</strong>.
-      </p>
-      <p class="small" style="margin-top:12px;">
-        Not medical advice. If symptoms are severe (confusion, chest pain, fainting, persistent vomiting, blood), seek urgent medical care.
-      </p>
-    </header>
+  <hr>
 
-    <section class="section" id="timeline">
-      <h2>Timeline protocol</h2>
-      <p class="muted">Use whichever parts you can tolerate. Don’t force food if you’re nauseous — prioritise fluids first.</p>
+  <!-- 02: NO CURE -->
+  <section aria-labelledby="nocure-h">
+    <div class="section-label">02 — The Fundamental Limit</div>
+    <h2 id="nocure-h">There Is No Instant Cure</h2>
+    <p>
+      No supplement, food, beverage, or practice will accelerate alcohol elimination from the body. The liver metabolises ethanol at a fixed biological rate. That rate cannot be meaningfully increased by willpower, hydration, physical activity, or any commercially available product.
+    </p>
+    <p>
+      Recovery is a function of time, supported — not replaced — by sensible choices. What is possible is addressing the secondary symptoms: dehydration, nutrient depletion, inflammation, and sleep debt. None of this shortens the metabolic process. All of it can reduce how you feel while it proceeds.
+    </p>
 
-      <div class="grid" style="margin-top:12px;">
-        <div class="card">
-          <div class="pill">Hour 0 — Stabilise</div>
-          <ul>
-            <li><strong>Water + electrolytes:</strong> 500–750ml over 30–60 minutes.</li>
-            <li><strong>Light carbs:</strong> toast/banana/rice (small portions).</li>
-            <li><strong>Reduce stimulation:</strong> dark room, low noise.</li>
-          </ul>
-          <p class="small" style="margin-top:10px;">If you’re vomiting: take small sips frequently rather than chugging.</p>
+    <div class="rate-callout" aria-label="Average BAC elimination rate">
+      <div class="rate-fig">
+        <div class="rate-num">0.015</div>
+        <span class="rate-unit">BAC per hour<br>population average</span>
+      </div>
+      <div class="rate-body">
+        <p>
+          The human liver clears approximately 0.015% BAC per hour under typical conditions. This figure varies between individuals based on body composition, liver health, food intake, and genetics. It cannot be meaningfully altered by any external intervention. Time is the only mechanism that reduces BAC.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- 03: RECOVERY GUIDANCE -->
+  <section aria-labelledby="recovery-h">
+    <div class="section-label">03 — Evidence-Informed Guidance</div>
+    <h2 id="recovery-h">Practical Recovery</h2>
+    <p>
+      The following approaches address the identifiable mechanisms of a hangover. None eliminate it. All are consistent with widely accepted clinical guidance on post-alcohol recovery.
+    </p>
+
+    <ul class="guidance-list" aria-label="Recovery guidance">
+      <li class="guidance-item">
+        <span class="g-index">01</span>
+        <div>
+          <span class="g-title">Rehydrate With Electrolytes</span>
+          <p class="g-text">Plain water addresses volume depletion but not electrolyte loss. Oral rehydration salts (ORS), electrolyte drinks, or coconut water restore sodium and potassium more effectively. Consume gradually — large quantities at once can worsen nausea.</p>
         </div>
-
-        <div class="card">
-          <div class="pill">Hour 1 — Repair</div>
-          <ul>
-            <li><strong>Magnesium glycinate</strong> (optional, gentle form).</li>
-            <li><strong>Breathing:</strong> 4–6 slow breaths/min for 3–5 minutes.</li>
-            <li><strong>Light movement:</strong> short walk if it helps headache.</li>
-          </ul>
-          <p class="small" style="margin-top:10px;">Avoid intense exercise — it can worsen dehydration.</p>
+      </li>
+      <li class="guidance-item">
+        <span class="g-index">02</span>
+        <div>
+          <span class="g-title">Eat Light, Simple Foods</span>
+          <p class="g-text">Eggs contain cysteine, which supports acetaldehyde breakdown. Bananas replenish potassium. Clear broth restores sodium. Plain toast raises blood glucose without stressing a sensitive stomach. Eat when appetite allows — forcing large meals is counterproductive.</p>
         </div>
+      </li>
+      <li class="guidance-item">
+        <span class="g-index">03</span>
+        <div>
+          <span class="g-title">Ibuprofen for Headache — With Caution</span>
+          <p class="g-text">Ibuprofen is a reasonable option for hangover headache in otherwise healthy adults. Take with food to reduce gastric irritation. Do not exceed standard dosage. Avoid if you have a history of gastric ulcers, kidney issues, or significant ongoing alcohol intake.</p>
+        </div>
+      </li>
+      <li class="guidance-item">
+        <span class="g-index">04</span>
+        <div>
+          <span class="g-title">Avoid Acetaminophen / Paracetamol</span>
+          <p class="g-text">Acetaminophen is processed by the same hepatic pathway as alcohol. When alcohol remains in the system — or when the liver is under stress from recent heavy consumption — even standard doses carry a meaningful risk of hepatotoxicity.</p>
+          <span class="g-warning">Do not take paracetamol until you are confident alcohol has fully cleared your system.</span>
+        </div>
+      </li>
+      <li class="guidance-item">
+        <span class="g-index">05</span>
+        <div>
+          <span class="g-title">Rest</span>
+          <p class="g-text">Sleep debt from alcohol-disrupted sleep cannot be immediately repaid, but rest reduces the inflammatory burden and allows metabolic clearance to continue without additional physiological stress. If sleep is possible, prioritise it.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
 
-        <div class="card">
-          <div class="pill">Hour 2–4 — Restore</div>
-          <ul>
-            <li><strong>Balanced meal:</strong> carbs + protein (see food section).</li>
-            <li><strong>Hydrate steadily:</strong> water + electrolytes in cycles.</li>
-            <li><strong>Sleep:</strong> nap or early bedtime if possible.</li>
-          </ul>
-          <p class="small" style="margin-top:10px;">Sleep is the unfair advantage. Don’t fight it.</p>
+  <hr>
+
+  <!-- 04: MYTHS -->
+  <section aria-labelledby="myths-h">
+    <div class="section-label">04 — Common Misconceptions</div>
+    <h2 id="myths-h">What Does Not Work</h2>
+    <p>
+      Several widely practised remedies persist despite the absence of any supporting evidence. Each addresses neither BAC nor the biological processes driving hangover symptoms.
+    </p>
+
+    <div class="myth-grid" aria-label="Common myths debunked">
+      <div class="myth-card">
+        <span class="myth-label">Myth</span>
+        <div class="myth-claim">"Coffee sobers you up."</div>
+        <div class="myth-verdict">
+          <strong>False</strong>
+          Caffeine is a stimulant that masks sedation. It does not alter BAC, accelerate liver metabolism, or restore cognitive function impaired by alcohol. It produces the sensation of alertness while intoxication continues unchanged — a particularly dangerous combination.
         </div>
       </div>
-    </section>
-
-    <section class="section" id="food">
-      <h2>Food rules (simple)</h2>
-      <ul>
-        <li><strong>If nauseous:</strong> start with bland carbs (toast, crackers, banana).</li>
-        <li><strong>When stable:</strong> add protein (eggs, yogurt, chicken).</li>
-        <li><strong>Go easy on fats</strong> early if your stomach is sensitive.</li>
-        <li><strong>Avoid:</strong> more alcohol, heavy spicy meals, large coffee on an empty stomach.</li>
-      </ul>
-      <p class="muted" style="margin-top:12px;">
-        The point is comfort + fuel. You’re restoring energy and reducing irritation.
-      </p>
-    </section>
-
-    <section class="section" id="stack">
-      <h2>Optional supplement stack (placeholders)</h2>
-      <p class="muted">Keep it minimal. Replace links below with your affiliate links when you’re ready.</p>
-
-      <div class="grid" style="margin-top:12px;">
-        <div class="card">
-          <div class="pill">Core</div>
-          <strong>Electrolytes / ORS</strong>
-          <p class="muted">Most “wins” come from fixing fluids + salts.</p>
-          <p class="small"><a href="#" rel="nofollow">Affiliate link →</a></p>
-        </div>
-        <div class="card">
-          <div class="pill">Gentle</div>
-          <strong>Magnesium glycinate</strong>
-          <p class="muted">Helpful for some people (sleep/tension).</p>
-          <p class="small"><a href="#" rel="nofollow">Affiliate link →</a></p>
-        </div>
-        <div class="card">
-          <div class="pill">Optional</div>
-          <strong>NAC</strong>
-          <p class="muted">Common in recovery stacks (timing matters).</p>
-          <p class="small"><a href="#" rel="nofollow">Affiliate link →</a></p>
+      <div class="myth-card">
+        <span class="myth-label">Myth</span>
+        <div class="myth-claim">"A cold shower clears your head."</div>
+        <div class="myth-verdict">
+          <strong>False</strong>
+          A cold shower stimulates the sympathetic nervous system, creating temporary alertness. It has no effect on blood alcohol concentration and does not modify the metabolic process in any clinically meaningful way.
         </div>
       </div>
+      <div class="myth-card">
+        <span class="myth-label">Myth</span>
+        <div class="myth-claim">"Hair of the dog works."</div>
+        <div class="myth-verdict">
+          <strong>False — and counterproductive</strong>
+          Consuming alcohol to manage hangover symptoms delays their onset by extending intoxication. It does not treat any underlying mechanism. Symptoms resume — and may intensify — once the additional alcohol clears.
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <p class="small" style="margin-top:12px;">
-        If you have medical conditions or take medications, check with a clinician before supplements.
+  <hr>
+
+  <!-- 05: ALCOHOL POISONING -->
+  <section aria-labelledby="safety-h">
+    <div class="danger-section" role="alert" aria-labelledby="safety-h">
+      <div class="section-label">05 — Critical Safety Information</div>
+      <h2 id="safety-h">Recognising Alcohol Poisoning</h2>
+      <p>
+        A hangover, however severe, is distinct from alcohol poisoning. Alcohol poisoning is a medical emergency. Confusing the two — or assuming a person will "sleep it off" — can be fatal.
       </p>
-    </section>
+      <p>
+        If any of the following are present, call emergency services immediately. Do not wait.
+      </p>
 
-    <section class="section" id="faq">
-      <h2>FAQ</h2>
+      <div class="symptom-grid" aria-label="Warning signs of alcohol poisoning">
+        <span class="symptom-tag">Unconsciousness or unresponsiveness</span>
+        <span class="symptom-tag">Seizures</span>
+        <span class="symptom-tag">Slow or irregular breathing</span>
+        <span class="symptom-tag">Fewer than 8 breaths per minute</span>
+        <span class="symptom-tag">Blue-tinged or pale skin</span>
+        <span class="symptom-tag">Vomiting while unconscious</span>
+        <span class="symptom-tag">Extreme cold to the touch</span>
+        <span class="symptom-tag">Cannot be woken</span>
+      </div>
 
-      <details>
-        <summary>Can I just drink coffee and power through?</summary>
-        <p>Coffee can help alertness, but it won’t fix dehydration or electrolyte imbalance. If you use caffeine, pair it with water + electrolytes and food.</p>
-      </details>
+      <div class="emergency-cta">
+        Call emergency services immediately — 112 in India, 999 in the UK, 911 in the US.<br>
+        Place the person in the recovery position. Stay with them until help arrives.
+      </div>
+    </div>
+  </section>
 
-      <details>
-        <summary>Why electrolytes instead of just water?</summary>
-        <p>Hangovers often involve fluid + electrolyte imbalance. Electrolytes help your body retain fluids and may reduce headache/fatigue for some people.</p>
-      </details>
-
-      <details>
-        <summary>When should I worry and get medical help?</summary>
-        <p>If you have severe symptoms (confusion, fainting, chest pain, blood, uncontrolled vomiting, severe abdominal pain), seek urgent medical evaluation.</p>
-      </details>
-    </section>
-
-    <footer>
-      <div><strong>Disclaimer:</strong> Informational only. Not medical advice. Do not use this to make driving or safety decisions.</div>
-      <div style="margin-top:6px;">© <span id="y"></span> Recovery Protocol Lab</div>
-    </footer>
+  <!-- LEGAL DISCLAIMER -->
+  <div class="legal-bar" role="contentinfo">
+    <p>
+      <strong>Educational content only.</strong> The information on this page is provided for general informational and educational purposes. It does not constitute medical advice, diagnosis, or treatment, and should not be relied upon as a substitute for professional medical consultation. Individual responses to alcohol vary significantly. The creators make no representations of medical accuracy and accept no liability for actions taken in reliance on this material. If you have concerns about your health or alcohol consumption, consult a qualified healthcare professional.
+    </p>
   </div>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+</main>
+
+<script>
+  /* ---- THEME ---- */
+  let isDark = localStorage.getItem('hbai_theme') !== 'light';
+  function applyTheme() {
+    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+    document.getElementById('themeBtn').textContent = isDark ? '🌙' : '☀️';
+    localStorage.setItem('hbai_theme', isDark ? 'dark' : 'light');
+  }
+  function toggleTheme() { isDark = !isDark; applyTheme(); }
+  applyTheme();
+
+  /* ---- SCROLL PROGRESS ---- */
+  window.addEventListener('scroll', () => {
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docH > 0 ? (window.scrollY / docH) * 100 : 0;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+</script>
+
 </body>
 </html>
