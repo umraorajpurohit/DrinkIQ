@@ -1,13 +1,7 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    {
-      "source": "/",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/hangover-recovery",
-      "destination": "/hangover-recovery.html"
-    }
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/hangover-recovery", "destination": "/hangover-recovery.html" }
   ]
 }
