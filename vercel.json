@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/hangover-recovery", "destination": "/hangover-recovery.html" }
+  ]
+}
