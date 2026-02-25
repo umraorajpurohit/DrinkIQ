@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Hangover Recovery Guide — howbhandami</title>
+  <title>Hangover Recovery Guide — DrinkIQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="Evidence-informed hangover recovery guidance. What actually helps, what does not, and when to seek emergency care." />
   <meta name="theme-color" content="#0b0b0f" />
@@ -408,7 +408,7 @@
 <!-- TOPBAR -->
 <nav class="topbar" aria-label="Site navigation">
   <a class="tb-btn" href="/" style="margin-right:auto; text-decoration:none;">
-    <span style="font-size:16px;">🍺</span> howbhandami
+    <span style="font-size:16px;">🍺</span> DrinkIQ
   </a>
   <a class="tb-btn active" href="/hangover-recovery">Recovery Guide</a>
   <button class="tb-btn" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle theme">🌙</button>
@@ -626,11 +626,11 @@
 
 <script>
   /* ---- THEME ---- */
-  let isDark = localStorage.getItem('hbai_theme') !== 'light';
+  let isDark = localStorage.getItem('drinkiq_theme') !== 'light';
   function applyTheme() {
     document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
     document.getElementById('themeBtn').textContent = isDark ? '🌙' : '☀️';
-    localStorage.setItem('hbai_theme', isDark ? 'dark' : 'light');
+    localStorage.setItem('drinkiq_theme', isDark ? 'dark' : 'light');
   }
   function toggleTheme() { isDark = !isDark; applyTheme(); }
   applyTheme();
