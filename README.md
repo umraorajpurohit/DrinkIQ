@@ -60,7 +60,7 @@ Evidence-based information on:
 
 ## 🚀 Future Roadmap
 
-### Phase 1: Immediate Safety Features (2025)
+### Phase 1: Immediate Safety Features (2026)
 
 #### 🚕 Integrated Cab Services
 - **One-tap emergency ride booking**
@@ -84,7 +84,7 @@ Evidence-based information on:
 
 ---
 
-### Phase 2: Comprehensive Health & Wellness (2025)
+### Phase 2: Comprehensive Health & Wellness (2026)
 
 #### 🧠 Alcohol & Mind Section
 Educational content on:
