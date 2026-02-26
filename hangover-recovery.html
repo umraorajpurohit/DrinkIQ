@@ -7,7 +7,8 @@
   <meta name="description" content="Evidence-informed hangover recovery guidance. What actually helps, what does not, and when to seek emergency care." />
   <meta name="theme-color" content="#0b0b0f" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Lora:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -28,9 +29,9 @@
       --danger-border: rgba(255,92,92,0.25);
       --warning: #f59e0b;
       --radius: 16px;
-      --ff-display: 'Syne', sans-serif;
+      --ff-display: 'Playfair Display', Georgia, serif;
       --ff-serif: 'Playfair Display', Georgia, serif;
-      --ff-body: 'DM Sans', sans-serif;
+      --ff-body: 'Lora', Georgia, serif;
     }
 
     [data-theme="light"] {
@@ -106,6 +107,7 @@
       display: flex; align-items: center; gap: 8px;
       font-size: 12px; color: var(--muted);
       margin-bottom: 36px;
+      font-family: var(--ff-body);
     }
     .breadcrumb a {
       color: var(--accent); text-decoration: none; font-weight: 500;
@@ -120,6 +122,7 @@
       font-size: 11px; font-weight: 600;
       letter-spacing: 0.13em; text-transform: uppercase;
       color: var(--accent); margin-bottom: 18px;
+      font-family: var(--ff-body);
     }
     .eyebrow::before {
       content: '';
@@ -129,7 +132,7 @@
     h1 {
       font-family: var(--ff-serif);
       font-size: clamp(32px, 5.5vw, 52px);
-      font-weight: 700;
+      font-weight: 800;
       line-height: 1.12;
       letter-spacing: -0.01em;
       color: var(--text);
@@ -147,6 +150,7 @@
       max-width: 620px;
       padding-left: 18px;
       border-left: 2px solid var(--accent);
+      font-family: var(--ff-body);
     }
 
     /* ---- DIVIDER ---- */
@@ -163,12 +167,13 @@
       font-size: 10px; font-weight: 600;
       letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--muted2); margin-bottom: 12px;
+      font-family: var(--ff-body);
     }
 
     h2 {
       font-family: var(--ff-serif);
       font-size: clamp(20px, 2.8vw, 28px);
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: -0.01em;
       line-height: 1.2;
       color: var(--text);
@@ -179,12 +184,14 @@
       font-size: 11px; font-weight: 600;
       letter-spacing: 0.09em; text-transform: uppercase;
       color: var(--muted); margin: 24px 0 8px;
+      font-family: var(--ff-body);
     }
 
     p {
       font-size: 15px; font-weight: 300;
       line-height: 1.78; color: var(--muted);
       margin-bottom: 14px; max-width: 660px;
+      font-family: var(--ff-body);
     }
     p:last-child { margin-bottom: 0; }
     p strong { font-weight: 600; color: var(--text); }
@@ -215,12 +222,14 @@
       letter-spacing: -0.03em;
     }
     .cause-title {
-      display: block; font-size: 13px; font-weight: 600;
+      display: block; font-size: 13px; font-weight: 700;
       color: var(--text); margin-bottom: 5px;
+      font-family: var(--ff-body);
     }
     .cause-desc {
       font-size: 12px; font-weight: 300;
       color: var(--muted); line-height: 1.55;
+      font-family: var(--ff-body);
     }
 
     /* ---- RATE CALLOUT ---- */
@@ -245,6 +254,7 @@
       font-size: 12px; font-weight: 300;
       color: var(--muted); letter-spacing: 0.03em;
       display: block; margin-top: 4px;
+      font-family: var(--ff-body);
     }
     .rate-body { flex: 1; min-width: 200px; }
     .rate-body p { font-size: 14px; margin: 0; }
@@ -268,17 +278,20 @@
       color: var(--muted2); padding-top: 2px;
     }
     .g-title {
-      display: block; font-size: 15px; font-weight: 600;
+      display: block; font-size: 15px; font-weight: 700;
       color: var(--text); margin-bottom: 5px;
+      font-family: var(--ff-body);
     }
     .g-text {
       font-size: 14px; font-weight: 300;
       color: var(--muted); line-height: 1.65; margin: 0;
+      font-family: var(--ff-body);
     }
     .g-warning {
       display: inline-block; margin-top: 8px;
       font-size: 12px; font-weight: 600;
       color: var(--danger); letter-spacing: 0.04em;
+      font-family: var(--ff-body);
     }
 
     /* ---- MYTH GRID ---- */
@@ -298,6 +311,7 @@
       font-size: 10px; font-weight: 600;
       letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--muted2); margin-bottom: 8px; display: block;
+      font-family: var(--ff-body);
     }
     .myth-claim {
       font-family: var(--ff-serif);
@@ -307,6 +321,7 @@
     .myth-verdict {
       font-size: 13px; font-weight: 300;
       color: var(--muted); line-height: 1.6;
+      font-family: var(--ff-body);
     }
     .myth-verdict strong {
       display: block; font-size: 11px; font-weight: 600;
@@ -334,6 +349,7 @@
       background: rgba(255,92,92,.08);
       border: 1px solid var(--danger-border);
       border-radius: 6px; padding: 5px 11px;
+      font-family: var(--ff-body);
     }
     [data-theme="light"] .symptom-tag { background: rgba(192,57,43,0.06); }
     .emergency-cta {
@@ -344,6 +360,7 @@
       border-radius: 10px;
       font-size: 14px; font-weight: 600;
       color: var(--danger); line-height: 1.5;
+      font-family: var(--ff-body);
     }
 
     /* ---- LEGAL FOOTER ---- */
@@ -357,6 +374,7 @@
     .legal-bar p {
       font-size: 11.5px; font-weight: 300;
       color: var(--muted2); line-height: 1.7; margin: 0;
+      font-family: var(--ff-body);
     }
     .legal-bar strong { font-weight: 600; color: var(--muted); }
 
@@ -366,6 +384,7 @@
       font-size: 13px; font-weight: 600; color: var(--accent);
       text-decoration: none; margin-bottom: 32px;
       transition: gap .2s;
+      font-family: var(--ff-body);
     }
     .back-link:hover { gap: 12px; }
     .back-arrow { font-size: 16px; }
