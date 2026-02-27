@@ -2,11 +2,163 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>DrinkIQ — BAC Estimator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="A novelty BAC estimation tool for informational purposes only. Not a medical device. Not medical advice. Do not use to make driving or health decisions." />
-  <meta name="theme-color" content="#0b0b0f" />
-  <meta name="robots" content="noindex" />
+
+  <!-- ═══════════════════════════════════════════════════
+       PRIMARY SEO META TAGS
+  ═══════════════════════════════════════════════════ -->
+  <title>DrinkIQ — Free BAC Calculator & Drink Tracker | Know Your Limits</title>
+  <meta name="description" content="Free Blood Alcohol Content (BAC) calculator for India. Estimate your BAC, track drinks, find out when you'll be sober, and get evidence-based hangover recovery advice. Never drink and drive." />
+  <meta name="keywords" content="BAC calculator India, blood alcohol content calculator, drink tracker India, how drunk am I, when will I be sober, alcohol calculator, safe driving BAC India, hangover recovery, Kingfisher BAC, whisky units India, 0.03 BAC limit India" />
+  <meta name="author" content="DrinkIQ" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://drinkiq.vercel.app/" />
+
+  <!-- ═══════════════════════════════════════════════════
+       OPEN GRAPH (Facebook, WhatsApp, LinkedIn)
+  ═══════════════════════════════════════════════════ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://drinkiq.vercel.app/" />
+  <meta property="og:title" content="DrinkIQ — Free BAC Calculator for India | Know Your Limits" />
+  <meta property="og:description" content="Free BAC estimator built for India. Track drinks, estimate blood alcohol content, see when you'll be sober, and learn how to recover from a hangover. Responsible drinking starts here." />
+  <meta property="og:image" content="https://drinkiq.vercel.app/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="DrinkIQ - Free BAC Calculator for India" />
+  <meta property="og:site_name" content="DrinkIQ" />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- ═══════════════════════════════════════════════════
+       TWITTER / X CARDS
+  ═══════════════════════════════════════════════════ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@DrinkIQ" />
+  <meta name="twitter:title" content="DrinkIQ — Free BAC Calculator for India" />
+  <meta name="twitter:description" content="Estimate your blood alcohol content, track drinks, and get evidence-based hangover recovery advice. Free, private, India-focused." />
+  <meta name="twitter:image" content="https://drinkiq.vercel.app/og-image.png" />
+
+  <!-- ═══════════════════════════════════════════════════
+       STRUCTURED DATA — WebApplication (Rich Results)
+  ═══════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DrinkIQ BAC Calculator",
+    "url": "https://drinkiq.vercel.app/",
+    "description": "Free Blood Alcohol Content (BAC) calculator for India. Estimate your BAC using the Widmark equation, track your drinks, and learn when you will be sober.",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "INR"
+    },
+    "featureList": [
+      "BAC estimation using Widmark equation",
+      "Indian drinks database (Kingfisher, whisky pegs, desi daru)",
+      "Time-to-sober calculator",
+      "Evidence-based hangover recovery guide",
+      "India legal BAC limit (0.03%) awareness",
+      "Dark and light mode",
+      "100% private - no data sent to servers"
+    ],
+    "screenshot": "https://drinkiq.vercel.app/og-image.png",
+    "inLanguage": "en-IN",
+    "isAccessibleForFree": true,
+    "creator": {
+      "@type": "Organization",
+      "name": "DrinkIQ",
+      "url": "https://drinkiq.vercel.app"
+    }
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════
+       STRUCTURED DATA — FAQPage (Google FAQ rich results)
+  ═══════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the legal BAC limit for driving in India?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The legal Blood Alcohol Content (BAC) limit for driving in India is 0.03% (30mg per 100ml of blood) under the Motor Vehicles Act. Driving above this limit is a criminal offence. However, impairment can occur at much lower BAC levels — the safest choice is always not to drive after drinking any alcohol."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many pegs of whisky does it take to reach 0.03% BAC?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This varies significantly by body weight, biological sex, food intake, and metabolism. As a rough estimate, a 70kg adult male may reach approximately 0.03% BAC after 1–2 standard 30ml pegs of whisky. Use our free BAC calculator for a personalised estimate based on your weight and drinks consumed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does alcohol stay in your system?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The liver processes alcohol at approximately 0.015% BAC per hour on average. So if your BAC peaks at 0.09%, it will take roughly 6 hours to clear completely. Individual rates vary based on liver health, body composition, food intake, and genetics. Nothing — including coffee, water, or exercise — significantly speeds up this process."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is DrinkIQ's BAC calculator accurate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "DrinkIQ uses the scientifically established Widmark equation to estimate BAC. However, these are estimates only — not medical measurements. Real BAC is affected by many factors including food consumption, hydration, medications, liver health, and exact drink contents. Always treat results as approximate guidance, never as grounds for deciding to drive."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What actually helps a hangover?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Evidence supports: rehydration with electrolytes (ORS or coconut water, not just plain water), light easily digestible foods (eggs, bananas, toast, broth), ibuprofen for headache (with food, not paracetamol which stresses the liver), and rest. Nothing eliminates a hangover — only time allows the liver to clear alcohol metabolites."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════
+       STRUCTURED DATA — BreadcrumbList
+  ═══════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://drinkiq.vercel.app/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════
+       GOOGLE ADSENSE — Replace ca-pub-XXXXXXXXXXXXXXXX
+       with your actual AdSense Publisher ID
+  ═══════════════════════════════════════════════════ -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+  <!-- ═══════════════════════════════════════════════════
+       THEME & FAVICON
+  ═══════════════════════════════════════════════════ -->
+  <meta name="theme-color" content="#080910" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍺</text></svg>" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍺</text></svg>" />
+
+  <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
@@ -40,6 +192,35 @@
                  radial-gradient(600px 400px at 85% 95%,rgba(34,197,94,.04),transparent 60%);
     }
 
+    /* ---- AD UNITS ---- */
+    .ad-unit {
+      position: relative; z-index: 1;
+      max-width: 860px; margin: 12px auto;
+      padding: 0 14px;
+    }
+    .ad-unit ins {
+      display: block;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .ad-label {
+      font-size: 10px; color: var(--muted2);
+      text-align: center; margin-bottom: 4px;
+      font-family: var(--ff-body);
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    /* Ad placeholder shown before AdSense loads — remove in production */
+    .ad-placeholder {
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      color: var(--muted2);
+      font-family: var(--ff-body);
+      font-size: 12px;
+    }
+
     /* ---- OVERLAY / MODAL ---- */
     .overlay{
       position:fixed; inset:0; z-index:200;
@@ -63,8 +244,6 @@
       width:34px; height:34px; cursor:pointer; font-size:16px;
       display:flex; align-items:center; justify-content:center;
     }
-
-    /* ---- DISCLAIMER ---- */
     #disclaimerOverlay .modal{ max-width:600px; position:relative; }
     .disc-badge{
       display:inline-flex; align-items:center; gap:6px;
@@ -89,8 +268,6 @@
       transition:opacity .2s,box-shadow .2s;
     }
     .disc-agree-btn.enabled{ opacity:1; pointer-events:auto; box-shadow:0 4px 20px var(--accent-glow); }
-
-    /* ---- AUTH MODAL ---- */
     #authOverlay .modal{ max-width:420px; position:relative; }
     .auth-tabs{ display:flex; gap:4px; background:var(--surface2); border-radius:12px; padding:4px; margin-bottom:18px; }
     .auth-tab{ flex:1; padding:9px; border-radius:9px; border:none; background:transparent; color:var(--muted); font-family:var(--ff-body); font-size:14px; font-weight:600; cursor:pointer; transition:.2s; }
@@ -105,15 +282,11 @@
     .auth-msg.err{ color:var(--danger); }
     .auth-msg.ok{ color:var(--safe); }
     .auth-guest{ display:block; margin-top:14px; text-align:center; color:var(--muted); font-size:13px; cursor:pointer; text-decoration:underline; background:none; border:none; font-family:var(--ff-body); }
-
-    /* ---- T&C MODAL ---- */
     #tcOverlay .modal{ max-width:640px; }
     .tc-body{ font-size:13px; line-height:1.7; color:var(--text); opacity:.88; font-family:var(--ff-body); }
     .tc-body h3{ font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); margin:18px 0 6px; font-family:var(--ff-body); }
     .tc-body p{ margin-bottom:10px; }
     .tc-close{ margin-top:20px; width:100%; padding:12px; border-radius:13px; border:none; background:var(--surface3); color:var(--text); font-family:var(--ff-display); font-weight:800; font-size:15px; cursor:pointer; }
-
-    /* ---- HISTORY MODAL ---- */
     #historyOverlay .modal{ max-width:560px; }
     .hist-empty{ text-align:center; color:var(--muted); font-size:14px; padding:32px 0; font-family:var(--ff-body); }
     .hist-item{ border:1px solid var(--border); border-radius:12px; padding:12px 14px; margin-bottom:8px; background:var(--surface2); transition:.2s; }
@@ -137,6 +310,7 @@
       display:flex; align-items:center; gap:6px; padding:8px 13px; border-radius:11px;
       border:1px solid var(--border); background:var(--surface2); color:var(--text);
       font-family:var(--ff-body); font-size:13px; font-weight:600; cursor:pointer; transition:.2s; white-space:nowrap;
+      text-decoration:none;
     }
     .tb-btn:hover{ background:var(--surface3); border-color:var(--border-h); }
     #userChip{
@@ -205,6 +379,64 @@
     .chart-label{ font-size:12px; color:var(--muted); margin-bottom:8px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; font-family:var(--ff-body); }
     #bacCanvas{ width:100%; height:110px; display:block; border-radius:10px; background:var(--surface2); }
     .chart-axis{ display:flex; justify-content:space-between; font-size:11px; color:var(--muted); margin-top:4px; font-family:var(--ff-body); }
+
+    /* ---- FAQ SECTION (SEO content) ---- */
+    .faq-section {
+      position:relative; z-index:1;
+      max-width:860px; margin:24px auto 0; padding:0 14px;
+    }
+    .faq-section h2 {
+      font-family:var(--ff-display); font-size:22px; font-weight:800;
+      color:var(--text); margin-bottom:16px;
+    }
+    .faq-item {
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:12px; margin-bottom:8px; overflow:hidden;
+    }
+    .faq-q {
+      width:100%; text-align:left; padding:16px 18px;
+      background:none; border:none; color:var(--text);
+      font-family:var(--ff-body); font-size:14px; font-weight:600;
+      cursor:pointer; display:flex; justify-content:space-between; align-items:center;
+      gap:12px;
+    }
+    .faq-q:hover { background:var(--surface2); }
+    .faq-icon { font-size:18px; color:var(--muted); flex-shrink:0; transition:transform .2s; }
+    .faq-item.open .faq-icon { transform:rotate(45deg); color:var(--accent); }
+    .faq-a {
+      display:none; padding:0 18px 16px;
+      font-family:var(--ff-body); font-size:14px; font-weight:300;
+      line-height:1.7; color:var(--muted);
+    }
+    .faq-item.open .faq-a { display:block; }
+
+    /* ---- SITE FOOTER ---- */
+    .site-footer {
+      position:relative; z-index:1;
+      max-width:860px; margin:32px auto 0; padding:24px 14px 120px;
+      border-top:1px solid var(--border);
+    }
+    .footer-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+      gap:24px; margin-bottom:24px;
+    }
+    .footer-col h3 {
+      font-family:var(--ff-display); font-size:13px; font-weight:800;
+      color:var(--text); margin-bottom:10px;
+    }
+    .footer-col a, .footer-col p {
+      display:block; font-family:var(--ff-body); font-size:12px;
+      color:var(--muted); text-decoration:none; margin-bottom:6px; line-height:1.5;
+    }
+    .footer-col a:hover { color:var(--accent); }
+    .footer-bottom {
+      display:flex; justify-content:space-between; align-items:center;
+      flex-wrap:wrap; gap:10px;
+      font-family:var(--ff-body); font-size:11px; color:var(--muted2);
+    }
+    .footer-bottom a { color:var(--muted2); text-decoration:none; }
+    .footer-bottom a:hover { color:var(--accent); }
+
     .legal-footer{ margin-top:18px; padding:14px; border-radius:12px; background:rgba(255,92,92,.05); border:1px solid rgba(255,92,92,.15); font-size:12px; line-height:1.7; color:var(--muted); font-family:var(--ff-body); }
     .legal-footer strong{ color:var(--danger); }
     .legal-link{ color:var(--accent); text-decoration:underline; cursor:pointer; background:none; border:none; font-family:var(--ff-body); font-size:12px; }
@@ -224,55 +456,41 @@
 </head>
 <body>
 
-<!-- DISCLAIMER OVERLAY (mandatory first-visit) -->
-<div class="overlay" id="disclaimerOverlay" role="dialog" aria-modal="true" aria-label="Important disclaimer — must read before use">
+<!-- DISCLAIMER OVERLAY -->
+<div class="overlay" id="disclaimerOverlay" role="dialog" aria-modal="true" aria-label="Important disclaimer">
   <div class="modal">
     <div class="disc-badge">⚠️ IMPORTANT — READ BEFORE USING</div>
     <div class="modal-title">Before you use DrinkIQ</div>
     <div class="modal-sub">This takes 60 seconds to read. Please do — it matters.</div>
-
     <div class="disc-section">
       <h3>🔬 Not a Medical Device</h3>
-      <p>DrinkIQ uses a simplified mathematical model (Widmark equation) to produce a <strong>rough estimate only</strong>. It is NOT a breathalyser, a certified medical device, or a clinical diagnostic instrument. Real BAC is affected by food, hydration, medications, liver health, sleep, body composition, and dozens of other factors this tool cannot measure. <strong>Results may be substantially inaccurate.</strong></p>
+      <p>DrinkIQ uses a simplified mathematical model (Widmark equation) to produce a <strong>rough estimate only</strong>. It is NOT a breathalyser, a certified medical device, or a clinical diagnostic instrument. <strong>Results may be substantially inaccurate.</strong></p>
     </div>
     <div class="disc-section">
       <h3>🚫 Never Use This to Decide to Drive</h3>
-      <p><strong>A result of 0.00% does NOT mean you are safe or legally permitted to drive.</strong> The only safe decision after consuming any alcohol is NOT to drive. In India, the legal limit is 0.03% BAC but impairment can occur well below that threshold. This tool cannot tell you whether you are safe to drive.</p>
+      <p><strong>A result of 0.00% does NOT mean you are safe or legally permitted to drive.</strong> The only safe decision after consuming any alcohol is NOT to drive. India's legal limit is 0.03% BAC but impairment occurs well below that.</p>
     </div>
     <div class="disc-section">
       <h3>⚖️ No Legal Reliance</h3>
-      <ul>
-        <li>Results <strong>cannot be used as evidence</strong> in any legal proceeding.</li>
-        <li>Results do not replace professional medical or legal advice.</li>
-        <li>The creators accept <strong>no liability</strong> for any decision made based on these estimates.</li>
-        <li>Use is <strong>entirely at your own risk</strong>.</li>
-      </ul>
+      <p>Results cannot be used as evidence. The creators accept <strong>no liability</strong> for any decision made based on these estimates. Use is <strong>entirely at your own risk</strong>.</p>
     </div>
     <div class="disc-section">
       <h3>🔞 Age Restriction</h3>
-      <p>This tool is for adults of legal drinking age only (18+ in India). By continuing, you confirm you meet this requirement.</p>
+      <p>This tool is for adults of legal drinking age only (18+ in India).</p>
     </div>
-
-    <div class="disc-age">
-      <label><input type="checkbox" id="discCheck1"> I am 18 years or older and of legal drinking age in my jurisdiction.</label>
-    </div>
-    <div class="disc-age">
-      <label><input type="checkbox" id="discCheck2"> I understand this is a novelty/entertainment tool only — NOT a medical device — and I will NOT use its output to decide whether to drive, operate machinery, or make any health or legal decision.</label>
-    </div>
-    <div class="disc-age">
-      <label><input type="checkbox" id="discCheck3"> I have read and agree to the <button class="legal-link" onclick="openTC()" style="font-size:13px;padding:0;">Terms &amp; Conditions</button> and accept that use is entirely at my own risk.</label>
-    </div>
-
+    <div class="disc-age"><label><input type="checkbox" id="discCheck1"> I am 18 years or older and of legal drinking age in my jurisdiction.</label></div>
+    <div class="disc-age"><label><input type="checkbox" id="discCheck2"> I understand this is a novelty tool only — NOT a medical device — and I will NOT use its output to decide whether to drive.</label></div>
+    <div class="disc-age"><label><input type="checkbox" id="discCheck3"> I have read and agree to the <button class="legal-link" onclick="openTC()" style="font-size:13px;padding:0;">Terms &amp; Conditions</button> and accept that use is entirely at my own risk.</label></div>
     <button class="disc-agree-btn" id="discAgreeBtn" onclick="agreeDisclaimer()">I Understand — Continue</button>
   </div>
 </div>
 
 <!-- AUTH OVERLAY -->
-<div class="overlay hidden" id="authOverlay" role="dialog" aria-modal="true" aria-label="Sign in or register">
+<div class="overlay hidden" id="authOverlay" role="dialog" aria-modal="true">
   <div class="modal" style="position:relative;">
     <button class="modal-close" onclick="closeAuth()">✕</button>
-    <div class="modal-title" id="authTitle">Welcome back</div>
-    <div class="modal-sub" id="authSub">Sign in to save your history across sessions. All data stored locally on this device only.</div>
+    <div class="modal-title">Welcome back</div>
+    <div class="modal-sub">Sign in to save your history. All data stored locally on this device only.</div>
     <div class="auth-tabs">
       <button class="auth-tab active" id="tabLogin" onclick="switchTab('login')">Sign In</button>
       <button class="auth-tab" id="tabRegister" onclick="switchTab('register')">Register</button>
@@ -294,139 +512,254 @@
 </div>
 
 <!-- HISTORY OVERLAY -->
-<div class="overlay hidden" id="historyOverlay" role="dialog" aria-modal="true" aria-label="Calculation history">
+<div class="overlay hidden" id="historyOverlay" role="dialog" aria-modal="true">
   <div class="modal" style="position:relative;">
     <button class="modal-close" onclick="closeHistory()">✕</button>
     <div class="modal-title">My History</div>
     <div class="modal-sub">Your last 20 calculations. Stored locally — never sent to any server.</div>
     <div id="historyList"></div>
-    <p class="hist-note">⚠️ All history entries are estimates only. Do not rely on saved results for any safety or legal decision.</p>
+    <p class="hist-note">⚠️ All history entries are estimates only.</p>
     <button class="hist-clear" onclick="clearHistory()">🗑 Clear all history</button>
   </div>
 </div>
 
 <!-- T&C OVERLAY -->
-<div class="overlay hidden" id="tcOverlay" role="dialog" aria-modal="true" aria-label="Terms and Conditions">
+<div class="overlay hidden" id="tcOverlay" role="dialog" aria-modal="true">
   <div class="modal" style="position:relative;max-width:640px;">
     <button class="modal-close" onclick="closeTC()">✕</button>
     <div class="modal-title">Terms &amp; Conditions</div>
-    <div class="modal-sub">Last updated: June 2025 · DrinkIQ.vercel.app</div>
+    <div class="modal-sub">Last updated: February 2026 · drinkiq.vercel.app</div>
     <div class="tc-body">
       <h3>1. Nature of the Service</h3>
-      <p>DrinkIQ ("the Tool") is a free, novelty web application that provides rough, mathematical estimates of blood alcohol concentration (BAC) based on user-supplied inputs. It is provided strictly for <strong>entertainment and general informational purposes only</strong>. The Tool is <strong>NOT</strong> a breathalyser, a certified medical device, a diagnostic instrument, or a substitute for professional advice of any kind. It has not been approved, certified, or validated by any medical, scientific, or regulatory authority anywhere in the world.</p>
-
-      <h3>2. No Medical Advice or Claims of Accuracy</h3>
-      <p>Nothing on this website constitutes medical advice, medical diagnosis, or medical treatment. The creators of this Tool make <strong>no representations, warranties, or claims of medical or scientific accuracy</strong> regarding the results produced. Actual BAC varies significantly between individuals and is affected by: food and water intake, body fat percentage, liver health and function, concurrent medications or supplements, sleep deprivation, underlying medical conditions, the actual alcohol content of specific drinks (which may differ from stated ABV), and other factors the Tool cannot account for.</p>
-      <p>Results may differ substantially — including by a factor of two or more — from actual BAC. <strong>Do not treat any result as an accurate measurement of your intoxication level.</strong></p>
-
-      <h3>3. Driving and Safety — Critical Warning</h3>
-      <p><strong>YOU MUST NOT USE THE OUTPUT OF THIS TOOL TO DECIDE WHETHER IT IS SAFE OR LEGAL FOR YOU TO DRIVE, OPERATE MACHINERY, OR ENGAGE IN ANY ACTIVITY WHERE IMPAIRMENT COULD ENDANGER YOURSELF OR OTHERS.</strong></p>
-      <p>A calculated result of 0.00% BAC does NOT mean you are sober, safe to drive, or below any legal limit. Impairment from alcohol can persist even when a simplified formula suggests otherwise. The only safe course of action after consuming alcohol is to not drive and to arrange alternative transport.</p>
-      <p>The creators of this Tool accept no responsibility whatsoever for any road traffic violation, accident, injury, death, or legal consequence arising from any reliance on this Tool.</p>
-
+      <p>DrinkIQ is a free, novelty web application that provides rough, mathematical estimates of BAC for <strong>entertainment and general informational purposes only</strong>. It is NOT a breathalyser, certified medical device, or diagnostic instrument.</p>
+      <h3>2. No Medical Advice</h3>
+      <p>Nothing constitutes medical advice. Results may differ substantially — including by a factor of two or more — from actual BAC. <strong>Do not treat any result as an accurate measurement of intoxication.</strong></p>
+      <h3>3. Driving Safety — Critical Warning</h3>
+      <p><strong>NEVER use this tool to decide whether to drive.</strong> A result of 0.00% BAC does NOT mean you are safe to drive. The creators accept no responsibility for road traffic violations, accidents, injury, or death arising from reliance on this tool.</p>
       <h3>4. No Legal Reliance</h3>
-      <p>Results generated by this Tool cannot be used as evidence in any court, legal proceeding, employment matter, or regulatory process. Results do not constitute a legal defence of any kind. The creators make no representation that results comply with any legal standard or test methodology.</p>
-
+      <p>Results cannot be used as evidence in any legal proceeding and do not constitute a legal defence of any kind.</p>
       <h3>5. Limitation of Liability</h3>
-      <p>To the maximum extent permitted by applicable law, the creators, owners, and operators of DrinkIQ shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from or in connection with your use of, or inability to use, the Tool — including but not limited to personal injury, property damage, death, legal penalties, criminal prosecution, loss of employment, or financial loss. <strong>Your use of this Tool is entirely at your own risk.</strong></p>
-
+      <p>To the maximum extent permitted by law, the creators shall not be liable for any damages arising from use of the Tool. <strong>Use is entirely at your own risk.</strong></p>
       <h3>6. Age Restriction</h3>
-      <p>This Tool is intended for use only by persons of legal drinking age in their jurisdiction (18 years or older in India). By using the Tool, you confirm you meet this requirement. We do not knowingly provide services to minors. If you are under the legal drinking age, you must not use this Tool.</p>
-
-      <h3>7. No Endorsement of Alcohol</h3>
-      <p>This Tool does not encourage, promote, glorify, or endorse the consumption of alcohol. The creators strongly encourage responsible behaviour, including the use of designated drivers, ride-hailing services, and full compliance with all applicable laws and regulations.</p>
-
+      <p>This Tool is for persons of legal drinking age only (18+ in India).</p>
+      <h3>7. Advertising</h3>
+      <p>This website displays advertisements served by Google AdSense. These ads are contextual and help fund the free service. We do not control ad content. Ad preferences can be managed at <a href="https://adssettings.google.com" target="_blank" rel="noopener" style="color:var(--accent)">adssettings.google.com</a>.</p>
       <h3>8. Data &amp; Privacy</h3>
-      <p>All calculations are performed entirely within your browser. If you create an account, your username and a simple hash of your password are stored only in your browser's localStorage. No personal data, calculation results, or usage data is transmitted to any server operated by us. We do not collect, process, sell, or share any personal information. Calculation history is stored locally on your device and can be permanently deleted from within the app at any time.</p>
-
-      <h3>9. Indemnification</h3>
-      <p>By using this Tool, you agree to indemnify and hold harmless the creators, contributors, and operators of DrinkIQ from and against any claims, damages, losses, or expenses (including legal fees) arising from your use of the Tool or your violation of these Terms.</p>
-
-      <h3>10. Governing Law</h3>
-      <p>These Terms shall be governed by and construed in accordance with the laws of India. Any dispute arising out of or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts of Rajasthan, India.</p>
-
-      <h3>11. Severability</h3>
-      <p>If any provision of these Terms is found to be unenforceable, the remaining provisions shall continue in full force and effect.</p>
-
-      <h3>12. Changes to Terms</h3>
-      <p>We reserve the right to update these Terms at any time. Continued use of the Tool after changes constitutes acceptance of the updated Terms.</p>
-
-      <h3>13. Contact</h3>
-      <p>For questions or concerns, contact the repository owner via GitHub: <strong>github.com/umraorajpurohit/DrinkIQ</strong></p>
+      <p>All calculations are performed in your browser. No personal data is transmitted to our servers. See our <a href="/privacy-policy" style="color:var(--accent)">Privacy Policy</a> for full details including Google AdSense data practices.</p>
+      <h3>9. Governing Law</h3>
+      <p>These Terms are governed by the laws of India. Disputes are subject to the exclusive jurisdiction of the courts of Rajasthan, India.</p>
     </div>
     <button class="tc-close" onclick="closeTC()">Close</button>
   </div>
 </div>
 
 <!-- TOP BAR -->
-<div class="topbar">
-  <div id="userChip"><div class="user-dot"></div><span id="userChipName"></span></div>
-  <a class="tb-btn" href="/hangover-recovery" style="text-decoration:none;">Recovery Guide</a>
-  <button class="tb-btn" id="histBtn" onclick="openHistory()" style="display:none;">🕐 History</button>
-  <button class="tb-btn" id="authBtn" onclick="openAuth()">👤 Sign In</button>
-  <button class="tb-btn" id="logoutBtn" onclick="doLogout()" style="display:none;">↩ Sign Out</button>
-  <button class="tb-btn" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle theme">🌙</button>
+<nav aria-label="Site navigation">
+  <div class="topbar">
+    <div id="userChip"><div class="user-dot"></div><span id="userChipName"></span></div>
+    <a class="tb-btn" href="/hangover-recovery">Recovery Guide</a>
+    <a class="tb-btn" href="/about">About</a>
+    <button class="tb-btn" id="histBtn" onclick="openHistory()" style="display:none;">🕐 History</button>
+    <button class="tb-btn" id="authBtn" onclick="openAuth()">👤 Sign In</button>
+    <button class="tb-btn" id="logoutBtn" onclick="doLogout()" style="display:none;">↩ Sign Out</button>
+    <button class="tb-btn" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle theme">🌙</button>
+  </div>
+</nav>
+
+<!-- AD UNIT — TOP BANNER (728x90 leaderboard / responsive) -->
+<div class="ad-unit" aria-label="Advertisement">
+  <div class="ad-label">Advertisement</div>
+  <!-- Replace data-ad-client and data-ad-slot with your values from AdSense -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+       data-ad-slot="1234567890"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
-<!-- MAIN -->
-<div class="wrap">
-  <header>
-    <div class="logo-row"><div class="logo-icon">🍺</div><h1>DrinkIQ</h1></div>
-    <p class="subtitle">A novelty BAC estimator. <strong>Not a medical device. Not driving advice.</strong> For curiosity only.</p>
-  </header>
-
-  <div class="grid two">
-    <section class="card" aria-label="About you">
-      <h2>👤 About you</h2>
-      <p class="hint">Used for a simplified Widmark-style estimate only. Not medically validated.</p>
-      <div class="row">
-        <div><label for="weightKg">Weight (kg)</label><input id="weightKg" type="number" inputmode="decimal" placeholder="e.g. 80" min="30" max="220"></div>
-        <div><label for="sexR">Biological sex</label><select id="sexR"><option value="0.68">Male</option><option value="0.55">Female</option></select></div>
+<!-- MAIN CONTENT -->
+<main>
+  <div class="wrap">
+    <header>
+      <div class="logo-row">
+        <div class="logo-icon" aria-hidden="true">🍺</div>
+        <h1>DrinkIQ</h1>
       </div>
-      <label class="toggle" for="slowMode"><input id="slowMode" type="checkbox"><span>Slower clearance (safer/conservative)</span></label>
-      <p class="hint" style="margin-top:6px;margin-bottom:0;">Uses 0.012%/hr instead of 0.015%/hr. Still an estimate only.</p>
-    </section>
+      <p class="subtitle">Free BAC calculator for India. <strong>Not a medical device. Not driving advice.</strong> For informational use only.</p>
+    </header>
 
-    <section class="card" aria-label="Drinking time">
-      <h2>⏱️ Time</h2>
-      <p class="hint">Pick start and end time. If still drinking, tick the box.</p>
-      <label for="startTime">Start time</label>
-      <input id="startTime" type="datetime-local">
-      <label class="toggle" for="stillDrinking" style="margin-top:10px;"><input id="stillDrinking" type="checkbox"><span>Still drinking</span></label>
-      <div id="endTimeBox"><label for="endTime">End time</label><input id="endTime" type="datetime-local"></div>
-      <div id="timeError" class="error" style="display:none;" role="alert"></div>
-    </section>
-  </div>
+    <div class="grid two">
+      <section class="card" aria-label="About you">
+        <h2>👤 About you</h2>
+        <p class="hint">Used for a simplified Widmark-style estimate only. Not medically validated.</p>
+        <div class="row">
+          <div><label for="weightKg">Weight (kg)</label><input id="weightKg" type="number" inputmode="decimal" placeholder="e.g. 80" min="30" max="220"></div>
+          <div><label for="sexR">Biological sex</label><select id="sexR"><option value="0.68">Male</option><option value="0.55">Female</option></select></div>
+        </div>
+        <label class="toggle" for="slowMode"><input id="slowMode" type="checkbox"><span>Slower clearance (safer/conservative)</span></label>
+        <p class="hint" style="margin-top:6px;margin-bottom:0;">Uses 0.012%/hr instead of 0.015%/hr. Still an estimate only.</p>
+      </section>
 
-  <section class="card" style="margin-top:12px;" aria-label="Your drinks">
-    <h2>🥃 Your drinks</h2>
-    <p class="hint">Tap + and − to count drinks. ABV values are typical estimates — actual content varies by brand.</p>
-    <div id="drinksList" role="list"></div>
-    <p class="warn-text">ABV values are approximate industry averages. Actual alcohol content varies by brand, batch, and pour size.</p>
-  </section>
-
-  <section class="result" id="resultCard" aria-live="polite">
-    <h2>📊 Estimation Result</h2>
-    <div class="big" id="soberByText">Enter details, then tap Calculate.</div>
-    <div id="statusPill"></div>
-    <div id="driveBanner"></div>
-    <div class="kv"><span>Total alcohol (est.)</span><span class="kv-val" id="gramsText">—</span></div>
-    <div class="kv"><span>Estimated BAC at end time</span><span class="kv-val" id="bacText">—</span></div>
-    <div class="kv"><span>Elimination rate used</span><span class="kv-val" id="rateText">—</span></div>
-    <div class="kv"><span>Est. time until 0.00</span><span class="kv-val" id="untilText">—</span></div>
-    <div class="kv"><span>Estimated sober at</span><span class="kv-val" id="soberAtText">—</span></div>
-    <div class="chart-wrap" id="chartWrap" style="display:none;">
-      <div class="chart-label">Estimated BAC over time (novelty chart)</div>
-      <canvas id="bacCanvas" role="img" aria-label="Estimated BAC over time"></canvas>
-      <div class="chart-axis" id="chartAxis"></div>
+      <section class="card" aria-label="Drinking time">
+        <h2>⏱️ Time</h2>
+        <p class="hint">Pick start and end time. If still drinking, tick the box.</p>
+        <label for="startTime">Start time</label>
+        <input id="startTime" type="datetime-local">
+        <label class="toggle" for="stillDrinking" style="margin-top:10px;"><input id="stillDrinking" type="checkbox"><span>Still drinking</span></label>
+        <div id="endTimeBox"><label for="endTime">End time</label><input id="endTime" type="datetime-local"></div>
+        <div id="timeError" class="error" style="display:none;" role="alert"></div>
+      </section>
     </div>
-    <div id="calcError" class="error" style="display:none;" role="alert"></div>
-  </section>
 
-  <div class="legal-footer" role="contentinfo">
-    <strong>⚠️ LEGAL DISCLAIMER:</strong> This tool provides rough mathematical estimates only and is intended for novelty/entertainment purposes. It is <strong>not a medical device</strong>, breathalyser, or diagnostic instrument. We make <strong>no claims of medical accuracy</strong>. Results are influenced by many biological factors this tool cannot measure and <strong>may be significantly inaccurate</strong>. <strong>Never use this output to decide whether to drive or for any legal, medical, or safety purpose.</strong> The creators accept no legal liability whatsoever for actions taken based on these estimates. Use is entirely at your own risk. You must be 18+ to use this tool. By using this service you confirm you have read and agreed to the full <button class="legal-link" onclick="openTC()">Terms &amp; Conditions</button>.
+    <section class="card" style="margin-top:12px;" aria-label="Your drinks">
+      <h2>🥃 Your drinks</h2>
+      <p class="hint">Tap + and − to count drinks. Includes Indian drinks: Kingfisher, whisky pegs, desi daru, feni, toddy and more.</p>
+      <div id="drinksList" role="list"></div>
+      <p class="warn-text">ABV values are approximate industry averages. Actual alcohol content varies by brand, batch, and pour size.</p>
+    </section>
+
+    <!-- AD UNIT — IN-CONTENT (between drinks and result) -->
+    <div style="margin:12px 0;" aria-label="Advertisement">
+      <div class="ad-label">Advertisement</div>
+      <ins class="adsbygoogle"
+           style="display:block;border-radius:12px;overflow:hidden;"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="0987654321"
+           data-ad-format="fluid"
+           data-ad-layout="in-article"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="result" id="resultCard" aria-live="polite" aria-label="BAC calculation result">
+      <h2>📊 Estimation Result</h2>
+      <div class="big" id="soberByText">Enter details, then tap Calculate.</div>
+      <div id="statusPill"></div>
+      <div id="driveBanner"></div>
+      <div class="kv"><span>Total alcohol (est.)</span><span class="kv-val" id="gramsText">—</span></div>
+      <div class="kv"><span>Estimated BAC at end time</span><span class="kv-val" id="bacText">—</span></div>
+      <div class="kv"><span>Elimination rate used</span><span class="kv-val" id="rateText">—</span></div>
+      <div class="kv"><span>Est. time until 0.00</span><span class="kv-val" id="untilText">—</span></div>
+      <div class="kv"><span>Estimated sober at</span><span class="kv-val" id="soberAtText">—</span></div>
+      <div class="chart-wrap" id="chartWrap" style="display:none;">
+        <div class="chart-label">Estimated BAC over time (novelty chart)</div>
+        <canvas id="bacCanvas" role="img" aria-label="Estimated BAC over time"></canvas>
+        <div class="chart-axis" id="chartAxis"></div>
+      </div>
+      <div id="calcError" class="error" style="display:none;" role="alert"></div>
+    </section>
+
+    <div class="legal-footer" role="note">
+      <strong>⚠️ DISCLAIMER:</strong> Rough estimates only. <strong>Not a medical device.</strong> Never use to decide whether to drive. Creators accept no liability. 18+ only. <button class="legal-link" onclick="openTC()">Full Terms &amp; Conditions</button> · <a class="legal-link" href="/privacy-policy">Privacy Policy</a>
+    </div>
   </div>
-</div>
+
+  <!-- AD UNIT — AFTER RESULT -->
+  <div class="ad-unit" aria-label="Advertisement">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="1122334455"
+         data-ad-format="rectangle"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- FAQ SECTION — Important for SEO / Google Featured Snippets -->
+  <section class="faq-section" aria-labelledby="faq-heading">
+    <h2 id="faq-heading">Frequently Asked Questions</h2>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        <span itemprop="name">What is the legal BAC limit for driving in India?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">The legal Blood Alcohol Content (BAC) limit for driving in India is <strong>0.03%</strong> (30mg per 100ml of blood) under the Motor Vehicles Act. Driving above this limit is a criminal offence and can result in fines, imprisonment, or licence suspension. However, impairment begins at even lower levels — the safest choice is always to not drive after consuming any alcohol.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        <span itemprop="name">How many pegs of whisky to reach the 0.03% BAC limit?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">This varies significantly by body weight, biological sex, food intake, and individual metabolism. As a <em>very rough</em> estimate, a 70kg adult male who has not eaten may approach 0.03% BAC after approximately 1–2 standard 30ml pegs of whisky (42.8% ABV) consumed over an hour. Women and lighter individuals will reach the same BAC with less alcohol. Use our free calculator above for a personalised estimate.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        <span itemprop="name">How long does alcohol stay in your system?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">The average liver processes alcohol at approximately <strong>0.015% BAC per hour</strong>. So if your estimated peak BAC is 0.09%, it will take roughly 6 hours to fully clear. This rate is largely fixed — drinking water, eating food, exercising, or drinking coffee after the fact does not significantly accelerate it. Only time reduces BAC.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        <span itemprop="name">What actually helps a hangover?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Evidence supports: <strong>electrolyte rehydration</strong> (ORS sachets, coconut water — not just plain water), <strong>light foods</strong> (eggs, bananas, toast, clear broth), <strong>ibuprofen</strong> for headache (taken with food — avoid paracetamol/Crocin which stresses the liver), and <strong>rest</strong>. Coffee, cold showers, and "hair of the dog" do not help and may make things worse. See our full <a href="/hangover-recovery" style="color:var(--accent)">Hangover Recovery Guide</a>.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        <span itemprop="name">Is DrinkIQ's BAC calculator accurate?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">DrinkIQ uses the Widmark equation — the established scientific formula for estimating BAC — but these are <strong>estimates only, not measurements</strong>. Real BAC is affected by factors like exact food consumption, hydration, medications, liver health, body fat percentage, and the precise alcohol content of each drink. Results can differ significantly from a breathalyser reading. Always treat results as rough guidance only, never as grounds for deciding to drive.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- SITE FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>🍺 DrinkIQ</h3>
+      <p>Free BAC calculator built for responsible drinking in India. Know your limits. Stay safe.</p>
+      <p style="margin-top:8px;">Made with ❤️ in Rajasthan, India</p>
+    </div>
+    <div class="footer-col">
+      <h3>Tools</h3>
+      <a href="/">BAC Calculator</a>
+      <a href="/hangover-recovery">Hangover Recovery Guide</a>
+    </div>
+    <div class="footer-col">
+      <h3>Info</h3>
+      <a href="/about">About DrinkIQ</a>
+      <a href="/privacy-policy">Privacy Policy</a>
+      <a href="/terms">Terms &amp; Conditions</a>
+    </div>
+    <div class="footer-col">
+      <h3>Safety</h3>
+      <p>Emergency: <strong>112</strong></p>
+      <p>India BAC limit: <strong>0.03%</strong></p>
+      <p>Never drink and drive.</p>
+      <a href="https://github.com/umraorajpurohit/DrinkIQ" target="_blank" rel="noopener">GitHub →</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 DrinkIQ. For informational purposes only. Not a medical device.</span>
+    <span>
+      <a href="/privacy-policy">Privacy</a> ·
+      <a href="/terms">Terms</a> ·
+      <a href="/about">About</a>
+    </span>
+  </div>
+</footer>
 
 <div class="stickybar">
   <div class="sticky-inner">
@@ -454,7 +787,6 @@ const DRINKS=[
   {id:"shot45",       group:"🍹 Cocktails",  name:"Tequila/Vodka Shot 45ml",  meta:"~40% ABV",                          grams:45*0.40*0.789},
 ];
 const counts=Object.fromEntries(DRINKS.map(d=>[d.id,0]));
-
 function $(id){return document.getElementById(id);}
 function pad(n){return String(n).padStart(2,"0");}
 function toLocal(d){return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;}
@@ -463,204 +795,57 @@ function hhMm(h){const m=Math.max(0,Math.round(h*60));return `${Math.floor(m/60)
 function showCalcError(msg){$("calcError").innerHTML="⚠️ "+msg;$("calcError").style.display="flex";}
 function showTimeError(msg){$("timeError").innerHTML="⚠️ "+msg;$("timeError").style.display="flex";}
 
-/* THEME */
 let isDark=localStorage.getItem('drinkiq_theme')!=='light';
 function applyTheme(){document.documentElement.setAttribute('data-theme',isDark?'dark':'light');$('themeBtn').textContent=isDark?'🌙':'☀️';localStorage.setItem('drinkiq_theme',isDark?'dark':'light');}
 function toggleTheme(){isDark=!isDark;applyTheme();}
 applyTheme();
 
-/* DISCLAIMER */
-function updateDiscBtn(){
-  const ok=$('discCheck1').checked&&$('discCheck2').checked&&$('discCheck3').checked;
-  $('discAgreeBtn').classList.toggle('enabled',ok);
-}
+function updateDiscBtn(){const ok=$('discCheck1').checked&&$('discCheck2').checked&&$('discCheck3').checked;$('discAgreeBtn').classList.toggle('enabled',ok);}
 ['discCheck1','discCheck2','discCheck3'].forEach(id=>$(id).addEventListener('change',updateDiscBtn));
-function agreeDisclaimer(){
-  if(!$('discCheck1').checked||!$('discCheck2').checked||!$('discCheck3').checked)return;
-  localStorage.setItem('drinkiq_disclaimer','1');
-  $('disclaimerOverlay').classList.add('hidden');
-}
+function agreeDisclaimer(){if(!$('discCheck1').checked||!$('discCheck2').checked||!$('discCheck3').checked)return;localStorage.setItem('drinkiq_disclaimer','1');$('disclaimerOverlay').classList.add('hidden');}
 if(localStorage.getItem('drinkiq_disclaimer')!=='1'){$('disclaimerOverlay').classList.remove('hidden');}
 else{$('disclaimerOverlay').classList.add('hidden');}
 
-/* T&C */
 function openTC(){$('tcOverlay').classList.remove('hidden');}
 function closeTC(){$('tcOverlay').classList.add('hidden');}
 
-/* AUTH */
 let currentUser=localStorage.getItem('drinkiq_session')||null;
 function simpleHash(s){let h=5381;for(let i=0;i<s.length;i++)h=(h*33^s.charCodeAt(i))>>>0;return h.toString(36);}
 function getUsers(){try{return JSON.parse(localStorage.getItem('drinkiq_users')||'{}');}catch(e){return{};}}
 function saveUsers(u){localStorage.setItem('drinkiq_users',JSON.stringify(u));}
-function updateAuthUI(){
-  if(currentUser){
-    $('userChip').style.display='flex';$('userChipName').textContent=currentUser;
-    $('authBtn').style.display='none';$('logoutBtn').style.display='flex';$('histBtn').style.display='flex';
-  }else{
-    $('userChip').style.display='none';$('authBtn').style.display='flex';
-    $('logoutBtn').style.display='none';$('histBtn').style.display='none';
-  }
-}
+function updateAuthUI(){if(currentUser){$('userChip').style.display='flex';$('userChipName').textContent=currentUser;$('authBtn').style.display='none';$('logoutBtn').style.display='flex';$('histBtn').style.display='flex';}else{$('userChip').style.display='none';$('authBtn').style.display='flex';$('logoutBtn').style.display='none';$('histBtn').style.display='none';}}
 function openAuth(){$('authMsg').textContent='';$('authOverlay').classList.remove('hidden');}
 function closeAuth(){$('authOverlay').classList.add('hidden');}
-function switchTab(t){
-  $('loginForm').style.display=t==='login'?'block':'none';
-  $('registerForm').style.display=t==='register'?'block':'none';
-  $('tabLogin').classList.toggle('active',t==='login');
-  $('tabRegister').classList.toggle('active',t==='register');
-  $('authMsg').textContent='';
-}
-function doLogin(){
-  const u=$('loginUser').value.trim().toLowerCase(),p=$('loginPass').value;
-  if(!u||!p){setAuthMsg('Please fill in all fields.','err');return;}
-  const users=getUsers();
-  if(!users[u]){setAuthMsg('Username not found.','err');return;}
-  if(users[u].passwordHash!==simpleHash(p)){setAuthMsg('Incorrect password.','err');return;}
-  currentUser=u;localStorage.setItem('drinkiq_session',u);updateAuthUI();closeAuth();
-}
-function doRegister(){
-  const u=$('regUser').value.trim().toLowerCase(),p=$('regPass').value,p2=$('regPass2').value;
-  if(!u||!p||!p2){setAuthMsg('Please fill in all fields.','err');return;}
-  if(u.length<3){setAuthMsg('Username must be at least 3 characters.','err');return;}
-  if(p.length<6){setAuthMsg('Password must be at least 6 characters.','err');return;}
-  if(p!==p2){setAuthMsg('Passwords do not match.','err');return;}
-  const users=getUsers();
-  if(users[u]){setAuthMsg('Username already taken.','err');return;}
-  users[u]={passwordHash:simpleHash(p),createdAt:Date.now()};
-  saveUsers(users);currentUser=u;localStorage.setItem('drinkiq_session',u);updateAuthUI();closeAuth();
-}
+function switchTab(t){$('loginForm').style.display=t==='login'?'block':'none';$('registerForm').style.display=t==='register'?'block':'none';$('tabLogin').classList.toggle('active',t==='login');$('tabRegister').classList.toggle('active',t==='register');$('authMsg').textContent='';}
+function doLogin(){const u=$('loginUser').value.trim().toLowerCase(),p=$('loginPass').value;if(!u||!p){setAuthMsg('Please fill in all fields.','err');return;}const users=getUsers();if(!users[u]){setAuthMsg('Username not found.','err');return;}if(users[u].passwordHash!==simpleHash(p)){setAuthMsg('Incorrect password.','err');return;}currentUser=u;localStorage.setItem('drinkiq_session',u);updateAuthUI();closeAuth();}
+function doRegister(){const u=$('regUser').value.trim().toLowerCase(),p=$('regPass').value,p2=$('regPass2').value;if(!u||!p||!p2){setAuthMsg('Please fill in all fields.','err');return;}if(u.length<3){setAuthMsg('Username must be at least 3 characters.','err');return;}if(p.length<6){setAuthMsg('Password must be at least 6 characters.','err');return;}if(p!==p2){setAuthMsg('Passwords do not match.','err');return;}const users=getUsers();if(users[u]){setAuthMsg('Username already taken.','err');return;}users[u]={passwordHash:simpleHash(p),createdAt:Date.now()};saveUsers(users);currentUser=u;localStorage.setItem('drinkiq_session',u);updateAuthUI();closeAuth();}
 function doLogout(){currentUser=null;localStorage.removeItem('drinkiq_session');updateAuthUI();}
 function setAuthMsg(msg,type){const el=$('authMsg');el.textContent=msg;el.className='auth-msg '+(type||'');}
 updateAuthUI();
 
-/* HISTORY */
 function getHistory(){const k=currentUser?`drinkiq_hist_${currentUser}`:'drinkiq_hist_guest';try{return JSON.parse(localStorage.getItem(k)||'[]');}catch(e){return[];}}
 function saveHistory(a){const k=currentUser?`drinkiq_hist_${currentUser}`:'drinkiq_hist_guest';localStorage.setItem(k,JSON.stringify(a.slice(0,20)));}
 function addToHistory(e){const h=getHistory();h.unshift({...e,ts:Date.now()});saveHistory(h);}
 function openHistory(){renderHistory();$('historyOverlay').classList.remove('hidden');}
 function closeHistory(){$('historyOverlay').classList.add('hidden');}
-function renderHistory(){
-  const list=$('historyList'),h=getHistory();
-  if(!h.length){list.innerHTML='<div class="hist-empty">No calculations saved yet.<br>Hit Calculate to get started!</div>';return;}
-  list.innerHTML=h.map(e=>{
-    const d=new Date(e.ts);
-    const ds=d.toLocaleString('en-IN',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
-    const cls=e.bac<=0?'safe-bac':e.bac<=0.03?'warn-bac':'danger-bac';
-    return `<div class="hist-item"><div class="hist-date">${ds}</div><div class="hist-row"><div class="hist-sober">${e.soberBy}</div><div class="hist-bac ${cls}">BAC ~${e.bac.toFixed(3)}%</div></div><div style="font-size:12px;color:var(--muted);margin-top:4px;">${e.drinks} · ${e.weight}kg · ${e.sex}</div></div>`;
-  }).join('');
-}
+function renderHistory(){const list=$('historyList'),h=getHistory();if(!h.length){list.innerHTML='<div class="hist-empty">No calculations saved yet.</div>';return;}list.innerHTML=h.map(e=>{const d=new Date(e.ts);const ds=d.toLocaleString('en-IN',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});const cls=e.bac<=0?'safe-bac':e.bac<=0.03?'warn-bac':'danger-bac';return `<div class="hist-item"><div class="hist-date">${ds}</div><div class="hist-row"><div class="hist-sober">${e.soberBy}</div><div class="hist-bac ${cls}">BAC ~${e.bac.toFixed(3)}%</div></div><div style="font-size:12px;color:var(--muted);margin-top:4px;">${e.drinks} · ${e.weight}kg · ${e.sex}</div></div>`;}).join('');}
 function clearHistory(){if(!confirm('Clear all history?'))return;const k=currentUser?`drinkiq_hist_${currentUser}`:'drinkiq_hist_guest';localStorage.removeItem(k);renderHistory();}
 
-/* RENDER DRINKS */
-function renderDrinks(){
-  const box=$("drinksList");box.innerHTML="";let last=null;
-  DRINKS.forEach(d=>{
-    if(d.group!==last){const g=document.createElement('div');g.className='drinks-group-title';g.textContent=d.group;box.appendChild(g);last=d.group;}
-    const el=document.createElement("div");el.className="drink";el.id="drink_"+d.id;el.setAttribute('role','listitem');
-    el.innerHTML=`<div><div class="drink-name">${d.name}</div><div class="drink-meta">${d.meta}</div></div><div class="stepper"><button class="btn minus" type="button" onclick="step('${d.id}',-1)" aria-label="Remove ${d.name}">−</button><div class="count" id="count_${d.id}">0</div><button class="btn plus" type="button" onclick="step('${d.id}',1)" aria-label="Add ${d.name}">+</button></div>`;
-    box.appendChild(el);
-  });
-}
-function step(id,delta){
-  counts[id]=Math.max(0,(counts[id]||0)+delta);
-  const c=$("count_"+id);if(c)c.textContent=counts[id];
-  const de=$("drink_"+id);if(de)de.classList.toggle('active',counts[id]>0);
-}
+function renderDrinks(){const box=$("drinksList");box.innerHTML="";let last=null;DRINKS.forEach(d=>{if(d.group!==last){const g=document.createElement('div');g.className='drinks-group-title';g.textContent=d.group;box.appendChild(g);last=d.group;}const el=document.createElement("div");el.className="drink";el.id="drink_"+d.id;el.setAttribute('role','listitem');el.innerHTML=`<div><div class="drink-name">${d.name}</div><div class="drink-meta">${d.meta}</div></div><div class="stepper"><button class="btn minus" type="button" onclick="step('${d.id}',-1)" aria-label="Remove ${d.name}">−</button><div class="count" id="count_${d.id}">0</div><button class="btn plus" type="button" onclick="step('${d.id}',1)" aria-label="Add ${d.name}">+</button></div>`;box.appendChild(el);});}
+function step(id,delta){counts[id]=Math.max(0,(counts[id]||0)+delta);const c=$("count_"+id);if(c)c.textContent=counts[id];const de=$("drink_"+id);if(de)de.classList.toggle('active',counts[id]>0);}
 
-/* CHART */
-function drawChart(bacAtEnd,elimination,endDate){
-  const canvas=$("bacCanvas"),ctx=canvas.getContext("2d");
-  const dpr=window.devicePixelRatio||1,W=canvas.offsetWidth,H=110;
-  canvas.width=W*dpr;canvas.height=H*dpr;ctx.scale(dpr,dpr);
-  const totalH=Math.max(1,(bacAtEnd/elimination)+0.5),steps=120,maxBac=bacAtEnd>0?bacAtEnd:0.08;
-  const pts=[];for(let i=0;i<=steps;i++){const h=(i/steps)*totalH;pts.push([h/totalH,Math.max(0,bacAtEnd-h*elimination)]);}
-  const pL=6,pR=6,pT=14,pB=14,cW=W-pL-pR,cH=H-pT-pB;
-  ctx.strokeStyle=isDark?"rgba(255,255,255,0.06)":"rgba(0,0,0,0.06)";ctx.lineWidth=1;
-  [.25,.5,.75,1].forEach(f=>{const y=pT+cH*(1-f);ctx.beginPath();ctx.moveTo(pL,y);ctx.lineTo(W-pR,y);ctx.stroke();});
-  const lY=pT+cH*(1-Math.min(1,0.03/maxBac));
-  ctx.strokeStyle="rgba(245,158,11,0.55)";ctx.setLineDash([4,4]);ctx.lineWidth=1.5;
-  ctx.beginPath();ctx.moveTo(pL,lY);ctx.lineTo(W-pR,lY);ctx.stroke();ctx.setLineDash([]);
-  ctx.fillStyle="rgba(245,158,11,0.85)";ctx.font="500 10px Lora,Georgia,serif";ctx.fillText("India legal limit (0.03%)",pL+4,lY-3);
-  const grad=ctx.createLinearGradient(0,pT,0,pT+cH);grad.addColorStop(0,"rgba(34,197,94,0.32)");grad.addColorStop(1,"rgba(34,197,94,0)");
-  ctx.beginPath();pts.forEach(([xF,b],i)=>{const x=pL+xF*cW,y=pT+cH*(1-Math.min(1,b/maxBac));i?ctx.lineTo(x,y):ctx.moveTo(x,y);});
-  ctx.lineTo(W-pR,pT+cH);ctx.lineTo(pL,pT+cH);ctx.closePath();ctx.fillStyle=grad;ctx.fill();
-  ctx.beginPath();ctx.strokeStyle="#22c55e";ctx.lineWidth=2.5;ctx.lineJoin="round";ctx.lineCap="round";
-  pts.forEach(([xF,b],i)=>{const x=pL+xF*cW,y=pT+cH*(1-Math.min(1,b/maxBac));i?ctx.lineTo(x,y):ctx.moveTo(x,y);});ctx.stroke();
-  const labels=[];for(let i=0;i<=4;i++){const t=new Date(endDate.getTime()+(i/4)*totalH*3600000);labels.push(`${pad(t.getHours())}:${pad(t.getMinutes())}`);}
-  $("chartAxis").innerHTML=labels.map(l=>`<span>${l}</span>`).join("");
-}
+function drawChart(bacAtEnd,elimination,endDate){const canvas=$("bacCanvas"),ctx=canvas.getContext("2d");const dpr=window.devicePixelRatio||1,W=canvas.offsetWidth,H=110;canvas.width=W*dpr;canvas.height=H*dpr;ctx.scale(dpr,dpr);const totalH=Math.max(1,(bacAtEnd/elimination)+0.5),steps=120,maxBac=bacAtEnd>0?bacAtEnd:0.08;const pts=[];for(let i=0;i<=steps;i++){const h=(i/steps)*totalH;pts.push([h/totalH,Math.max(0,bacAtEnd-h*elimination)]);}const pL=6,pR=6,pT=14,pB=14,cW=W-pL-pR,cH=H-pT-pB;ctx.strokeStyle=isDark?"rgba(255,255,255,0.06)":"rgba(0,0,0,0.06)";ctx.lineWidth=1;[.25,.5,.75,1].forEach(f=>{const y=pT+cH*(1-f);ctx.beginPath();ctx.moveTo(pL,y);ctx.lineTo(W-pR,y);ctx.stroke();});const lY=pT+cH*(1-Math.min(1,0.03/maxBac));ctx.strokeStyle="rgba(245,158,11,0.55)";ctx.setLineDash([4,4]);ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(pL,lY);ctx.lineTo(W-pR,lY);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle="rgba(245,158,11,0.85)";ctx.font="500 10px Lora,Georgia,serif";ctx.fillText("India legal limit (0.03%)",pL+4,lY-3);const grad=ctx.createLinearGradient(0,pT,0,pT+cH);grad.addColorStop(0,"rgba(34,197,94,0.32)");grad.addColorStop(1,"rgba(34,197,94,0)");ctx.beginPath();pts.forEach(([xF,b],i)=>{const x=pL+xF*cW,y=pT+cH*(1-Math.min(1,b/maxBac));i?ctx.lineTo(x,y):ctx.moveTo(x,y);});ctx.lineTo(W-pR,pT+cH);ctx.lineTo(pL,pT+cH);ctx.closePath();ctx.fillStyle=grad;ctx.fill();ctx.beginPath();ctx.strokeStyle="#22c55e";ctx.lineWidth=2.5;ctx.lineJoin="round";ctx.lineCap="round";pts.forEach(([xF,b],i)=>{const x=pL+xF*cW,y=pT+cH*(1-Math.min(1,b/maxBac));i?ctx.lineTo(x,y):ctx.moveTo(x,y);});ctx.stroke();const labels=[];for(let i=0;i<=4;i++){const t=new Date(endDate.getTime()+(i/4)*totalH*3600000);labels.push(`${pad(t.getHours())}:${pad(t.getMinutes())}`);}$("chartAxis").innerHTML=labels.map(l=>`<span>${l}</span>`).join("");}
 
-/* CALCULATE */
-function calculate(){
-  $("calcError").style.display="none";$("timeError").style.display="none";
-  $("statusPill").innerHTML="";$("driveBanner").style.display="none";$("chartWrap").style.display="none";
-  const result=$("resultCard");result.className="result";
-  const weight=Number($("weightKg").value),r=Number($("sexR").value);
-  const elim=$("slowMode").checked?0.012:0.015;
-  if(!weight||weight<30||weight>220){showCalcError("Please enter a valid weight (30–220 kg).");return;}
-  const grams=getTotalGrams();
-  if(grams<=0){showCalcError("Please add at least one drink using the + buttons.");return;}
-  const startStr=$("startTime").value;
-  if(!startStr){showTimeError("Please select a start time.");return;}
-  const start=new Date(startStr);
-  const still=$("stillDrinking").checked;
-  const end=still?new Date():new Date($("endTime").value);
-  if(!still&&!$("endTime").value){showTimeError("Please select an end time or tick Still drinking.");return;}
-  if(isNaN(start.getTime())||isNaN(end.getTime())){showTimeError("Time format looks invalid. Try selecting again.");return;}
-  if(end.getTime()<start.getTime()){showTimeError("End time can't be before start time.");return;}
-  const hoursDrinking=(end.getTime()-start.getTime())/3600000;
-  const bacPeak=(grams/(weight*1000*r))*100;
-  const bacAtEnd=Math.max(0,bacPeak-hoursDrinking*elim);
-  const hoursUntil=bacAtEnd<=0?0:(bacAtEnd/elim);
-  const soberAt=new Date(end.getTime()+hoursUntil*3600000);
-  const soberStr=bacAtEnd<=0?"Now":soberAt.toLocaleString('en-IN',{weekday:'short',hour:'2-digit',minute:'2-digit',day:'numeric',month:'short'});
-  $("soberByText").textContent=bacAtEnd<=0?"Likely already sober 🎉":`Likely sober by: ${soberStr}`;
-  $("bacText").textContent=`~${bacAtEnd.toFixed(3)}% (estimate only)`;
-  $("rateText").textContent=`${elim.toFixed(3)}%/hr`;
-  $("untilText").textContent=bacAtEnd<=0?"0h 0m":hhMm(hoursUntil);
-  $("soberAtText").textContent=soberStr;
-  let pillClass,pillText,cardClass;
-  if(bacAtEnd<=0){pillClass="safe";pillText="✓ Likely Sober";cardClass="show-safe";}
-  else if(bacAtEnd<=0.03){pillClass="warn";pillText="⚠ Near India Legal Limit";cardClass="show-warn";}
-  else{pillClass="danger";pillText="✕ Over Legal Limit (est.)";cardClass="show-danger";}
-  result.classList.add(cardClass);
-  $("statusPill").innerHTML=`<div class="status-pill ${pillClass}"><div class="status-dot"></div>${pillText}</div>`;
-  const banner=$("driveBanner");
-  if(bacAtEnd<=0){banner.className="drive-safe";banner.innerHTML="✅ <strong>Estimated BAC: ~0.00%.</strong> However, individual metabolism varies widely. Always err on the side of caution before driving.";}
-  else if(bacAtEnd<=0.03){banner.className="drive-warn";banner.innerHTML=`⚠️ <strong>Near or at India's legal limit.</strong> Even below 0.03%, alcohol impairs judgement. <strong>Do NOT drive.</strong> Est. sober: ${soberStr}.`;}
-  else{banner.className="drive-danger";banner.innerHTML=`🚫 <strong>Do not drive.</strong> Est. BAC ~${bacAtEnd.toFixed(3)}% — above India's 0.03% limit. Do not drive for at least <strong>${hhMm(hoursUntil)}</strong>.`;}
-  banner.style.display="block";
-  if(bacAtEnd>0){$("chartWrap").style.display="block";requestAnimationFrame(()=>drawChart(bacAtEnd,elim,end));}
-  const drinkSummary=DRINKS.filter(d=>counts[d.id]>0).map(d=>`${counts[d.id]}× ${d.name.split(' ').slice(0,2).join(' ')}`).join(', ')||'unknown';
-  addToHistory({soberBy:bacAtEnd<=0?"Already sober":soberStr,bac:bacAtEnd,weight,sex:r===0.68?'Male':'Female',drinks:drinkSummary});
-  if(currentUser)$('histBtn').style.display='flex';
-}
+function calculate(){$("calcError").style.display="none";$("timeError").style.display="none";$("statusPill").innerHTML="";$("driveBanner").style.display="none";$("chartWrap").style.display="none";const result=$("resultCard");result.className="result";const weight=Number($("weightKg").value),r=Number($("sexR").value);const elim=$("slowMode").checked?0.012:0.015;if(!weight||weight<30||weight>220){showCalcError("Please enter a valid weight (30–220 kg).");return;}const grams=getTotalGrams();if(grams<=0){showCalcError("Please add at least one drink using the + buttons.");return;}const startStr=$("startTime").value;if(!startStr){showTimeError("Please select a start time.");return;}const start=new Date(startStr);const still=$("stillDrinking").checked;const end=still?new Date():new Date($("endTime").value);if(!still&&!$("endTime").value){showTimeError("Please select an end time or tick Still drinking.");return;}if(isNaN(start.getTime())||isNaN(end.getTime())){showTimeError("Time format looks invalid.");return;}if(end.getTime()<start.getTime()){showTimeError("End time can't be before start time.");return;}const hoursDrinking=(end.getTime()-start.getTime())/3600000;const bacPeak=(grams/(weight*1000*r))*100;const bacAtEnd=Math.max(0,bacPeak-hoursDrinking*elim);const hoursUntil=bacAtEnd<=0?0:(bacAtEnd/elim);const soberAt=new Date(end.getTime()+hoursUntil*3600000);const soberStr=bacAtEnd<=0?"Now":soberAt.toLocaleString('en-IN',{weekday:'short',hour:'2-digit',minute:'2-digit',day:'numeric',month:'short'});$("soberByText").textContent=bacAtEnd<=0?"Likely already sober 🎉":`Likely sober by: ${soberStr}`;$("bacText").textContent=`~${bacAtEnd.toFixed(3)}% (estimate only)`;$("rateText").textContent=`${elim.toFixed(3)}%/hr`;$("untilText").textContent=bacAtEnd<=0?"0h 0m":hhMm(hoursUntil);$("soberAtText").textContent=soberStr;let pillClass,pillText,cardClass;if(bacAtEnd<=0){pillClass="safe";pillText="✓ Likely Sober";cardClass="show-safe";}else if(bacAtEnd<=0.03){pillClass="warn";pillText="⚠ Near India Legal Limit";cardClass="show-warn";}else{pillClass="danger";pillText="✕ Over Legal Limit (est.)";cardClass="show-danger";}result.classList.add(cardClass);$("statusPill").innerHTML=`<div class="status-pill ${pillClass}"><div class="status-dot"></div>${pillText}</div>`;const banner=$("driveBanner");if(bacAtEnd<=0){banner.className="drive-safe";banner.innerHTML="✅ <strong>Estimated BAC: ~0.00%.</strong> Individual metabolism varies. Always err on the side of caution.";}else if(bacAtEnd<=0.03){banner.className="drive-warn";banner.innerHTML=`⚠️ <strong>Near India's legal limit.</strong> Alcohol impairs judgement even below 0.03%. <strong>Do NOT drive.</strong>`;}else{banner.className="drive-danger";banner.innerHTML=`🚫 <strong>Do not drive.</strong> Est. BAC ~${bacAtEnd.toFixed(3)}% — above India's 0.03% limit. Wait at least <strong>${hhMm(hoursUntil)}</strong>.`;}banner.style.display="block";if(bacAtEnd>0){$("chartWrap").style.display="block";requestAnimationFrame(()=>drawChart(bacAtEnd,elim,end));}const drinkSummary=DRINKS.filter(d=>counts[d.id]>0).map(d=>`${counts[d.id]}× ${d.name.split(' ').slice(0,2).join(' ')}`).join(', ')||'unknown';addToHistory({soberBy:bacAtEnd<=0?"Already sober":soberStr,bac:bacAtEnd,weight,sex:r===0.68?'Male':'Female',drinks:drinkSummary});if(currentUser)$('histBtn').style.display='flex';}
 
-/* RESET */
-function resetAll(){
-  DRINKS.forEach(d=>{counts[d.id]=0;const c=$("count_"+d.id);if(c)c.textContent="0";const de=$("drink_"+d.id);if(de)de.classList.remove('active');});
-  $("weightKg").value="";$("sexR").value="0.68";$("slowMode").checked=false;
-  const now=new Date();
-  $("startTime").value=toLocal(new Date(now.getTime()-7200000));
-  $("endTime").value=toLocal(now);
-  $("stillDrinking").checked=false;$("endTimeBox").style.display="block";
-  $("soberByText").textContent="Enter details, then tap Calculate.";
-  $("bacText").textContent="—";$("rateText").textContent="—";$("untilText").textContent="—";$("soberAtText").textContent="—";
-  $("statusPill").innerHTML="";$("driveBanner").style.display="none";$("chartWrap").style.display="none";
-  $("calcError").style.display="none";$("timeError").style.display="none";$("resultCard").className="result";
-}
+function resetAll(){DRINKS.forEach(d=>{counts[d.id]=0;const c=$("count_"+d.id);if(c)c.textContent="0";const de=$("drink_"+d.id);if(de)de.classList.remove('active');});$("weightKg").value="";$("sexR").value="0.68";$("slowMode").checked=false;const now=new Date();$("startTime").value=toLocal(new Date(now.getTime()-7200000));$("endTime").value=toLocal(now);$("stillDrinking").checked=false;$("endTimeBox").style.display="block";$("soberByText").textContent="Enter details, then tap Calculate.";$("bacText").textContent="—";$("rateText").textContent="—";$("untilText").textContent="—";$("soberAtText").textContent="—";$("statusPill").innerHTML="";$("driveBanner").style.display="none";$("chartWrap").style.display="none";$("calcError").style.display="none";$("timeError").style.display="none";$("resultCard").className="result";}
 
-/* INIT */
+function toggleFaq(btn){const item=btn.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!isOpen){item.classList.add('open');}btn.setAttribute('aria-expanded',item.classList.contains('open'));}
+
 renderDrinks();
 resetAll();
 $("stillDrinking").addEventListener("change",e=>{$("endTimeBox").style.display=e.target.checked?"none":"block";});
-window.addEventListener("resize",()=>{
-  if($("chartWrap").style.display!=="none"){
-    const bac=parseFloat($("bacText").textContent);
-    const rate=parseFloat($("rateText").textContent);
-    if(!isNaN(bac)&&!isNaN(rate)&&bac>0){drawChart(bac,rate,$("stillDrinking").checked?new Date():new Date($("endTime").value));}
-  }
-});
+window.addEventListener("resize",()=>{if($("chartWrap").style.display!=="none"){const bac=parseFloat($("bacText").textContent);const rate=parseFloat($("rateText").textContent);if(!isNaN(bac)&&!isNaN(rate)&&bac>0){drawChart(bac,rate,$("stillDrinking").checked?new Date():new Date($("endTime").value));}}});
 </script>
 </body>
 </html>
