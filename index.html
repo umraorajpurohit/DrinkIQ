@@ -192,33 +192,63 @@
                  radial-gradient(600px 400px at 85% 95%,rgba(34,197,94,.04),transparent 60%);
     }
 
-    /* ---- AD UNITS ---- */
+    /* ---- AD UNITS STYLING ---- */
     .ad-unit {
       position: relative; z-index: 1;
-      max-width: 860px; margin: 12px auto;
+      max-width: 860px; margin: 32px auto;
       padding: 0 14px;
     }
     .ad-unit ins {
       display: block;
-      border-radius: 12px;
+      border-radius: 14px;
       overflow: hidden;
+      min-height: 250px;
+      background: var(--surface);
+      border: 1px solid var(--border);
     }
     .ad-label {
-      font-size: 10px; color: var(--muted2);
-      text-align: center; margin-bottom: 4px;
-      font-family: var(--ff-body);
-      letter-spacing: 0.08em; text-transform: uppercase;
-    }
-    /* Ad placeholder shown before AdSense loads — remove in production */
-    .ad-placeholder {
-      background: var(--surface);
-      border: 1px dashed var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
+      font-size: 10px; 
       color: var(--muted2);
+      text-align: center; 
+      margin-bottom: 8px;
       font-family: var(--ff-body);
-      font-size: 12px;
+      letter-spacing: 0.12em; 
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    
+    /* Ad container with visual distinction */
+    .ad-container {
+      background: linear-gradient(135deg, var(--surface2), var(--surface));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    
+    .ad-container:hover {
+      border-color: var(--border-h);
+      transform: translateY(-2px);
+    }
+
+    /* Responsive ad sizing */
+    @media (max-width: 768px) {
+      .ad-unit ins {
+        min-height: 200px;
+      }
+      .ad-unit {
+        margin: 24px auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .ad-unit ins {
+        min-height: 180px;
+      }
+      .ad-container {
+        padding: 16px;
+      }
     }
 
     /* ---- OVERLAY / MODAL ---- */
@@ -566,19 +596,6 @@
   </div>
 </nav>
 
-<!-- AD UNIT — TOP BANNER (728x90 leaderboard / responsive) -->
-<div class="ad-unit" aria-label="Advertisement">
-  <div class="ad-label">Advertisement</div>
-  <!-- Replace data-ad-client and data-ad-slot with your values from AdSense -->
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-       data-ad-slot="1234567890"
-       data-ad-format="horizontal"
-       data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
 <!-- MAIN CONTENT -->
 <main>
   <div class="wrap">
@@ -620,17 +637,38 @@
       <p class="warn-text">ABV values are approximate industry averages. Actual alcohol content varies by brand, batch, and pour size.</p>
     </section>
 
-    <!-- AD UNIT — IN-CONTENT (between drinks and result) -->
-    <div style="margin:12px 0;" aria-label="Advertisement">
-      <div class="ad-label">Advertisement</div>
-      <ins class="adsbygoogle"
-           style="display:block;border-radius:12px;overflow:hidden;"
-           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-           data-ad-slot="0987654321"
-           data-ad-format="fluid"
-           data-ad-layout="in-article"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <!-- ═══════════════════════════════════════════════════
+         AD UNIT #1 — AFTER DRINKS SECTION (Responsive)
+    ═══════════════════════════════════════════════════ -->
+    <div class="ad-unit" aria-label="Advertisement">
+      <div class="ad-label">✨ Sponsored</div>
+      <div class="ad-container">
+        <!-- Replace data-ad-client and data-ad-slot with your actual AdSense values -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════
+         AD UNIT #2 — BEFORE RESULTS (In-Feed)
+    ═══════════════════════════════════════════════════ -->
+    <div class="ad-unit" aria-label="Advertisement">
+      <div class="ad-label">✨ Sponsored</div>
+      <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="0987654321"
+             data-ad-format="fluid"
+             data-ad-layout="in-article"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
     </div>
 
     <section class="result" id="resultCard" aria-live="polite" aria-label="BAC calculation result">
@@ -656,16 +694,20 @@
     </div>
   </div>
 
-  <!-- AD UNIT — AFTER RESULT -->
+  <!-- ═══════════════════════════════════════════════════
+       AD UNIT #3 — BEFORE FAQ SECTION (Multiplex)
+  ═══════════════════════════════════════════════════ -->
   <div class="ad-unit" aria-label="Advertisement">
-    <div class="ad-label">Advertisement</div>
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-         data-ad-slot="1122334455"
-         data-ad-format="rectangle"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <div class="ad-label">✨ Sponsored</div>
+    <div class="ad-container">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="1122334455"
+           data-ad-format="autorelaxed"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
   </div>
 
   <!-- FAQ SECTION — Important for SEO / Google Featured Snippets -->
@@ -836,9 +878,9 @@ function step(id,delta){counts[id]=Math.max(0,(counts[id]||0)+delta);const c=$("
 
 function drawChart(bacAtEnd,elimination,endDate){const canvas=$("bacCanvas"),ctx=canvas.getContext("2d");const dpr=window.devicePixelRatio||1,W=canvas.offsetWidth,H=110;canvas.width=W*dpr;canvas.height=H*dpr;ctx.scale(dpr,dpr);const totalH=Math.max(1,(bacAtEnd/elimination)+0.5),steps=120,maxBac=bacAtEnd>0?bacAtEnd:0.08;const pts=[];for(let i=0;i<=steps;i++){const h=(i/steps)*totalH;pts.push([h/totalH,Math.max(0,bacAtEnd-h*elimination)]);}const pL=6,pR=6,pT=14,pB=14,cW=W-pL-pR,cH=H-pT-pB;ctx.strokeStyle=isDark?"rgba(255,255,255,0.06)":"rgba(0,0,0,0.06)";ctx.lineWidth=1;[.25,.5,.75,1].forEach(f=>{const y=pT+cH*(1-f);ctx.beginPath();ctx.moveTo(pL,y);ctx.lineTo(W-pR,y);ctx.stroke();});const lY=pT+cH*(1-Math.min(1,0.03/maxBac));ctx.strokeStyle="rgba(245,158,11,0.55)";ctx.setLineDash([4,4]);ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(pL,lY);ctx.lineTo(W-pR,lY);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle="rgba(245,158,11,0.85)";ctx.font="500 10px Lora,Georgia,serif";ctx.fillText("India legal limit (0.03%)",pL+4,lY-3);const grad=ctx.createLinearGradient(0,pT,0,pT+cH);grad.addColorStop(0,"rgba(34,197,94,0.32)");grad.addColorStop(1,"rgba(34,197,94,0)");ctx.beginPath();pts.forEach(([xF,b],i)=>{const x=pL+xF*cW,y=pT+cH*(1-Math.min(1,b/maxBac));i?ctx.lineTo(x,y):ctx.moveTo(x,y);});ctx.lineTo(W-pR,pT+cH);ctx.lineTo(pL,pT+cH);ctx.closePath();ctx.fillStyle=grad;ctx.fill();ctx.beginPath();ctx.strokeStyle="#22c55e";ctx.lineWidth=2.5;ctx.lineJoin="round";ctx.lineCap="round";pts.forEach(([xF,b],i)=>{const x=pL+xF*cW,y=pT+cH*(1-Math.min(1,b/maxBac));i?ctx.lineTo(x,y):ctx.moveTo(x,y);});ctx.stroke();const labels=[];for(let i=0;i<=4;i++){const t=new Date(endDate.getTime()+(i/4)*totalH*3600000);labels.push(`${pad(t.getHours())}:${pad(t.getMinutes())}`);}$("chartAxis").innerHTML=labels.map(l=>`<span>${l}</span>`).join("");}
 
-function calculate(){$("calcError").style.display="none";$("timeError").style.display="none";$("statusPill").innerHTML="";$("driveBanner").style.display="none";$("chartWrap").style.display="none";const result=$("resultCard");result.className="result";const weight=Number($("weightKg").value),r=Number($("sexR").value);const elim=$("slowMode").checked?0.012:0.015;if(!weight||weight<30||weight>220){showCalcError("Please enter a valid weight (30–220 kg).");return;}const grams=getTotalGrams();if(grams<=0){showCalcError("Please add at least one drink using the + buttons.");return;}const startStr=$("startTime").value;if(!startStr){showTimeError("Please select a start time.");return;}const start=new Date(startStr);const still=$("stillDrinking").checked;const end=still?new Date():new Date($("endTime").value);if(!still&&!$("endTime").value){showTimeError("Please select an end time or tick Still drinking.");return;}if(isNaN(start.getTime())||isNaN(end.getTime())){showTimeError("Time format looks invalid.");return;}if(end.getTime()<start.getTime()){showTimeError("End time can't be before start time.");return;}const hoursDrinking=(end.getTime()-start.getTime())/3600000;const bacPeak=(grams/(weight*1000*r))*100;const bacAtEnd=Math.max(0,bacPeak-hoursDrinking*elim);const hoursUntil=bacAtEnd<=0?0:(bacAtEnd/elim);const soberAt=new Date(end.getTime()+hoursUntil*3600000);const soberStr=bacAtEnd<=0?"Now":soberAt.toLocaleString('en-IN',{weekday:'short',hour:'2-digit',minute:'2-digit',day:'numeric',month:'short'});$("soberByText").textContent=bacAtEnd<=0?"Likely already sober 🎉":`Likely sober by: ${soberStr}`;$("bacText").textContent=`~${bacAtEnd.toFixed(3)}% (estimate only)`;$("rateText").textContent=`${elim.toFixed(3)}%/hr`;$("untilText").textContent=bacAtEnd<=0?"0h 0m":hhMm(hoursUntil);$("soberAtText").textContent=soberStr;let pillClass,pillText,cardClass;if(bacAtEnd<=0){pillClass="safe";pillText="✓ Likely Sober";cardClass="show-safe";}else if(bacAtEnd<=0.03){pillClass="warn";pillText="⚠ Near India Legal Limit";cardClass="show-warn";}else{pillClass="danger";pillText="✕ Over Legal Limit (est.)";cardClass="show-danger";}result.classList.add(cardClass);$("statusPill").innerHTML=`<div class="status-pill ${pillClass}"><div class="status-dot"></div>${pillText}</div>`;const banner=$("driveBanner");if(bacAtEnd<=0){banner.className="drive-safe";banner.innerHTML="✅ <strong>Estimated BAC: ~0.00%.</strong> Individual metabolism varies. Always err on the side of caution.";}else if(bacAtEnd<=0.03){banner.className="drive-warn";banner.innerHTML=`⚠️ <strong>Near India's legal limit.</strong> Alcohol impairs judgement even below 0.03%. <strong>Do NOT drive.</strong>`;}else{banner.className="drive-danger";banner.innerHTML=`🚫 <strong>Do not drive.</strong> Est. BAC ~${bacAtEnd.toFixed(3)}% — above India's 0.03% limit. Wait at least <strong>${hhMm(hoursUntil)}</strong>.`;}banner.style.display="block";if(bacAtEnd>0){$("chartWrap").style.display="block";requestAnimationFrame(()=>drawChart(bacAtEnd,elim,end));}const drinkSummary=DRINKS.filter(d=>counts[d.id]>0).map(d=>`${counts[d.id]}× ${d.name.split(' ').slice(0,2).join(' ')}`).join(', ')||'unknown';addToHistory({soberBy:bacAtEnd<=0?"Already sober":soberStr,bac:bacAtEnd,weight,sex:r===0.68?'Male':'Female',drinks:drinkSummary});if(currentUser)$('histBtn').style.display='flex';}
+function calculate(){$("calcError").style.display="none";$("timeError").style.display="none";$("statusPill").innerHTML="";$("driveBanner").style.display="none";$("chartWrap").style.display="none";const result=$("resultCard");result.className="result";const weight=Number($("weightKg").value),r=Number($("sexR").value);const elim=$("slowMode").checked?0.012:0.015;if(!weight||weight<30||weight>220){showCalcError("Please enter a valid weight (30–220 kg).");return;}const grams=getTotalGrams();if(grams<=0){showCalcError("Please add at least one drink using the + buttons.");return;}const startStr=$("startTime").value;if(!startStr){showTimeError("Please select a start time.");return;}const start=new Date(startStr);const still=$("stillDrinking").checked;const end=still?new Date():new Date($("endTime").value);if(!still&&!$("endTime").value){showTimeError("Please select an end time or tick Still drinking.");return;}if(isNaN(start.getTime())||isNaN(end.getTime())){showTimeError("Time format looks invalid.");return;}if(end.getTime()<start.getTime())){showTimeError("End time can't be before start time.");return;}const hoursDrinking=(end.getTime()-start.getTime())/3600000;const bacPeak=(grams/(weight*1000*r))*100;const bacAtEnd=Math.max(0,bacPeak-hoursDrinking*elim);const hoursUntil=bacAtEnd<=0?0:(bacAtEnd/elim);const soberAt=new Date(end.getTime()+hoursUntil*3600000);const soberStr=bacAtEnd<=0?"Now":soberAt.toLocaleString('en-IN',{weekday:'short',hour:'2-digit',minute:'2-digit',day:'numeric',month:'short'});$("gramsText").textContent=`~${grams.toFixed(1)}g`;$("soberByText").textContent=bacAtEnd<=0?"Likely already sober 🎉":`Likely sober by: ${soberStr}`;$("bacText").textContent=`~${bacAtEnd.toFixed(3)}% (estimate only)`;$("rateText").textContent=`${elim.toFixed(3)}%/hr`;$("untilText").textContent=bacAtEnd<=0?"0h 0m":hhMm(hoursUntil);$("soberAtText").textContent=soberStr;let pillClass,pillText,cardClass;if(bacAtEnd<=0){pillClass="safe";pillText="✓ Likely Sober";cardClass="show-safe";}else if(bacAtEnd<=0.03){pillClass="warn";pillText="⚠ Near India Legal Limit";cardClass="show-warn";}else{pillClass="danger";pillText="✕ Over Legal Limit (est.)";cardClass="show-danger";}result.classList.add(cardClass);$("statusPill").innerHTML=`<div class="status-pill ${pillClass}"><div class="status-dot"></div>${pillText}</div>`;const banner=$("driveBanner");if(bacAtEnd<=0){banner.className="drive-safe";banner.innerHTML="✅ <strong>Estimated BAC: ~0.00%.</strong> Individual metabolism varies. Always err on the side of caution.";}else if(bacAtEnd<=0.03){banner.className="drive-warn";banner.innerHTML=`⚠️ <strong>Near India's legal limit.</strong> Alcohol impairs judgement even below 0.03%. <strong>Do NOT drive.</strong>`;}else{banner.className="drive-danger";banner.innerHTML=`🚫 <strong>Do not drive.</strong> Est. BAC ~${bacAtEnd.toFixed(3)}% — above India's 0.03% limit. Wait at least <strong>${hhMm(hoursUntil)}</strong>.`;}banner.style.display="block";if(bacAtEnd>0){$("chartWrap").style.display="block";requestAnimationFrame(()=>drawChart(bacAtEnd,elim,end));}const drinkSummary=DRINKS.filter(d=>counts[d.id]>0).map(d=>`${counts[d.id]}× ${d.name.split(' ').slice(0,2).join(' ')}`).join(', ')||'unknown';addToHistory({soberBy:bacAtEnd<=0?"Already sober":soberStr,bac:bacAtEnd,weight,sex:r===0.68?'Male':'Female',drinks:drinkSummary});if(currentUser)$('histBtn').style.display='flex';}
 
-function resetAll(){DRINKS.forEach(d=>{counts[d.id]=0;const c=$("count_"+d.id);if(c)c.textContent="0";const de=$("drink_"+d.id);if(de)de.classList.remove('active');});$("weightKg").value="";$("sexR").value="0.68";$("slowMode").checked=false;const now=new Date();$("startTime").value=toLocal(new Date(now.getTime()-7200000));$("endTime").value=toLocal(now);$("stillDrinking").checked=false;$("endTimeBox").style.display="block";$("soberByText").textContent="Enter details, then tap Calculate.";$("bacText").textContent="—";$("rateText").textContent="—";$("untilText").textContent="—";$("soberAtText").textContent="—";$("statusPill").innerHTML="";$("driveBanner").style.display="none";$("chartWrap").style.display="none";$("calcError").style.display="none";$("timeError").style.display="none";$("resultCard").className="result";}
+function resetAll(){DRINKS.forEach(d=>{counts[d.id]=0;const c=$("count_"+d.id);if(c)c.textContent="0";const de=$("drink_"+d.id);if(de)de.classList.remove('active');});$("weightKg").value="";$("sexR").value="0.68";$("slowMode").checked=false;const now=new Date();$("startTime").value=toLocal(new Date(now.getTime()-7200000));$("endTime").value=toLocal(now);$("stillDrinking").checked=false;$("endTimeBox").style.display="block";$("soberByText").textContent="Enter details, then tap Calculate.";$("bacText").textContent="—";$("gramsText").textContent="—";$("rateText").textContent="—";$("untilText").textContent="—";$("soberAtText").textContent="—";$("statusPill").innerHTML="";$("driveBanner").style.display="none";$("chartWrap").style.display="none";$("calcError").style.display="none";$("timeError").style.display="none";$("resultCard").className="result";}
 
 function toggleFaq(btn){const item=btn.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!isOpen){item.classList.add('open');}btn.setAttribute('aria-expanded',item.classList.contains('open'));}
 

@@ -17,6 +17,19 @@
     *{box-sizing:border-box;margin:0;padding:0;}
     body{font-family:var(--ff-body);background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s;}
     body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(900px 600px at 10% -10%,rgba(34,197,94,.05),transparent 60%);}
+    
+    /* AD STYLING - GEN Z AESTHETIC */
+    .ad-unit{position:relative;z-index:1;max-width:860px;margin:40px auto;padding:0 20px;}
+    .ad-container{background:linear-gradient(135deg,rgba(102,126,234,0.09),rgba(240,147,251,0.09));border:2px solid transparent;border-radius:24px;padding:28px;position:relative;overflow:hidden;box-shadow:0 10px 40px rgba(102,126,234,0.15);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);}
+    .ad-container::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#667eea 0%,#764ba2 25%,#f093fb 50%,#764ba2 75%,#667eea 100%);background-size:300% 100%;animation:gradient-flow 4s ease infinite;}
+    @keyframes gradient-flow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+    .ad-container:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 16px 56px rgba(102,126,234,0.25);border-color:rgba(102,126,234,0.3);}
+    .ad-label{font-size:11px;color:var(--muted2);text-align:center;margin-bottom:16px;font-family:var(--ff-body);letter-spacing:0.18em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;justify-content:center;gap:12px;}
+    .ad-label::before,.ad-label::after{content:'';flex:1;max-width:50px;height:2px;background:linear-gradient(90deg,transparent,#667eea,#f093fb,transparent);}
+    .ad-container ins{display:block;min-height:300px;background:var(--surface);border-radius:18px;overflow:hidden;box-shadow:inset 0 2px 8px rgba(0,0,0,0.1);}
+    @media(max-width:768px){.ad-container ins{min-height:240px}.ad-unit{margin:36px auto}.ad-container{padding:22px}}
+    @media(max-width:480px){.ad-container ins{min-height:200px}.ad-container{padding:18px;border-radius:20px}.ad-label{font-size:10px}}
+    
     nav{position:relative;z-index:10;display:flex;align-items:center;gap:8px;max-width:860px;margin:0 auto;padding:14px 20px 0;flex-wrap:wrap;}
     .tb-btn,a.tb-btn{display:flex;align-items:center;gap:6px;padding:8px 13px;border-radius:11px;border:1px solid var(--border);background:var(--surface2);color:var(--text);font-family:var(--ff-body);font-size:13px;font-weight:600;cursor:pointer;transition:.2s;text-decoration:none;white-space:nowrap;}
     .tb-btn:hover,a.tb-btn:hover{border-color:var(--border-h);}
@@ -35,8 +48,6 @@
     .warning-box{background:rgba(255,92,92,.07);border:1px solid rgba(255,92,92,.2);border-radius:12px;padding:18px 20px;margin:20px 0;}
     .warning-box p{margin:0;color:var(--text);font-size:14px;}
     .warning-box strong{color:var(--danger);}
-    .ad-unit{margin:24px 0;}
-    .ad-label{font-size:10px;color:var(--muted2);text-align:center;margin-bottom:4px;font-family:var(--ff-body);letter-spacing:.08em;text-transform:uppercase;}
     footer{max-width:780px;margin:0 auto;padding:24px 20px 60px;border-top:1px solid var(--border);font-family:var(--ff-body);font-size:12px;color:var(--muted2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
     footer a{color:var(--muted2);text-decoration:none;}
     footer a:hover{color:var(--accent);}
@@ -67,6 +78,15 @@
   <p>Nothing on this website constitutes medical advice, medical diagnosis, or medical treatment. Results may differ substantially — including by a factor of two or more — from actual BAC. Actual BAC varies due to: food and water intake, body fat percentage, liver health, concurrent medications, sleep deprivation, underlying medical conditions, and the precise alcohol content of drinks consumed.</p>
   <p><strong>Do not treat any result as an accurate measurement of your intoxication level.</strong></p>
 
+  <!-- AD #1 -->
+  <div class="ad-unit">
+    <div class="ad-container">
+      <div class="ad-label">Sponsored Content</div>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="1010101010" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+
   <h2>3. Driving and Safety — Critical Warning</h2>
   <div class="warning-box">
     <p><strong>YOU MUST NOT USE THE OUTPUT OF THIS TOOL TO DECIDE WHETHER IT IS SAFE OR LEGAL FOR YOU TO DRIVE, OPERATE MACHINERY, OR ENGAGE IN ANY ACTIVITY WHERE IMPAIRMENT COULD ENDANGER YOURSELF OR OTHERS.</strong></p>
@@ -79,15 +99,17 @@
   <h2>5. Limitation of Liability</h2>
   <p>To the maximum extent permitted by applicable law, the creators, owners, and operators of DrinkIQ shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from use of the Tool — including but not limited to personal injury, property damage, death, legal penalties, criminal prosecution, loss of employment, or financial loss. <strong>Your use of this Tool is entirely at your own risk.</strong></p>
 
+  <!-- AD #2 -->
+  <div class="ad-unit">
+    <div class="ad-container">
+      <div class="ad-label">Sponsored Content</div>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="1111222233" data-ad-format="fluid" data-ad-layout="in-article" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+
   <h2>6. Age Restriction</h2>
   <p>This Tool is intended for use only by persons of legal drinking age in their jurisdiction (18 years or older in India). By using the Tool, you confirm you meet this requirement. We do not knowingly provide services to minors.</p>
-
-  <!-- Ad unit -->
-  <div class="ad-unit">
-    <div class="ad-label">Advertisement</div>
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="6677889900" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
 
   <h2>7. Advertising</h2>
   <p>This website displays advertisements served by <strong>Google AdSense</strong> to fund the free service. Google uses cookies to serve relevant ads. You can manage ad preferences at <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>. We do not control the content of advertisements displayed. See our <a href="/privacy-policy">Privacy Policy</a> for full details on advertising data practices.</p>
@@ -115,6 +137,15 @@
 
   <h2>15. Contact</h2>
   <p>For questions or concerns, contact the repository owner via GitHub: <a href="https://github.com/umraorajpurohit/DrinkIQ" target="_blank" rel="noopener">github.com/umraorajpurohit/DrinkIQ</a></p>
+
+  <!-- AD #3 -->
+  <div class="ad-unit">
+    <div class="ad-container">
+      <div class="ad-label">Sponsored Content</div>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="3344556677" data-ad-format="autorelaxed" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
 </main>
 
 <footer>
