@@ -1596,7 +1596,7 @@
 <body>
 
 <!-- DISCLAIMER OVERLAY -->
-<div class="overlay" id="disclaimerOverlay" role="dialog" aria-modal="true" aria-label="Important disclaimer">
+<div class="overlay hidden" id="disclaimerOverlay" role="dialog" aria-modal="true" aria-label="Important disclaimer">
   <div class="modal">
     <div class="disc-badge">⚠️ CRITICAL — READ BEFORE USING</div>
     <div class="modal-title">Before you use DrinkIQ</div>
@@ -1951,10 +1951,23 @@ function toggleTheme(){isDark=!isDark;applyTheme();}
 applyTheme();
 
 function updateDiscBtn(){const ok=$('discCheck1').checked&&$('discCheck2').checked&&$('discCheck3').checked;$('discAgreeBtn').classList.toggle('enabled',ok);}
-['discCheck1','discCheck2','discCheck3'].forEach(id=>$(id).addEventListener('change',updateDiscBtn));
 function agreeDisclaimer(){if(!$('discCheck1').checked||!$('discCheck2').checked||!$('discCheck3').checked)return;localStorage.setItem('drinkiq_disclaimer','1');$('disclaimerOverlay').classList.add('hidden');}
-if(localStorage.getItem('drinkiq_disclaimer')!=='1'){$('disclaimerOverlay').classList.remove('hidden');}
-else{$('disclaimerOverlay').classList.add('hidden');}
+
+// Initialize disclaimer on page load
+window.addEventListener('DOMContentLoaded', function() {
+  // Set up checkbox listeners
+  ['discCheck1','discCheck2','discCheck3'].forEach(id=>$(id).addEventListener('change',updateDiscBtn));
+  
+  // Check if user already accepted
+  if(localStorage.getItem('drinkiq_disclaimer')==='1'){
+    $('disclaimerOverlay').classList.add('hidden');
+  } else {
+    $('disclaimerOverlay').classList.remove('hidden');
+  }
+  
+  // Initialize button state
+  updateDiscBtn();
+});
 
 function openTC(){$('tcOverlay').classList.remove('hidden');}
 function closeTC(){$('tcOverlay').classList.add('hidden');}
