@@ -155,1466 +155,35 @@
   ═══════════════════════════════════════════════════ -->
   <meta name="theme-color" content="#0a0e27" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#e0e7ff" media="(prefers-color-scheme: light)" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍺</text></svg>" />
-  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍺</text></svg>" />
 
   <!-- FONTS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-
-  <style>
-    /* ═══════════════════════════════════════════════════
-       CYBER NEON COLOR SCHEME - GEN Z AESTHETIC
-    ═══════════════════════════════════════════════════ */
-    :root{
-      /* Core Colors */
-      --bg: #0a0e27;
-      --bg-secondary: #0d1135;
-      --surface: #1a1f3a;
-      --surface2: #252b4a;
-      --surface3: #2f3658;
-      
-      /* Electric Neon Accents */
-      --neon-cyan: #00f0ff;
-      --neon-magenta: #ff00ff;
-      --neon-green: #39ff14;
-      --neon-blue: #0ff;
-      --neon-pink: #ff10f0;
-      
-      /* Text */
-      --text: #e0e7ff;
-      --text-bright: #ffffff;
-      --muted: #a0b3ff;
-      --muted2: #6b7db8;
-      
-      /* Functional Colors */
-      --accent: var(--neon-cyan);
-      --accent-dim: rgba(0,240,255,0.12);
-      --accent-glow: rgba(0,240,255,0.4);
-      --danger: #ff0080;
-      --danger-glow: rgba(255,0,128,0.4);
-      --warning: #ffff00;
-      --safe: var(--neon-green);
-      --safe-glow: rgba(57,255,20,0.4);
-      
-      /* Borders */
-      --border: rgba(0,240,255,0.15);
-      --border-h: rgba(0,240,255,0.4);
-      
-      /* Misc */
-      --radius: 16px;
-      --ff-display: 'Playfair Display', Georgia, serif;
-      --ff-body: 'Lora', Georgia, serif;
-    }
-    
-    [data-theme="light"]{
-      --bg: #e0e7ff;
-      --bg-secondary: #d0d9ff;
-      --surface: #f5f7ff;
-      --surface2: #ffffff;
-      --surface3: #eef2ff;
-      --text: #0a0e27;
-      --text-bright: #000000;
-      --muted: #4a5980;
-      --muted2: #6b7db8;
-      --accent: #0099cc;
-      --accent-dim: rgba(0,153,204,0.1);
-      --accent-glow: rgba(0,153,204,0.3);
-      --border: rgba(10,14,39,0.15);
-      --border-h: rgba(10,14,39,0.3);
-    }
-    
-    *{ box-sizing:border-box; margin:0; padding:0; }
-    html{ scroll-behavior:smooth; }
-    
-    body{
-      font-family: var(--ff-body);
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      padding: env(safe-area-inset-top) env(safe-area-inset-right) 100px env(safe-area-inset-left);
-      transition: background .3s, color .3s;
-      overflow-x: hidden;
-      position: relative;
-    }
-    
-    /* CYBER NEON ANIMATED BACKGROUND */
-    body::before{
-      content: '';
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      background: 
-        radial-gradient(circle at 20% 30%, rgba(0,240,255,0.08), transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(255,0,255,0.08), transparent 40%),
-        radial-gradient(circle at 50% 50%, rgba(57,255,20,0.04), transparent 50%);
-      animation: pulse-bg 8s ease-in-out infinite;
-    }
-    
-    @keyframes pulse-bg {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
-    }
-    
-    /* GRID PATTERN OVERLAY */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      background-image: 
-        linear-gradient(rgba(0,240,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,240,255,0.03) 1px, transparent 1px);
-      background-size: 50px 50px;
-      opacity: 0.3;
-    }
-
-    /* ═══════════════════════════════════════════════════
-       AD UNITS STYLING - CYBER NEON AESTHETIC
-    ═══════════════════════════════════════════════════ */
-    .ad-unit {
-      position: relative;
-      z-index: 1;
-      max-width: 860px;
-      margin: 48px auto;
-      padding: 0 14px;
-    }
-    
-    .ad-container {
-      background: linear-gradient(135deg, rgba(0,240,255,0.08), rgba(255,0,255,0.08));
-      border: 2px solid var(--neon-cyan);
-      border-radius: 20px;
-      padding: 28px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 
-        0 0 30px rgba(0,240,255,0.3),
-        0 0 60px rgba(255,0,255,0.2),
-        inset 0 0 80px rgba(0,240,255,0.05);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    /* Animated Neon Border */
-    .ad-container::before {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      background: linear-gradient(
-        90deg,
-        var(--neon-cyan) 0%,
-        var(--neon-magenta) 25%,
-        var(--neon-green) 50%,
-        var(--neon-magenta) 75%,
-        var(--neon-cyan) 100%
-      );
-      background-size: 300% 100%;
-      border-radius: 20px;
-      opacity: 0;
-      z-index: -1;
-      animation: border-glow 4s linear infinite;
-      transition: opacity 0.3s;
-    }
-    
-    .ad-container:hover::before {
-      opacity: 1;
-    }
-    
-    @keyframes border-glow {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-    
-    .ad-container:hover {
-      transform: translateY(-8px);
-      border-color: var(--neon-magenta);
-      box-shadow: 
-        0 0 40px rgba(0,240,255,0.5),
-        0 0 80px rgba(255,0,255,0.4),
-        0 20px 60px rgba(0,0,0,0.4);
-    }
-    
-    .ad-label {
-      font-size: 11px;
-      color: var(--neon-cyan);
-      text-align: center;
-      margin-bottom: 20px;
-      font-family: var(--ff-body);
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      text-shadow: 0 0 10px rgba(0,240,255,0.8);
-      animation: neon-pulse 2s ease-in-out infinite;
-    }
-    
-    @keyframes neon-pulse {
-      0%, 100% { opacity: 1; text-shadow: 0 0 10px rgba(0,240,255,0.8); }
-      50% { opacity: 0.8; text-shadow: 0 0 20px rgba(0,240,255,1); }
-    }
-    
-    .ad-label::before,
-    .ad-label::after {
-      content: '';
-      flex: 1;
-      max-width: 60px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-magenta), transparent);
-      box-shadow: 0 0 8px var(--neon-cyan);
-    }
-    
-    .ad-container ins {
-      display: block;
-      min-height: 280px;
-      background: var(--surface);
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(0,240,255,0.2);
-      box-shadow: inset 0 0 20px rgba(0,240,255,0.1);
-    }
-    
-    /* Responsive */
-    @media (max-width: 768px) {
-      .ad-container ins { min-height: 220px; }
-      .ad-unit { margin: 36px auto; }
-      .ad-container { padding: 22px; }
-    }
-    
-    @media (max-width: 480px) {
-      .ad-container ins { min-height: 200px; }
-      .ad-container { padding: 18px; border-radius: 16px; }
-      .ad-label { font-size: 10px; }
-    }
-
-    /* ═══════════════════════════════════════════════════
-       OVERLAY / MODAL - CYBER NEON STYLE
-    ═══════════════════════════════════════════════════ */
-    .overlay{
-      position: fixed;
-      inset: 0;
-      z-index: 200;
-      background: rgba(10,14,39,0.95);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      animation: fadeIn .25s ease;
-    }
-    
-    .overlay.hidden{ display: none; }
-    
-    @keyframes fadeIn{ from{opacity:0} to{opacity:1} }
-    @keyframes slideUp{ from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
-    
-    .modal{
-      background: var(--surface);
-      border: 2px solid var(--neon-cyan);
-      border-radius: 24px;
-      width: 100%;
-      max-width: 520px;
-      max-height: 88vh;
-      overflow-y: auto;
-      box-shadow: 
-        0 0 40px rgba(0,240,255,0.4),
-        0 0 80px rgba(255,0,255,0.2),
-        0 40px 100px rgba(0,0,0,0.6);
-      animation: slideUp .3s ease;
-      padding: 32px 24px 24px;
-      position: relative;
-    }
-    
-    .modal::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta), var(--neon-cyan));
-      background-size: 200% 100%;
-      animation: border-glow 3s linear infinite;
-    }
-    
-    .modal-title{
-      font-family: var(--ff-display);
-      font-size: 24px;
-      font-weight: 800;
-      margin-bottom: 8px;
-      line-height: 1.2;
-      color: var(--text-bright);
-      text-shadow: 0 0 20px rgba(0,240,255,0.6);
-    }
-    
-    .modal-sub{
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 24px;
-      line-height: 1.5;
-      font-family: var(--ff-body);
-    }
-    
-    .modal-close{
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background: var(--surface3);
-      border: 1px solid var(--border);
-      color: var(--neon-cyan);
-      border-radius: 12px;
-      width: 38px;
-      height: 38px;
-      cursor: pointer;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s;
-      box-shadow: 0 0 10px rgba(0,240,255,0.2);
-    }
-    
-    .modal-close:hover {
-      background: var(--surface2);
-      border-color: var(--neon-cyan);
-      box-shadow: 0 0 20px rgba(0,240,255,0.6);
-      transform: rotate(90deg);
-    }
-    
-    #disclaimerOverlay .modal{ max-width:600px; }
-    
-    .disc-badge{
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,0,128,0.15);
-      border: 2px solid var(--danger);
-      color: var(--danger);
-      border-radius: 12px;
-      padding: 6px 14px;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 18px;
-      letter-spacing: .06em;
-      font-family: var(--ff-body);
-      box-shadow: 0 0 20px rgba(255,0,128,0.3);
-      text-shadow: 0 0 10px rgba(255,0,128,0.8);
-    }
-    
-    .disc-section{ margin-bottom: 18px; }
-    .disc-section h3{
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--neon-cyan);
-      margin-bottom: 8px;
-      font-family: var(--ff-body);
-      text-shadow: 0 0 10px rgba(0,240,255,0.6);
-    }
-    .disc-section p, .disc-section li{
-      font-size: 13px;
-      line-height: 1.7;
-      font-family: var(--ff-body);
-      color: var(--muted);
-    }
-    .disc-section ul{ padding-left: 16px; }
-    .disc-section li{ margin-bottom: 6px; }
-    .disc-age{
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px 16px;
-      margin: 12px 0;
-      transition: all 0.3s;
-    }
-    .disc-age:hover {
-      border-color: var(--neon-cyan);
-      box-shadow: 0 0 20px rgba(0,240,255,0.2);
-    }
-    .disc-age label{
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      cursor: pointer;
-      font-size: 13px;
-      line-height: 1.6;
-      font-family: var(--ff-body);
-    }
-    .disc-age input{
-      margin-top: 3px;
-      width: 18px;
-      height: 18px;
-      accent-color: var(--neon-cyan);
-      flex-shrink: 0;
-      cursor: pointer;
-    }
-    .disc-agree-btn{
-      width: 100%;
-      padding: 16px;
-      border-radius: 16px;
-      border: 2px solid var(--accent);
-      background: linear-gradient(135deg, rgba(0,240,255,0.2), rgba(255,0,255,0.2));
-      color: var(--text-bright);
-      font-family: var(--ff-display);
-      font-weight: 800;
-      font-size: 17px;
-      cursor: pointer;
-      margin-top: 16px;
-      opacity: 0.4;
-      pointer-events: none;
-      transition: all 0.3s;
-      text-shadow: 0 0 10px rgba(0,240,255,0.6);
-    }
-    .disc-agree-btn.enabled{
-      opacity: 1;
-      pointer-events: auto;
-      box-shadow: 
-        0 0 30px var(--accent-glow),
-        0 0 60px rgba(255,0,255,0.3);
-      animation: button-pulse 2s ease-in-out infinite;
-    }
-    .disc-agree-btn.enabled:hover {
-      transform: translateY(-2px);
-      box-shadow: 
-        0 0 40px var(--accent-glow),
-        0 0 80px rgba(255,0,255,0.4);
-    }
-    
-    @keyframes button-pulse {
-      0%, 100% { box-shadow: 0 0 30px var(--accent-glow), 0 0 60px rgba(255,0,255,0.3); }
-      50% { box-shadow: 0 0 40px var(--accent-glow), 0 0 80px rgba(255,0,255,0.4); }
-    }
-    
-    #authOverlay .modal{ max-width: 420px; }
-    .auth-tabs{
-      display: flex;
-      gap: 6px;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 6px;
-      margin-bottom: 20px;
-    }
-    .auth-tab{
-      flex: 1;
-      padding: 10px;
-      border-radius: 10px;
-      border: none;
-      background: transparent;
-      color: var(--muted);
-      font-family: var(--ff-body);
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .auth-tab.active{
-      background: var(--surface3);
-      color: var(--neon-cyan);
-      box-shadow: 0 0 20px rgba(0,240,255,0.3);
-      text-shadow: 0 0 10px rgba(0,240,255,0.8);
-    }
-    .auth-field{ margin-bottom: 14px; }
-    .auth-field label{
-      display: block;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--neon-cyan);
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      margin-bottom: 6px;
-      font-family: var(--ff-body);
-      text-shadow: 0 0 8px rgba(0,240,255,0.6);
-    }
-    .auth-field input{
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--surface2);
-      color: var(--text);
-      font-family: var(--ff-body);
-      font-size: 15px;
-      outline: none;
-      transition: all 0.3s;
-    }
-    .auth-field input:focus{
-      border-color: var(--neon-cyan);
-      box-shadow: 0 0 0 3px var(--accent-dim), 0 0 20px rgba(0,240,255,0.4);
-      background: var(--surface);
-    }
-    .auth-submit{
-      width: 100%;
-      padding: 14px;
-      border-radius: 14px;
-      border: 2px solid var(--neon-cyan);
-      background: linear-gradient(135deg, rgba(0,240,255,0.2), rgba(255,0,255,0.2));
-      color: var(--text-bright);
-      font-family: var(--ff-display);
-      font-weight: 800;
-      font-size: 16px;
-      cursor: pointer;
-      box-shadow: 0 0 30px var(--accent-glow);
-      transition: all 0.3s;
-      text-shadow: 0 0 10px rgba(0,240,255,0.6);
-    }
-    .auth-submit:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 0 40px var(--accent-glow), 0 0 80px rgba(255,0,255,0.3);
-    }
-    .auth-msg{ margin-top: 12px; font-size: 13px; text-align: center; font-family: var(--ff-body); }
-    .auth-msg.err{ color: var(--danger); text-shadow: 0 0 10px var(--danger-glow); }
-    .auth-msg.ok{ color: var(--safe); text-shadow: 0 0 10px var(--safe-glow); }
-    .auth-guest{
-      display: block;
-      margin-top: 16px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 13px;
-      cursor: pointer;
-      text-decoration: underline;
-      background: none;
-      border: none;
-      font-family: var(--ff-body);
-      transition: color 0.3s;
-    }
-    .auth-guest:hover {
-      color: var(--neon-cyan);
-      text-shadow: 0 0 10px rgba(0,240,255,0.6);
-    }
-    
-    #tcOverlay .modal{ max-width: 640px; }
-    .tc-body{
-      font-size: 13px;
-      line-height: 1.75;
-      color: var(--text);
-      opacity: .9;
-      font-family: var(--ff-body);
-    }
-    .tc-body h3{
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--neon-cyan);
-      margin: 20px 0 8px;
-      font-family: var(--ff-body);
-      text-shadow: 0 0 10px rgba(0,240,255,0.6);
-    }
-    .tc-body p{ margin-bottom: 12px; }
-    .tc-close{
-      margin-top: 24px;
-      width: 100%;
-      padding: 13px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: var(--surface3);
-      color: var(--text-bright);
-      font-family: var(--ff-display);
-      font-weight: 800;
-      font-size: 15px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .tc-close:hover {
-      border-color: var(--neon-cyan);
-      box-shadow: 0 0 20px rgba(0,240,255,0.3);
-    }
-    
-    #historyOverlay .modal{ max-width: 560px; }
-    .hist-empty{
-      text-align: center;
-      color: var(--muted);
-      font-size: 14px;
-      padding: 40px 0;
-      font-family: var(--ff-body);
-    }
-    .hist-item{
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px 16px;
-      margin-bottom: 10px;
-      background: var(--surface2);
-      transition: all 0.3s;
-    }
-    .hist-item:hover{
-      border-color: var(--neon-cyan);
-      box-shadow: 0 0 20px rgba(0,240,255,0.2);
-      transform: translateX(4px);
-    }
-    .hist-date{
-      font-size: 11px;
-      color: var(--muted2);
-      margin-bottom: 6px;
-      font-family: var(--ff-body);
-    }
-    .hist-row{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-    }
-    .hist-sober{
-      font-family: var(--ff-display);
-      font-size: 14px;
-      font-weight: 800;
-      color: var(--text-bright);
-    }
-    .hist-bac{
-      font-size: 12px;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-family: var(--ff-body);
-    }
-    .hist-bac.safe-bac{
-      background: rgba(57,255,20,0.15);
-      color: var(--safe);
-      border: 1px solid var(--safe);
-      box-shadow: 0 0 10px var(--safe-glow);
-    }
-    .hist-bac.warn-bac{
-      background: rgba(255,255,0,0.15);
-      color: var(--warning);
-      border: 1px solid var(--warning);
-      box-shadow: 0 0 10px rgba(255,255,0,0.4);
-    }
-    .hist-bac.danger-bac{
-      background: rgba(255,0,128,0.15);
-      color: var(--danger);
-      border: 1px solid var(--danger);
-      box-shadow: 0 0 10px var(--danger-glow);
-    }
-    .hist-clear{
-      margin-top: 16px;
-      width: 100%;
-      padding: 12px;
-      border-radius: 12px;
-      border: 1px solid var(--danger);
-      background: rgba(255,0,128,0.1);
-      color: var(--danger);
-      font-family: var(--ff-body);
-      font-weight: 600;
-      font-size: 13px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .hist-clear:hover {
-      background: rgba(255,0,128,0.2);
-      box-shadow: 0 0 20px var(--danger-glow);
-    }
-    .hist-note{
-      font-size: 11px;
-      color: var(--muted2);
-      margin-top: 12px;
-      line-height: 1.5;
-      font-family: var(--ff-body);
-    }
-
-    /* ═══════════════════════════════════════════════════
-       TOPBAR - CYBER NEON STYLE
-    ═══════════════════════════════════════════════════ */
-    .topbar{
-      position: relative;
-      z-index: 10;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 10px;
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 16px 14px 0;
-      flex-wrap: wrap;
-    }
-    .tb-btn{
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 10px 16px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--surface2);
-      color: var(--text);
-      font-family: var(--ff-body);
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s;
-      white-space: nowrap;
-      text-decoration: none;
-      box-shadow: 0 0 10px rgba(0,240,255,0.1);
-    }
-    .tb-btn:hover{
-      background: var(--surface3);
-      border-color: var(--neon-cyan);
-      box-shadow: 0 0 20px rgba(0,240,255,0.3);
-      transform: translateY(-2px);
-    }
-    #userChip{
-      display: none;
-      align-items: center;
-      gap: 8px;
-      background: var(--accent-dim);
-      border: 1px solid var(--neon-cyan);
-      border-radius: 12px;
-      padding: 8px 14px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--neon-cyan);
-      font-family: var(--ff-body);
-      box-shadow: 0 0 20px rgba(0,240,255,0.3);
-      text-shadow: 0 0 10px rgba(0,240,255,0.6);
-    }
-    .user-dot{
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--neon-green);
-      box-shadow: 0 0 10px var(--safe-glow);
-      animation: pulse-dot 2s ease-in-out infinite;
-    }
-    
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; box-shadow: 0 0 10px var(--safe-glow); }
-      50% { opacity: 0.6; box-shadow: 0 0 20px var(--safe-glow); }
-    }
-
-    /* ═══════════════════════════════════════════════════
-       MAIN LAYOUT
-    ═══════════════════════════════════════════════════ */
-    .wrap{
-      position: relative;
-      z-index: 1;
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 20px 14px 24px;
-    }
-    
-    header{
-      text-align: center;
-      margin: 0 0 28px;
-      animation: slideUp .4s ease both;
-    }
-    
-    .logo-row{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      margin-bottom: 12px;
-    }
-    
-    .logo-icon{
-      width: 52px;
-      height: 52px;
-      background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta));
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      box-shadow: 
-        0 0 30px rgba(0,240,255,0.6),
-        0 0 60px rgba(255,0,255,0.4);
-      animation: logo-pulse 3s ease-in-out infinite;
-    }
-    
-    @keyframes logo-pulse {
-      0%, 100% { 
-        box-shadow: 0 0 30px rgba(0,240,255,0.6), 0 0 60px rgba(255,0,255,0.4);
-      }
-      50% { 
-        box-shadow: 0 0 40px rgba(0,240,255,0.8), 0 0 80px rgba(255,0,255,0.6);
-      }
-    }
-    
-    h1{
-      font-family: var(--ff-display);
-      font-size: clamp(28px,5vw,42px);
-      font-weight: 900;
-      letter-spacing: -.5px;
-      color: var(--text-bright);
-      text-shadow: 0 0 30px rgba(0,240,255,0.8);
-    }
-    
-    .subtitle{
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-      max-width: 500px;
-      margin: 0 auto;
-      font-family: var(--ff-body);
-    }
-    .subtitle strong{
-      color: var(--danger);
-      text-shadow: 0 0 10px var(--danger-glow);
-    }
-    
-    .grid{
-      display: grid;
-      gap: 14px;
-    }
-    @media(min-width:700px){
-      .grid.two{ grid-template-columns: 1fr 1fr; }
-    }
-    
-    .card{
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: 
-        0 0 20px rgba(0,240,255,0.1),
-        0 10px 40px rgba(0,0,0,0.3);
-      transition: all 0.3s;
-      animation: slideUp .45s ease both;
-    }
-    .card:hover{
-      border-color: var(--neon-cyan);
-      box-shadow: 
-        0 0 30px rgba(0,240,255,0.3),
-        0 10px 50px rgba(0,0,0,0.4);
-      transform: translateY(-4px);
-    }
-    .card h2{
-      font-family: var(--ff-display);
-      font-size: 16px;
-      font-weight: 800;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--text-bright);
-      text-shadow: 0 0 15px rgba(0,240,255,0.6);
-    }
-    .hint{
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.5;
-      margin-bottom: 14px;
-      font-family: var(--ff-body);
-    }
-    
-    label{
-      display: block;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--neon-cyan);
-      margin: 12px 0 6px;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      font-family: var(--ff-body);
-      text-shadow: 0 0 8px rgba(0,240,255,0.6);
-    }
-    
-    input[type=number],
-    input[type=datetime-local],
-    select{
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--surface2);
-      color: var(--text);
-      font-family: var(--ff-body);
-      font-size: 15px;
-      outline: none;
-      transition: all 0.3s;
-      -webkit-appearance: none;
-    }
-    input:focus,
-    select:focus{
-      border-color: var(--neon-cyan);
-      box-shadow: 0 0 0 3px var(--accent-dim), 0 0 20px rgba(0,240,255,0.4);
-      background: var(--surface);
-    }
-    select{
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2300f0ff' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-      padding-right: 40px;
-    }
-    .row{
-      display: flex;
-      gap: 12px;
-    }
-    .row>*{
-      flex: 1;
-    }
-    .toggle{
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 12px;
-      user-select: none;
-      cursor: pointer;
-    }
-    .toggle input[type=checkbox]{
-      width: 20px;
-      height: 20px;
-      accent-color: var(--neon-cyan);
-      cursor: pointer;
-      flex-shrink: 0;
-      filter: drop-shadow(0 0 5px var(--accent-glow));
-    }
-    .toggle span{
-      font-size: 14px;
-      font-family: var(--ff-body);
-    }
-    
-    .drinks-group-title{
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .10em;
-      color: var(--neon-cyan);
-      margin: 18px 0 6px;
-      font-family: var(--ff-body);
-      text-shadow: 0 0 10px rgba(0,240,255,0.6);
-    }
-    
-    .drink{
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--surface2);
-      margin-top: 10px;
-      transition: all 0.3s;
-    }
-    .drink.active{
-      border-color: var(--neon-cyan);
-      background: rgba(0,240,255,0.08);
-      box-shadow: 0 0 20px rgba(0,240,255,0.2);
-    }
-    .drink-name{
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 1.3;
-      font-family: var(--ff-body);
-      color: var(--text-bright);
-    }
-    .drink-meta{
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 4px;
-      font-family: var(--ff-body);
-    }
-    .stepper{
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .btn{
-      border: 1px solid var(--border);
-      background: var(--surface3);
-      color: var(--text-bright);
-      border-radius: 10px;
-      padding: 10px 14px;
-      font-weight: 800;
-      cursor: pointer;
-      min-width: 42px;
-      font-size: 17px;
-      touch-action: manipulation;
-      transition: all 0.3s;
-      font-family: var(--ff-display);
-      box-shadow: 0 0 10px rgba(0,240,255,0.1);
-    }
-    .btn:active{
-      transform: scale(.92);
-    }
-    .btn.minus:hover{
-      background: rgba(255,0,128,0.2);
-      border-color: var(--danger);
-      box-shadow: 0 0 20px var(--danger-glow);
-      color: var(--danger);
-    }
-    .btn.plus:hover{
-      background: rgba(0,240,255,0.2);
-      border-color: var(--neon-cyan);
-      box-shadow: 0 0 20px var(--accent-glow);
-      color: var(--neon-cyan);
-    }
-    .count{
-      min-width: 32px;
-      text-align: center;
-      font-weight: 800;
-      font-size: 18px;
-      font-family: var(--ff-display);
-      color: var(--text-bright);
-      text-shadow: 0 0 10px rgba(0,240,255,0.6);
-    }
-    
-    .result{
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-      box-shadow: 
-        0 0 20px rgba(0,240,255,0.1),
-        0 10px 40px rgba(0,0,0,0.3);
-      margin-top: 14px;
-      animation: slideUp .5s ease .2s both;
-      transition: all 0.3s;
-    }
-    .result.show-safe{
-      border-color: var(--safe);
-      background: linear-gradient(160deg,rgba(57,255,20,0.08),transparent 50%),var(--surface);
-      box-shadow: 0 0 30px var(--safe-glow), 0 10px 40px rgba(0,0,0,0.3);
-    }
-    .result.show-warn{
-      border-color: var(--warning);
-      background: linear-gradient(160deg,rgba(255,255,0,0.08),transparent 50%),var(--surface);
-      box-shadow: 0 0 30px rgba(255,255,0,0.4), 0 10px 40px rgba(0,0,0,0.3);
-    }
-    .result.show-danger{
-      border-color: var(--danger);
-      background: linear-gradient(160deg,rgba(255,0,128,0.08),transparent 50%),var(--surface);
-      box-shadow: 0 0 30px var(--danger-glow), 0 10px 40px rgba(0,0,0,0.3);
-    }
-    .result h2{
-      font-family: var(--ff-display);
-      font-size: 16px;
-      font-weight: 800;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--text-bright);
-      text-shadow: 0 0 15px rgba(0,240,255,0.6);
-    }
-    .big{
-      font-family: var(--ff-display);
-      font-size: clamp(20px,3.8vw,30px);
-      font-weight: 900;
-      margin: 6px 0 14px;
-      line-height: 1.25;
-      color: var(--text-bright);
-      text-shadow: 0 0 20px rgba(0,240,255,0.8);
-    }
-    
-    .status-pill{
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      border-radius: 100px;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 14px;
-      font-family: var(--ff-display);
-    }
-    .status-pill.safe{
-      background: rgba(57,255,20,0.15);
-      color: var(--safe);
-      border: 1px solid var(--safe);
-      box-shadow: 0 0 20px var(--safe-glow);
-      text-shadow: 0 0 10px var(--safe-glow);
-    }
-    .status-pill.warn{
-      background: rgba(255,255,0,0.15);
-      color: var(--warning);
-      border: 1px solid var(--warning);
-      box-shadow: 0 0 20px rgba(255,255,0,0.4);
-      text-shadow: 0 0 10px rgba(255,255,0,0.8);
-    }
-    .status-pill.danger{
-      background: rgba(255,0,128,0.15);
-      color: var(--danger);
-      border: 1px solid var(--danger);
-      box-shadow: 0 0 20px var(--danger-glow);
-      text-shadow: 0 0 10px var(--danger-glow);
-    }
-    .status-dot{
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-    .safe .status-dot{
-      background: var(--safe);
-      animation: pulse-status 2s infinite;
-    }
-    .warn .status-dot{
-      background: var(--warning);
-      animation: pulse-status 2s infinite;
-    }
-    .danger .status-dot{
-      background: var(--danger);
-      animation: pulse-status 1s infinite;
-    }
-    
-    @keyframes pulse-status{
-      0%,100%{opacity:1;transform:scale(1)}
-      50%{opacity:.5;transform:scale(1.4)}
-    }
-    
-    .kv{
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 10px 0;
-      border-top: 1px solid var(--border);
-      font-size: 14px;
-      font-family: var(--ff-body);
-    }
-    .kv-val{
-      color: var(--muted);
-      font-weight: 500;
-    }
-    
-    #driveBanner{
-      display: none;
-      margin-top: 14px;
-      padding: 14px 16px;
-      border-radius: 12px;
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 1.6;
-      border: 2px solid;
-      font-family: var(--ff-body);
-    }
-    #driveBanner.drive-safe{
-      background: rgba(57,255,20,0.1);
-      border-color: var(--safe);
-      color: var(--safe);
-      box-shadow: 0 0 20px var(--safe-glow);
-    }
-    #driveBanner.drive-warn{
-      background: rgba(255,255,0,0.1);
-      border-color: var(--warning);
-      color: var(--warning);
-      box-shadow: 0 0 20px rgba(255,255,0,0.4);
-    }
-    #driveBanner.drive-danger{
-      background: rgba(255,0,128,0.1);
-      border-color: var(--danger);
-      color: var(--danger);
-      box-shadow: 0 0 20px var(--danger-glow);
-    }
-    
-    .chart-wrap{
-      margin-top: 16px;
-      border-top: 1px solid var(--border);
-      padding-top: 16px;
-    }
-    .chart-label{
-      font-size: 12px;
-      color: var(--neon-cyan);
-      margin-bottom: 10px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      font-family: var(--ff-body);
-      text-shadow: 0 0 8px rgba(0,240,255,0.6);
-    }
-    #bacCanvas{
-      width: 100%;
-      height: 120px;
-      display: block;
-      border-radius: 12px;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-    }
-    .chart-axis{
-      display: flex;
-      justify-content: space-between;
-      font-size: 11px;
-      color: var(--muted);
-      margin-top: 6px;
-      font-family: var(--ff-body);
-    }
-
-    /* ═══════════════════════════════════════════════════
-       FAQ SECTION
-    ═══════════════════════════════════════════════════ */
-    .faq-section {
-      position: relative;
-      z-index: 1;
-      max-width: 860px;
-      margin: 32px auto 0;
-      padding: 0 14px;
-    }
-    .faq-section h2 {
-      font-family: var(--ff-display);
-      font-size: 24px;
-      font-weight: 800;
-      color: var(--text-bright);
-      margin-bottom: 20px;
-      text-shadow: 0 0 20px rgba(0,240,255,0.8);
-    }
-    .faq-item {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      margin-bottom: 10px;
-      overflow: hidden;
-      transition: all 0.3s;
-    }
-    .faq-item:hover {
-      border-color: var(--neon-cyan);
-      box-shadow: 0 0 20px rgba(0,240,255,0.2);
-    }
-    .faq-q {
-      width: 100%;
-      text-align: left;
-      padding: 18px 20px;
-      background: none;
-      border: none;
-      color: var(--text-bright);
-      font-family: var(--ff-body);
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 14px;
-      transition: background 0.3s;
-    }
-    .faq-q:hover {
-      background: var(--surface2);
-    }
-    .faq-icon {
-      font-size: 20px;
-      color: var(--neon-cyan);
-      flex-shrink: 0;
-      transition: all 0.3s;
-      text-shadow: 0 0 10px rgba(0,240,255,0.6);
-    }
-    .faq-item.open .faq-icon {
-      transform: rotate(45deg);
-      color: var(--neon-magenta);
-      text-shadow: 0 0 10px rgba(255,0,255,0.6);
-    }
-    .faq-a {
-      display: none;
-      padding: 0 20px 18px;
-      font-family: var(--ff-body);
-      font-size: 14px;
-      font-weight: 300;
-      line-height: 1.7;
-      color: var(--muted);
-    }
-    .faq-item.open .faq-a {
-      display: block;
-    }
-
-    /* ═══════════════════════════════════════════════════
-       SITE FOOTER
-    ═══════════════════════════════════════════════════ */
-    .site-footer {
-      position: relative;
-      z-index: 1;
-      max-width: 860px;
-      margin: 40px auto 0;
-      padding: 28px 14px 120px;
-      border-top: 1px solid var(--border);
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
-      gap: 28px;
-      margin-bottom: 28px;
-    }
-    .footer-col h3 {
-      font-family: var(--ff-display);
-      font-size: 13px;
-      font-weight: 800;
-      color: var(--neon-cyan);
-      margin-bottom: 12px;
-      text-shadow: 0 0 10px rgba(0,240,255,0.6);
-    }
-    .footer-col a,
-    .footer-col p {
-      display: block;
-      font-family: var(--ff-body);
-      font-size: 12px;
-      color: var(--muted);
-      text-decoration: none;
-      margin-bottom: 8px;
-      line-height: 1.5;
-      transition: color 0.3s;
-    }
-    .footer-col a:hover {
-      color: var(--neon-cyan);
-      text-shadow: 0 0 10px rgba(0,240,255,0.6);
-    }
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      font-family: var(--ff-body);
-      font-size: 11px;
-      color: var(--muted2);
-    }
-    .footer-bottom a {
-      color: var(--muted2);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .footer-bottom a:hover {
-      color: var(--neon-cyan);
-    }
-
-    .legal-footer{
-      margin-top: 20px;
-      padding: 16px 18px;
-      border-radius: 12px;
-      background: rgba(255,0,128,0.08);
-      border: 1px solid var(--danger);
-      font-size: 12px;
-      line-height: 1.7;
-      color: var(--muted);
-      font-family: var(--ff-body);
-      box-shadow: 0 0 20px var(--danger-glow);
-    }
-    .legal-footer strong{
-      color: var(--danger);
-      text-shadow: 0 0 10px var(--danger-glow);
-    }
-    .legal-link{
-      color: var(--neon-cyan);
-      text-decoration: underline;
-      cursor: pointer;
-      background: none;
-      border: none;
-      font-family: var(--ff-body);
-      font-size: 12px;
-      transition: color 0.3s;
-    }
-    .legal-link:hover {
-      color: var(--neon-magenta);
-      text-shadow: 0 0 10px rgba(255,0,255,0.6);
-    }
-    .warn-text{
-      margin-top: 12px;
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.6;
-      font-family: var(--ff-body);
-    }
-    .error{
-      color: var(--danger);
-      font-weight: 700;
-      margin-top: 10px;
-      font-size: 13px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--ff-body);
-      text-shadow: 0 0 10px var(--danger-glow);
-    }
-    
-    .stickybar{
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 12px 14px calc(12px + env(safe-area-inset-bottom));
-      background: rgba(10,14,39,.95);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-top: 1px solid var(--neon-cyan);
-      box-shadow: 0 0 30px rgba(0,240,255,0.3), 0 -10px 40px rgba(0,0,0,0.4);
-      z-index: 50;
-    }
-    [data-theme="light"] .stickybar{
-      background: rgba(224,231,255,.95);
-    }
-    .sticky-inner{
-      max-width: 860px;
-      margin: 0 auto;
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-    .primary{
-      flex: 1;
-      padding: 16px;
-      border-radius: 14px;
-      border: 2px solid var(--neon-cyan);
-      background: linear-gradient(135deg, rgba(0,240,255,0.2), rgba(255,0,255,0.2));
-      color: var(--text-bright);
-      font-family: var(--ff-display);
-      font-weight: 800;
-      font-size: 17px;
-      cursor: pointer;
-      touch-action: manipulation;
-      box-shadow: 0 0 30px var(--accent-glow), 0 0 60px rgba(255,0,255,0.3);
-      transition: all 0.3s;
-      letter-spacing: .02em;
-      text-shadow: 0 0 15px rgba(0,240,255,0.8);
-    }
-    .primary:hover{
-      transform: translateY(-3px);
-      box-shadow: 0 0 40px var(--accent-glow), 0 0 80px rgba(255,0,255,0.4);
-    }
-    .primary:active{
-      transform: scale(.97);
-    }
-    .ghost{
-      width: 54px;
-      padding: 16px 0;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: var(--surface2);
-      color: var(--neon-cyan);
-      font-weight: 900;
-      cursor: pointer;
-      touch-action: manipulation;
-      transition: all 0.3s;
-      font-size: 20px;
-      font-family: var(--ff-display);
-      box-shadow: 0 0 15px rgba(0,240,255,0.2);
-    }
-    .ghost:hover{
-      background: var(--surface3);
-      border-color: var(--neon-cyan);
-      box-shadow: 0 0 25px rgba(0,240,255,0.4);
-    }
-    
-    ::-webkit-scrollbar{ width: 6px; }
-    ::-webkit-scrollbar-track{ background: var(--bg-secondary); }
-    ::-webkit-scrollbar-thumb{
-      background: var(--neon-cyan);
-      border-radius: 3px;
-      box-shadow: 0 0 10px var(--accent-glow);
-    }
-  </style>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="stylesheet" href="./styles.css">
+<script src="./theme.js"></script>
 </head>
-<body>
+<body class="calculator-page">
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <!-- DISCLAIMER OVERLAY -->
 <div class="overlay hidden" id="disclaimerOverlay" role="dialog" aria-modal="true" aria-label="Important disclaimer">
   <div class="modal">
-    <div class="disc-badge">⚠️ CRITICAL — READ BEFORE USING</div>
+    <div class="disc-badge">CRITICAL — READ BEFORE USING</div>
     <div class="modal-title">Before you use DrinkIQ</div>
     <div class="modal-sub">This takes 60 seconds to read. Please do — it matters.</div>
     <div class="disc-section">
-      <h3>🔬 Not a Medical Device</h3>
+      <h3>Not a Medical Device</h3>
       <p>DrinkIQ uses a simplified mathematical model (Widmark equation) to produce a <strong>rough estimate only</strong>. It is NOT a breathalyser, a certified medical device, or a clinical diagnostic instrument. <strong>Results may be substantially inaccurate.</strong></p>
     </div>
     <div class="disc-section">
-      <h3>🚫 Never Use This to Decide to Drive</h3>
+      <h3>Never Use This to Decide to Drive</h3>
       <p><strong>A result of 0.00% does NOT mean you are safe or legally permitted to drive.</strong> The only safe decision after consuming any alcohol is NOT to drive. India's legal limit is 0.03% BAC but impairment occurs well below that.</p>
     </div>
     <div class="disc-section">
-      <h3>⚖️ No Legal Reliance</h3>
+      <h3>No Legal Reliance</h3>
       <p>Results cannot be used as evidence. The creators accept <strong>no liability</strong> for any decision made based on these estimates. Use is <strong>entirely at your own risk</strong>.</p>
     </div>
     <div class="disc-section">
-      <h3>🔞 Age Restriction</h3>
+      <h3>Age Restriction</h3>
       <p>This tool is for adults of legal drinking age only (18+ in India).</p>
     </div>
     <div class="disc-age"><label><input type="checkbox" id="discCheck1"> I am 18 years or older and of legal drinking age in my jurisdiction.</label></div>
@@ -1646,7 +215,7 @@
       <button class="auth-submit" onclick="doRegister()">Create Account</button>
     </div>
     <div id="authMsg" class="auth-msg"></div>
-    <button class="auth-guest" onclick="closeAuth()">Continue without signing in →</button>
+    <button class="auth-guest" onclick="closeAuth()">Continue without signing in</button>
   </div>
 </div>
 
@@ -1657,8 +226,9 @@
     <div class="modal-title">My History</div>
     <div class="modal-sub">Your last 20 calculations. Stored locally — never sent to any server.</div>
     <div id="historyList"></div>
-    <p class="hist-note">⚠️ All history entries are estimates only.</p>
-    <button class="hist-clear" onclick="clearHistory()">🗑 Clear all history</button>
+    <p id="historyMigrationNote" class="hist-note" role="status" hidden></p>
+    <p class="hist-note">All history entries are estimates only.</p>
+    <button class="hist-clear" onclick="clearHistory()">Clear all history</button>
   </div>
 </div>
 
@@ -1693,35 +263,36 @@
 </div>
 
 <!-- TOP BAR -->
-<nav aria-label="Site navigation">
-  <div class="topbar">
-    <div id="userChip"><div class="user-dot"></div><span id="userChipName"></span></div>
-    <a class="tb-btn" href="/hangover-recovery">Recovery Guide</a>
-    <a class="tb-btn" href="/about">About</a>
-    <button class="tb-btn" id="histBtn" onclick="openHistory()" style="display:none;">🕐 History</button>
-    <button class="tb-btn" id="authBtn" onclick="openAuth()">👤 Sign In</button>
-    <button class="tb-btn" id="logoutBtn" onclick="doLogout()" style="display:none;">↩ Sign Out</button>
-    <button class="tb-btn" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle theme">🌙</button>
-  </div>
+<nav class="site-nav" aria-label="Site navigation">
+<a class="brand" href="/" aria-label="DrinkIQ home"><span class="brand-mark" aria-hidden="true">iq</span>DrinkIQ</a>
+<a class="tb-btn" href="/" aria-current="page">Calculator</a>
+<a class="tb-btn" href="/hangover-recovery">Recovery guide</a>
+<a class="tb-btn" href="/about">About</a>
+<div id="userChip"><div class="user-dot"></div><span id="userChipName"></span></div>
+<button class="tb-btn" id="histBtn" onclick="openHistory()" style="display:none;">History</button>
+<button class="tb-btn" id="authBtn" onclick="openAuth()">Sign in</button>
+<button class="tb-btn" id="logoutBtn" onclick="doLogout()" style="display:none;">Sign out</button>
+<button class="tb-btn theme-toggle" data-theme-toggle onclick="toggleTheme()" id="themeBtn" aria-label="Switch theme">Theme</button>
 </nav>
 
 <!-- MAIN CONTENT -->
-<main>
+<main id="main-content" tabindex="-1">
   <div class="wrap">
     <header>
       <div class="logo-row">
-        <div class="logo-icon" aria-hidden="true">🍺</div>
-        <h1>DrinkIQ</h1>
+        <h1>BAC calculator</h1>
       </div>
       <p class="subtitle">Free BAC calculator for India. <strong>Not a medical device. Not driving advice.</strong> For informational use only.</p>
     </header>
 
+<div class="calculator-layout">
+<div class="calculator-inputs">
     <div class="grid two">
       <section class="card" aria-label="About you">
-        <h2>👤 About you</h2>
+        <h2>About you</h2>
         <p class="hint">Used for a simplified Widmark-style estimate only. Not medically validated.</p>
         <div class="row">
-          <div><label for="weightKg">Weight (kg)</label><input id="weightKg" type="number" inputmode="decimal" placeholder="e.g. 80" min="30" max="220"></div>
+          <div><label for="weightKg">Weight (kg)</label><input aria-describedby="calcError" id="weightKg" type="number" inputmode="decimal" placeholder="e.g. 80" min="30" max="220"></div>
           <div><label for="sexR">Biological sex</label><select id="sexR"><option value="0.68">Male</option><option value="0.55">Female</option></select></div>
         </div>
         <label class="toggle" for="slowMode"><input id="slowMode" type="checkbox"><span>Slower clearance (safer/conservative)</span></label>
@@ -1729,18 +300,18 @@
       </section>
 
       <section class="card" aria-label="Drinking time">
-        <h2>⏱️ Time</h2>
+        <h2>Time</h2>
         <p class="hint">Pick start and end time. If still drinking, tick the box.</p>
         <label for="startTime">Start time</label>
-        <input id="startTime" type="datetime-local">
+        <input aria-describedby="timeError" id="startTime" type="datetime-local">
         <label class="toggle" for="stillDrinking" style="margin-top:10px;"><input id="stillDrinking" type="checkbox"><span>Still drinking</span></label>
-        <div id="endTimeBox"><label for="endTime">End time</label><input id="endTime" type="datetime-local"></div>
+        <div id="endTimeBox"><label for="endTime">End time</label><input aria-describedby="timeError" id="endTime" type="datetime-local"></div>
         <div id="timeError" class="error" style="display:none;" role="alert"></div>
       </section>
     </div>
 
-    <section class="card" style="margin-top:12px;" aria-label="Your drinks">
-      <h2>🥃 Your drinks</h2>
+    <section class="card drinks-card" aria-label="Your drinks">
+      <h2>Your drinks</h2>
       <p class="hint">Tap + and − to count drinks. Includes Indian drinks: Kingfisher, whisky pegs, desi daru, feni, toddy and more.</p>
       <div id="drinksList" role="list"></div>
       <p class="warn-text">ABV values are approximate industry averages. Actual alcohol content varies by brand, batch, and pour size.</p>
@@ -1751,7 +322,7 @@
     ═══════════════════════════════════════════════════ -->
     <div class="ad-unit" aria-label="Advertisement">
       <div class="ad-container">
-        <div class="ad-label">SPONSORED</div>
+        <div class="ad-label">Sponsored</div>
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
@@ -1767,7 +338,7 @@
     ═══════════════════════════════════════════════════ -->
     <div class="ad-unit" aria-label="Advertisement">
       <div class="ad-container">
-        <div class="ad-label">SPONSORED</div>
+        <div class="ad-label">Sponsored</div>
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
@@ -1779,8 +350,16 @@
       </div>
     </div>
 
+</div>
+<aside class="calculator-results" aria-label="Estimate and actions">
+<div class="stickybar">
+  <div class="sticky-inner">
+    <button class="ghost" onclick="resetAll()" aria-label="Reset all">↺</button>
+    <button class="primary" onclick="calculate()">Calculate Estimate</button>
+  </div>
+</div>
     <section class="result" id="resultCard" aria-live="polite" aria-label="BAC calculation result">
-      <h2>📊 Estimation Result</h2>
+      <h2>Your estimate</h2>
       <div class="big" id="soberByText">Enter details, then tap Calculate.</div>
       <div id="statusPill"></div>
       <div id="driveBanner"></div>
@@ -1798,8 +377,10 @@
     </section>
 
     <div class="legal-footer" role="note">
-      <strong>⚠️ DISCLAIMER:</strong> Rough estimates only. <strong>Not a medical device.</strong> Never use to decide whether to drive. Creators accept no liability. 18+ only. <button class="legal-link" onclick="openTC()">Full Terms &amp; Conditions</button> · <a class="legal-link" href="/privacy-policy">Privacy Policy</a>
+      <strong>DISCLAIMER:</strong> Rough estimates only. <strong>Not a medical device.</strong> Never use to decide whether to drive. Creators accept no liability. 18+ only. <button class="legal-link" onclick="openTC()">Full Terms &amp; Conditions</button> · <a class="legal-link" href="/privacy-policy">Privacy Policy</a>
     </div>
+</aside>
+</div>
   </div>
 
   <!-- ═══════════════════════════════════════════════════
@@ -1807,7 +388,7 @@
   ═══════════════════════════════════════════════════ -->
   <div class="ad-unit" aria-label="Advertisement">
     <div class="ad-container">
-      <div class="ad-label">SPONSORED</div>
+      <div class="ad-label">Sponsored</div>
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
@@ -1824,7 +405,7 @@
 
     <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
       <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-        <span itemprop="name">What is the legal BAC limit for driving in India?</span>
+        <span itemprop="name">India’s legal BAC limit</span>
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
@@ -1834,7 +415,7 @@
 
     <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
       <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-        <span itemprop="name">How many pegs of whisky to reach the 0.03% BAC limit?</span>
+        <span itemprop="name">Whisky and estimated BAC</span>
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
@@ -1844,7 +425,7 @@
 
     <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
       <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-        <span itemprop="name">How long does alcohol stay in your system?</span>
+        <span itemprop="name">Alcohol clearance time</span>
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
@@ -1854,7 +435,7 @@
 
     <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
       <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-        <span itemprop="name">What actually helps a hangover?</span>
+        <span itemprop="name">What helps a hangover?</span>
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
@@ -1864,7 +445,7 @@
 
     <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
       <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-        <span itemprop="name">Is DrinkIQ's BAC calculator accurate?</span>
+        <span itemprop="name">How accurate is DrinkIQ?</span>
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
@@ -1878,14 +459,14 @@
 <footer class="site-footer" aria-label="Site footer">
   <div class="footer-grid">
     <div class="footer-col">
-      <h3>🍺 DrinkIQ</h3>
+      <h3>DrinkIQ</h3>
       <p>Free BAC calculator built for responsible drinking in India. Know your limits. Stay safe.</p>
-      <p style="margin-top:8px;">Made with ❤️ in Rajasthan, India</p>
+      <p style="margin-top:8px;">Made in Rajasthan, India</p>
     </div>
     <div class="footer-col">
       <h3>Tools</h3>
       <a href="/">BAC Calculator</a>
-      <a href="/hangover-recovery">Hangover Recovery Guide</a>
+      <a href="/hangover-recovery">Recovery guide</a>
     </div>
     <div class="footer-col">
       <h3>Info</h3>
@@ -1898,25 +479,20 @@
       <p>Emergency: <strong>112</strong></p>
       <p>India BAC limit: <strong>0.03%</strong></p>
       <p>Never drink and drive.</p>
-      <a href="https://github.com/umraorajpurohit/DrinkIQ" target="_blank" rel="noopener">GitHub →</a>
+      <a href="https://github.com/umraorajpurohit/DrinkIQ" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© 2026 DrinkIQ. For informational purposes only. Not a medical device.</span>
     <span>
-      <a href="/privacy-policy">Privacy</a> ·
-      <a href="/terms">Terms</a> ·
+      <a href="/privacy-policy">Privacy</a>
+      <a href="/terms">Terms</a>
       <a href="/about">About</a>
     </span>
   </div>
 </footer>
 
-<div class="stickybar">
-  <div class="sticky-inner">
-    <button class="ghost" onclick="resetAll()" aria-label="Reset all">↺</button>
-    <button class="primary" onclick="calculate()">Calculate Estimate</button>
-  </div>
-</div>
+
 
 <script>
 const DRINKS=[
@@ -1945,8 +521,8 @@ function hhMm(h){const m=Math.max(0,Math.round(h*60));return `${Math.floor(m/60)
 function showCalcError(msg){$("calcError").innerHTML="⚠️ "+msg;$("calcError").style.display="flex";}
 function showTimeError(msg){$("timeError").innerHTML="⚠️ "+msg;$("timeError").style.display="flex";}
 
-let isDark=localStorage.getItem('drinkiq_theme')!=='light';
-function applyTheme(){document.documentElement.setAttribute('data-theme',isDark?'dark':'light');$('themeBtn').textContent=isDark?'🌙':'☀️';localStorage.setItem('drinkiq_theme',isDark?'dark':'light');}
+let isDark=document.documentElement.dataset.theme==='dark';
+function applyTheme(){window.drinkiqTheme.apply(isDark?'dark':'light');}
 function toggleTheme(){isDark=!isDark;applyTheme();}
 applyTheme();
 
@@ -1957,14 +533,14 @@ function agreeDisclaimer(){if(!$('discCheck1').checked||!$('discCheck2').checked
 window.addEventListener('DOMContentLoaded', function() {
   // Set up checkbox listeners
   ['discCheck1','discCheck2','discCheck3'].forEach(id=>$(id).addEventListener('change',updateDiscBtn));
-  
+
   // Check if user already accepted
   if(localStorage.getItem('drinkiq_disclaimer')==='1'){
     $('disclaimerOverlay').classList.add('hidden');
   } else {
     $('disclaimerOverlay').classList.remove('hidden');
   }
-  
+
   // Initialize button state
   updateDiscBtn();
 });
@@ -1972,7 +548,39 @@ window.addEventListener('DOMContentLoaded', function() {
 function openTC(){$('tcOverlay').classList.remove('hidden');}
 function closeTC(){$('tcOverlay').classList.add('hidden');}
 
-let currentUser=localStorage.getItem('drinkiq_session')||null;
+let currentUser=readSessionUser();
+let historyMigrationMessage='';
+function readSessionUser(){
+  const user=localStorage.getItem('drinkiq_session');
+  return user&&Object.prototype.hasOwnProperty.call(getUsers(),user)?user:null;
+}
+function invalidateHistoryView(){
+  $('historyOverlay').classList.add('hidden');
+  $('historyList').replaceChildren();
+  $('historyMigrationNote').textContent='';
+  $('historyMigrationNote').hidden=true;
+}
+function syncSession(){
+  const user=readSessionUser();
+  if(user!==currentUser){
+    currentUser=user;
+    invalidateHistoryView();
+    updateAuthUI();
+  }
+  return user;
+}
+function setSession(user){
+  if(user===null)localStorage.removeItem('drinkiq_session');
+  else localStorage.setItem('drinkiq_session',user);
+  currentUser=readSessionUser();
+  invalidateHistoryView();
+  updateAuthUI();
+}
+window.addEventListener('storage',event=>{
+  if(event.storageArea===localStorage&&(event.key===null||event.key==='drinkiq_session'||event.key==='drinkiq_users'))syncSession();
+});
+window.addEventListener('focus',syncSession);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)syncSession();});
 function simpleHash(s){let h=5381;for(let i=0;i<s.length;i++)h=(h*33^s.charCodeAt(i))>>>0;return h.toString(36);}
 function getUsers(){try{return JSON.parse(localStorage.getItem('drinkiq_users')||'{}');}catch(e){return{};}}
 function saveUsers(u){localStorage.setItem('drinkiq_users',JSON.stringify(u));}
@@ -1980,24 +588,93 @@ function updateAuthUI(){if(currentUser){$('userChip').style.display='flex';$('us
 function openAuth(){$('authMsg').textContent='';$('authOverlay').classList.remove('hidden');}
 function closeAuth(){$('authOverlay').classList.add('hidden');}
 function switchTab(t){$('loginForm').style.display=t==='login'?'block':'none';$('registerForm').style.display=t==='register'?'block':'none';$('tabLogin').classList.toggle('active',t==='login');$('tabRegister').classList.toggle('active',t==='register');$('authMsg').textContent='';}
-function doLogin(){const u=$('loginUser').value.trim().toLowerCase(),p=$('loginPass').value;if(!u||!p){setAuthMsg('Please fill in all fields.','err');return;}const users=getUsers();if(!users[u]){setAuthMsg('Username not found.','err');return;}if(users[u].passwordHash!==simpleHash(p)){setAuthMsg('Incorrect password.','err');return;}currentUser=u;localStorage.setItem('drinkiq_session',u);updateAuthUI();closeAuth();}
-function doRegister(){const u=$('regUser').value.trim().toLowerCase(),p=$('regPass').value,p2=$('regPass2').value;if(!u||!p||!p2){setAuthMsg('Please fill in all fields.','err');return;}if(u.length<3){setAuthMsg('Username must be at least 3 characters.','err');return;}if(p.length<6){setAuthMsg('Password must be at least 6 characters.','err');return;}if(p!==p2){setAuthMsg('Passwords do not match.','err');return;}const users=getUsers();if(users[u]){setAuthMsg('Username already taken.','err');return;}users[u]={passwordHash:simpleHash(p),createdAt:Date.now()};saveUsers(users);currentUser=u;localStorage.setItem('drinkiq_session',u);updateAuthUI();closeAuth();}
-function doLogout(){currentUser=null;localStorage.removeItem('drinkiq_session');updateAuthUI();}
+function doLogin(){const u=$('loginUser').value.trim().toLowerCase(),p=$('loginPass').value;if(!u||!p){setAuthMsg('Please fill in all fields.','err');return;}const users=getUsers();if(!users[u]){setAuthMsg('Username not found.','err');return;}if(users[u].passwordHash!==simpleHash(p)){setAuthMsg('Incorrect password.','err');return;}setSession(u);closeAuth();}
+function doRegister(){const u=$('regUser').value.trim().toLowerCase(),p=$('regPass').value,p2=$('regPass2').value;if(!u||!p||!p2){setAuthMsg('Please fill in all fields.','err');return;}if(u.length<3){setAuthMsg('Username must be at least 3 characters.','err');return;}if(p.length<6){setAuthMsg('Password must be at least 6 characters.','err');return;}if(p!==p2){setAuthMsg('Passwords do not match.','err');return;}const users=getUsers();if(users[u]){setAuthMsg('Username already taken.','err');return;}migrateLegacyAnonymousHistory();users[u]={passwordHash:simpleHash(p),createdAt:Date.now(),historyVersion:2};saveUsers(users);setSession(u);closeAuth();}
+function doLogout(){setSession(null);}
 function setAuthMsg(msg,type){const el=$('authMsg');el.textContent=msg;el.className='auth-msg '+(type||'');}
 updateAuthUI();
 
-function getHistory(){const k=currentUser?`drinkiq_hist_${currentUser}`:'drinkiq_hist_guest';try{return JSON.parse(localStorage.getItem(k)||'[]');}catch(e){return[];}}
-function saveHistory(a){const k=currentUser?`drinkiq_hist_${currentUser}`:'drinkiq_hist_guest';localStorage.setItem(k,JSON.stringify(a.slice(0,20)));}
-function addToHistory(e){const h=getHistory();h.unshift({...e,ts:Date.now()});saveHistory(h);}
-function openHistory(){renderHistory();$('historyOverlay').classList.remove('hidden');}
+function historyKey(user){return user===null?'drinkiq:v2:hist:anonymous':`drinkiq:v2:hist:user:${encodeURIComponent(user)}`;}
+function migrateHistoryKey(legacyKey,destination){
+  // Imports never write the live key. A concurrent live save always takes priority.
+  const imported=destination+':legacy-import';
+  const raw=localStorage.getItem(legacyKey);
+  if(raw===null||localStorage.getItem(destination)!==null||localStorage.getItem(imported)!==null)return;
+  if(!Array.isArray(JSON.parse(raw)))throw new Error('Invalid legacy history');
+  localStorage.setItem(imported,raw);
+  // Retain the original as a recovery copy, including during concurrent migration.
+}
+function migrateLegacyAnonymousHistory(){
+  try{
+    const raw=localStorage.getItem('drinkiq_hist_guest');
+    if(raw===null||localStorage.getItem(historyKey(null)+':legacy-import')===raw)return;
+    if(Object.prototype.hasOwnProperty.call(getUsers(),'guest')){
+      // The old key has no ownership metadata. Retain it and an isolated copy.
+      const archive='drinkiq:v2:hist:legacy-guest';
+      if(localStorage.getItem(archive)===null)localStorage.setItem(archive,raw);
+    }else{
+      migrateHistoryKey('drinkiq_hist_guest',historyKey(null));
+    }
+  }catch(error){historyMigrationMessage='Older history could not be migrated. Its original stored data has been kept.';}
+}
+function migrateHistory(user){
+  historyMigrationMessage='';
+  migrateLegacyAnonymousHistory();
+  try{
+    // New accounts must not claim orphaned legacy records with the same name.
+    if(user!==null&&user!=='guest'&&getUsers()[user]?.historyVersion!==2)migrateHistoryKey(`drinkiq_hist_${user}`,historyKey(user));
+    if(localStorage.getItem('drinkiq:v2:hist:legacy-guest')!==null){
+      historyMigrationMessage='Older history used one shared key for anonymous use and the account named guest. It has been preserved separately and has not been assigned to either profile.';
+    }
+  }catch(error){historyMigrationMessage='Older history could not be migrated. Its original stored data has been kept.';}
+}
+function getHistory(){
+  const user=syncSession();
+  migrateHistory(user);
+  try{
+    const key=historyKey(user);
+    const raw=localStorage.getItem(key)??localStorage.getItem(key+':legacy-import')??'[]';
+    const history=JSON.parse(raw);
+    return Array.isArray(history)?history:[];
+  }catch(error){return[];}
+}
+function saveHistory(history,expectedUser=currentUser){
+  if(syncSession()!==expectedUser)return false;
+  localStorage.setItem(historyKey(expectedUser),JSON.stringify(history.slice(0,20)));
+  return true;
+}
+function addToHistory(e){const user=syncSession(),h=getHistory();if(currentUser!==user)return;h.unshift({...e,ts:Date.now()});saveHistory(h,user);}
+function openHistory(){syncSession();renderHistory();$('historyMigrationNote').textContent=historyMigrationMessage;$('historyMigrationNote').hidden=!historyMigrationMessage;$('historyOverlay').classList.remove('hidden');}
 function closeHistory(){$('historyOverlay').classList.add('hidden');}
 function renderHistory(){const list=$('historyList'),h=getHistory();if(!h.length){list.innerHTML='<div class="hist-empty">No calculations saved yet.</div>';return;}list.innerHTML=h.map(e=>{const d=new Date(e.ts);const ds=d.toLocaleString('en-IN',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});const cls=e.bac<=0?'safe-bac':e.bac<=0.03?'warn-bac':'danger-bac';return `<div class="hist-item"><div class="hist-date">${ds}</div><div class="hist-row"><div class="hist-sober">${e.soberBy}</div><div class="hist-bac ${cls}">BAC ~${e.bac.toFixed(3)}%</div></div><div style="font-size:12px;color:var(--muted);margin-top:4px;">${e.drinks} · ${e.weight}kg · ${e.sex}</div></div>`;}).join('');}
-function clearHistory(){if(!confirm('Clear all history?'))return;const k=currentUser?`drinkiq_hist_${currentUser}`:'drinkiq_hist_guest';localStorage.removeItem(k);renderHistory();}
+function clearHistory(){
+  const user=syncSession();
+  const imported=historyKey(user)+':legacy-import';
+  let legacy=null;
+  if(user===null){
+    const raw=localStorage.getItem('drinkiq_hist_guest');
+    if(!Object.prototype.hasOwnProperty.call(getUsers(),'guest')||(raw!==null&&localStorage.getItem(imported)===raw))legacy='drinkiq_hist_guest';
+  }else if(user!=='guest'&&getUsers()[user]?.historyVersion!==2){
+    legacy=`drinkiq_hist_${user}`;
+  }
+  const legacyValue=legacy===null?null:localStorage.getItem(legacy);
+  if(!confirm('Clear all history?'))return;
+  // A session may change in another tab while the confirmation is open.
+  if(syncSession()!==user)return;
+  // Keep an empty v2 record so a retained legacy copy cannot reappear.
+  if(saveHistory([],user)){
+    localStorage.removeItem(imported);
+    if(legacy!==null&&localStorage.getItem(legacy)===legacyValue)localStorage.removeItem(legacy);
+    renderHistory();
+    $('historyMigrationNote').textContent=historyMigrationMessage;
+    $('historyMigrationNote').hidden=!historyMigrationMessage;
+  }
+}
 
 function renderDrinks(){const box=$("drinksList");box.innerHTML="";let last=null;DRINKS.forEach(d=>{if(d.group!==last){const g=document.createElement('div');g.className='drinks-group-title';g.textContent=d.group;box.appendChild(g);last=d.group;}const el=document.createElement("div");el.className="drink";el.id="drink_"+d.id;el.setAttribute('role','listitem');el.innerHTML=`<div><div class="drink-name">${d.name}</div><div class="drink-meta">${d.meta}</div></div><div class="stepper"><button class="btn minus" type="button" onclick="step('${d.id}',-1)" aria-label="Remove ${d.name}">−</button><div class="count" id="count_${d.id}">0</div><button class="btn plus" type="button" onclick="step('${d.id}',1)" aria-label="Add ${d.name}">+</button></div>`;box.appendChild(el);});}
 function step(id,delta){counts[id]=Math.max(0,(counts[id]||0)+delta);const c=$("count_"+id);if(c)c.textContent=counts[id];const de=$("drink_"+id);if(de)de.classList.toggle('active',counts[id]>0);}
 
-function drawChart(bacAtEnd,elimination,endDate){const canvas=$("bacCanvas"),ctx=canvas.getContext("2d");const dpr=window.devicePixelRatio||1,W=canvas.offsetWidth,H=120;canvas.width=W*dpr;canvas.height=H*dpr;ctx.scale(dpr,dpr);const totalH=Math.max(1,(bacAtEnd/elimination)+0.5),steps=120,maxBac=bacAtEnd>0?bacAtEnd:0.08;const pts=[];for(let i=0;i<=steps;i++){const h=(i/steps)*totalH;pts.push([h/totalH,Math.max(0,bacAtEnd-h*elimination)]);}const pL=6,pR=6,pT=16,pB=16,cW=W-pL-pR,cH=H-pT-pB;ctx.strokeStyle=isDark?"rgba(0,240,255,0.1)":"rgba(0,153,204,0.1)";ctx.lineWidth=1;[.25,.5,.75,1].forEach(f=>{const y=pT+cH*(1-f);ctx.beginPath();ctx.moveTo(pL,y);ctx.lineTo(W-pR,y);ctx.stroke();});const lY=pT+cH*(1-Math.min(1,0.03/maxBac));ctx.strokeStyle="rgba(255,255,0,0.6)";ctx.setLineDash([4,4]);ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(pL,lY);ctx.lineTo(W-pR,lY);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle="rgba(255,255,0,0.9)";ctx.font="500 10px Lora,Georgia,serif";ctx.shadowColor="rgba(255,255,0,0.8)";ctx.shadowBlur=8;ctx.fillText("India legal limit (0.03%)",pL+4,lY-3);ctx.shadowBlur=0;const grad=ctx.createLinearGradient(0,pT,0,pT+cH);grad.addColorStop(0,"rgba(0,240,255,0.4)");grad.addColorStop(1,"rgba(0,240,255,0)");ctx.beginPath();pts.forEach(([xF,b],i)=>{const x=pL+xF*cW,y=pT+cH*(1-Math.min(1,b/maxBac));i?ctx.lineTo(x,y):ctx.moveTo(x,y);});ctx.lineTo(W-pR,pT+cH);ctx.lineTo(pL,pT+cH);ctx.closePath();ctx.fillStyle=grad;ctx.fill();ctx.beginPath();ctx.strokeStyle="#00f0ff";ctx.lineWidth=3;ctx.lineJoin="round";ctx.lineCap="round";ctx.shadowColor="rgba(0,240,255,0.8)";ctx.shadowBlur=10;pts.forEach(([xF,b],i)=>{const x=pL+xF*cW,y=pT+cH*(1-Math.min(1,b/maxBac));i?ctx.lineTo(x,y):ctx.moveTo(x,y);});ctx.stroke();ctx.shadowBlur=0;const labels=[];for(let i=0;i<=4;i++){const t=new Date(endDate.getTime()+(i/4)*totalH*3600000);labels.push(`${pad(t.getHours())}:${pad(t.getMinutes())}`);}$("chartAxis").innerHTML=labels.map(l=>`<span>${l}</span>`).join("");}
+function drawChart(bacAtEnd,elimination,endDate){const theme=getComputedStyle(document.documentElement),token=name=>theme.getPropertyValue(name).trim();const canvas=$("bacCanvas"),ctx=canvas.getContext("2d");const dpr=window.devicePixelRatio||1,W=canvas.offsetWidth,H=160;canvas.width=W*dpr;canvas.height=H*dpr;ctx.scale(dpr,dpr);const totalH=Math.max(1,(bacAtEnd/elimination)+0.5),steps=120,maxBac=bacAtEnd>0?bacAtEnd:0.08;const pts=[];for(let i=0;i<=steps;i++){const h=(i/steps)*totalH;pts.push([h/totalH,Math.max(0,bacAtEnd-h*elimination)]);}const pL=6,pR=6,pT=16,pB=16,cW=W-pL-pR,cH=H-pT-pB;ctx.strokeStyle=token("--chart-grid");ctx.lineWidth=1;[.25,.5,.75,1].forEach(f=>{const y=pT+cH*(1-f);ctx.beginPath();ctx.moveTo(pL,y);ctx.lineTo(W-pR,y);ctx.stroke();});const lY=pT+cH*(1-Math.min(1,0.03/maxBac));ctx.strokeStyle=token("--chart-limit");ctx.setLineDash([4,4]);ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(pL,lY);ctx.lineTo(W-pR,lY);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle=token("--chart-limit");ctx.font=token("--chart-font");ctx.shadowColor=token("--chart-limit");ctx.shadowBlur=0;ctx.fillText("India legal limit (0.03%)",pL+4,lY-3);ctx.shadowBlur=0;const grad=ctx.createLinearGradient(0,pT,0,pT+cH);grad.addColorStop(0,token("--chart-fill"));grad.addColorStop(1,token("--chart-fill"));ctx.beginPath();pts.forEach(([xF,b],i)=>{const x=pL+xF*cW,y=pT+cH*(1-Math.min(1,b/maxBac));i?ctx.lineTo(x,y):ctx.moveTo(x,y);});ctx.lineTo(W-pR,pT+cH);ctx.lineTo(pL,pT+cH);ctx.closePath();ctx.fillStyle=grad;ctx.fill();ctx.beginPath();ctx.strokeStyle=token("--chart-line");ctx.lineWidth=3;ctx.lineJoin="round";ctx.lineCap="round";ctx.shadowColor=token("--chart-line");ctx.shadowBlur=0;pts.forEach(([xF,b],i)=>{const x=pL+xF*cW,y=pT+cH*(1-Math.min(1,b/maxBac));i?ctx.lineTo(x,y):ctx.moveTo(x,y);});ctx.stroke();ctx.shadowBlur=0;const labels=[];for(let i=0;i<=4;i++){const t=new Date(endDate.getTime()+(i/4)*totalH*3600000);labels.push(`${pad(t.getHours())}:${pad(t.getMinutes())}`);}$("chartAxis").innerHTML=labels.map(l=>`<span>${l}</span>`).join("");}
 
 function calculate(){$("calcError").style.display="none";$("timeError").style.display="none";$("statusPill").innerHTML="";$("driveBanner").style.display="none";$("chartWrap").style.display="none";const result=$("resultCard");result.className="result";const weight=Number($("weightKg").value),r=Number($("sexR").value);const elim=$("slowMode").checked?0.012:0.015;if(!weight||weight<30||weight>220){showCalcError("Please enter a valid weight (30–220 kg).");return;}const grams=getTotalGrams();if(grams<=0){showCalcError("Please add at least one drink using the + buttons.");return;}const startStr=$("startTime").value;if(!startStr){showTimeError("Please select a start time.");return;}const start=new Date(startStr);const still=$("stillDrinking").checked;const end=still?new Date():new Date($("endTime").value);if(!still&&!$("endTime").value){showTimeError("Please select an end time or tick Still drinking.");return;}if(isNaN(start.getTime())||isNaN(end.getTime())){showTimeError("Time format looks invalid.");return;}if(end.getTime()<start.getTime()){showTimeError("End time can't be before start time.");return;}const hoursDrinking=(end.getTime()-start.getTime())/3600000;const bacPeak=(grams/(weight*1000*r))*100;const bacAtEnd=Math.max(0,bacPeak-hoursDrinking*elim);const hoursUntil=bacAtEnd<=0?0:(bacAtEnd/elim);const soberAt=new Date(end.getTime()+hoursUntil*3600000);const soberStr=bacAtEnd<=0?"Now":soberAt.toLocaleString('en-IN',{weekday:'short',hour:'2-digit',minute:'2-digit',day:'numeric',month:'short'});$("gramsText").textContent=`~${grams.toFixed(1)}g`;$("soberByText").textContent=bacAtEnd<=0?"Likely already sober 🎉":`Likely sober by: ${soberStr}`;$("bacText").textContent=`~${bacAtEnd.toFixed(3)}% (estimate only)`;$("rateText").textContent=`${elim.toFixed(3)}%/hr`;$("untilText").textContent=bacAtEnd<=0?"0h 0m":hhMm(hoursUntil);$("soberAtText").textContent=soberStr;let pillClass,pillText,cardClass;if(bacAtEnd<=0){pillClass="safe";pillText="✓ Likely Sober";cardClass="show-safe";}else if(bacAtEnd<=0.03){pillClass="warn";pillText="⚠ Near India Legal Limit";cardClass="show-warn";}else{pillClass="danger";pillText="✕ Over Legal Limit (est.)";cardClass="show-danger";}result.classList.add(cardClass);$("statusPill").innerHTML=`<div class="status-pill ${pillClass}"><div class="status-dot"></div>${pillText}</div>`;const banner=$("driveBanner");if(bacAtEnd<=0){banner.className="drive-safe";banner.innerHTML="✅ <strong>Estimated BAC: ~0.00%.</strong> Individual metabolism varies. Always err on the side of caution.";}else if(bacAtEnd<=0.03){banner.className="drive-warn";banner.innerHTML=`⚠️ <strong>Near India's legal limit.</strong> Alcohol impairs judgement even below 0.03%. <strong>Do NOT drive.</strong>`;}else{banner.className="drive-danger";banner.innerHTML=`🚫 <strong>Do not drive.</strong> Est. BAC ~${bacAtEnd.toFixed(3)}% — above India's 0.03% limit. Wait at least <strong>${hhMm(hoursUntil)}</strong>.`;}banner.style.display="block";if(bacAtEnd>0){$("chartWrap").style.display="block";requestAnimationFrame(()=>drawChart(bacAtEnd,elim,end));}const drinkSummary=DRINKS.filter(d=>counts[d.id]>0).map(d=>`${counts[d.id]}× ${d.name.split(' ').slice(0,2).join(' ')}`).join(', ')||'unknown';addToHistory({soberBy:bacAtEnd<=0?"Already sober":soberStr,bac:bacAtEnd,weight,sex:r===0.68?'Male':'Female',drinks:drinkSummary});if(currentUser)$('histBtn').style.display='flex';}
 
@@ -2010,5 +687,6 @@ resetAll();
 $("stillDrinking").addEventListener("change",e=>{$("endTimeBox").style.display=e.target.checked?"none":"block";});
 window.addEventListener("resize",()=>{if($("chartWrap").style.display!=="none"){const bac=parseFloat($("bacText").textContent);const rate=parseFloat($("rateText").textContent);if(!isNaN(bac)&&!isNaN(rate)&&bac>0){drawChart(bac,rate,$("stillDrinking").checked?new Date():new Date($("endTime").value));}}});
 </script>
+<script src="./accessibility.js"></script>
 </body>
 </html>

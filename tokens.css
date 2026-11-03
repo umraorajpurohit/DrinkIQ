@@ -1,0 +1,44 @@
+/* Hallmark · theme: Dose (Quiet clarity adaptation) · modes: light+dark · copy: verbatim · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H5 E4 S4 R5 V3 · weakest: V, familiar native form typography keeps the calculator usable */
+:root {
+  color-scheme: light;
+  --font-display: "Segoe UI Variable Display", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Segoe UI Variable Text", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --ff-display: var(--font-display); --ff-body: var(--font-body);
+  --display-weight: 700; --tracking-display: -.03em;
+  --color-paper: #f7f7f2; --color-paper-2: #edefe8; --color-paper-3: #e3e8de;
+  --color-ink: #213b32; --color-ink-2: #354b42; --color-muted: #59675e; --color-rule: #d6dcd2;
+  --color-accent: #22624c; --color-accent-ink: #fafcf8; --color-focus: #22624c;
+  --accent-hover: #174e3b; --input-bg: #fcfcf8; --result-bg: #fcfcf8; --field-border: #78867a;
+  --selected-bg: #e1eddf; --safe: #246047; --safe-bg: #e3eddf;
+  --warning: #785115; --warning-bg: #f6edda; --danger: #a43932; --danger-bg: #f8e9e4;
+  --overlay-bg: #13251fc9; --tap-highlight: #22624c22;
+  --chart-grid: #d6dcd2; --chart-line: #22624c; --chart-fill: #22624c18; --chart-limit: #785115;
+  --chart-font: 500 11px "Segoe UI", sans-serif;
+  --bg: var(--color-paper); --bg-secondary: var(--color-paper-2);
+  --surface: var(--color-paper-2); --surface2: var(--color-paper-3); --surface3: var(--selected-bg);
+  --text: var(--color-ink); --text-bright: var(--color-ink); --muted: var(--color-muted); --muted2: var(--color-muted);
+  --accent: var(--color-accent); --border: var(--color-rule); --border-h: var(--field-border);
+  --neon-cyan: var(--color-accent); --neon-magenta: var(--color-accent); --neon-green: var(--safe);
+  --accent-dim: var(--selected-bg); --accent-glow: transparent; --danger-glow: transparent;
+  --radius-card: 16px; --radius-input: 10px; --radius-pill: 999px; --radius: 16px; --rule-hair: 1px;
+  --container: 1200px; --gutter: 32px; --gap-columns: 24px;
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: .75rem; --text-sm: .875rem; --text-md: 1rem; --text-lg: 1.125rem; --text-xl: 1.25rem; --text-2xl: 1.5rem; --text-3xl: 2rem;
+  --text-display: 2.5rem; --text-section: 1.375rem; --text-title: 1.0625rem; --text-lead: 1.125rem;
+  --ease-out: cubic-bezier(.16, 1, .3, 1); --ease-in: cubic-bezier(.7, 0, .84, 0); --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+}
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-paper: #14201c; --color-paper-2: #1e2d26; --color-paper-3: #2b3c32;
+  --color-ink: #e6ede2; --color-ink-2: #cbd6c6; --color-muted: #adbaac; --color-rule: #3b4e40;
+  --color-accent: #9ecaae; --color-accent-ink: #142d20; --color-focus: #b9dfc5;
+  --accent-hover: #b6dcc2; --input-bg: #23362a; --result-bg: #1b2b22; --field-border: #83967f;
+  --selected-bg: #304b37; --safe: #b2d5a8; --safe-bg: #2a422e;
+  --warning: #e6c78f; --warning-bg: #3c3525; --danger: #f0b0a5; --danger-bg: #402e28;
+  --overlay-bg: #09150fda; --tap-highlight: #9ecaae22;
+  --chart-grid: #3b4e40; --chart-line: #9ecaae; --chart-fill: #9ecaae18; --chart-limit: #e6c78f;
+}
+@media (max-width: 720px) { :root { --gutter: 16px; } }
