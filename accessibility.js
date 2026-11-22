@@ -1,4 +1,4 @@
-/* Focus management and visual enhancements; calculation and storage stay in index.html. */
+/* Focus management and visual enhancements; calculation and storage stay in calculator.js. */
 (() => {
   const overlays = [...document.querySelectorAll('.overlay')];
   let active = null;
@@ -15,14 +15,14 @@
       const previous = active;
       if (next) {
         if (!returnTargets.has(next)) returnTargets.set(next, document.activeElement);
-        next.style.zIndex = '401';
+        next.classList.add('overlay-active');
         (focusables(next)[0] || next).focus();
       } else if (previous) {
         const target = returnTargets.get(previous);
         if (target?.isConnected) target.focus();
       }
       if (previous && previous.classList.contains('hidden')) {
-        previous.style.zIndex = '';
+        previous.classList.remove('overlay-active');
         if (next) {
           const target = returnTargets.get(previous);
           if (target && next.contains(target)) target.focus();
@@ -67,7 +67,7 @@
   const calcError = document.getElementById('calcError');
   if (calcError) {
     new MutationObserver(() => {
-      const shown = calcError.style.display !== 'none';
+      const shown = !calcError.hidden;
       const weight = document.getElementById('weightKg');
       weight.setAttribute('aria-invalid', String(shown && calcError.textContent.includes('weight')));
       if (shown && calcError.textContent.includes('weight')) {
@@ -78,34 +78,23 @@
         calcError.focus({ preventScroll: true });
         calcError.scrollIntoView({ block: 'center' });
       }
-    }).observe(calcError, { childList: true, attributes: true, attributeFilter: ['style'] });
+    }).observe(calcError, { childList: true, attributes: true, attributeFilter: ['hidden'] });
   }
   const timeError = document.getElementById('timeError');
   if (timeError) new MutationObserver(() => {
-    if (timeError.style.display !== 'none') { timeError.tabIndex = -1; timeError.focus({ preventScroll: true }); timeError.scrollIntoView({ block: 'center' }); }
-  }).observe(timeError, { childList: true, attributes: true, attributeFilter: ['style'] });
+    if (!timeError.hidden) { timeError.tabIndex = -1; timeError.focus({ preventScroll: true }); timeError.scrollIntoView({ block: 'center' }); }
+  }).observe(timeError, { childList: true, attributes: true, attributeFilter: ['hidden'] });
   document.querySelectorAll('.faq-q').forEach(button => {
     const answer = button.closest('.faq-item').querySelector('.faq-a');
     if (answer) { answer.id ||= 'faq-answer-' + [...document.querySelectorAll('.faq-q')].indexOf(button); button.setAttribute('aria-controls', answer.id); }
     button.addEventListener('click', () => document.querySelectorAll('.faq-q').forEach(other => other.setAttribute('aria-expanded', String(other.closest('.faq-item').classList.contains('open')))));
   });
-  document.querySelector('[onclick="calculate()"]')?.addEventListener('click', () => {
-    if (document.getElementById('calcError').style.display === 'none' && document.getElementById('timeError').style.display === 'none') {
+  document.querySelector('[data-action="calculate"]')?.addEventListener('click', () => {
+    if (document.getElementById('calcError').hidden && document.getElementById('timeError').hidden) {
       const result = document.getElementById('resultCard');
       result.tabIndex = -1;
       result.focus({ preventScroll: true });
       if (matchMedia('(max-width: 720px)').matches) result.scrollIntoView({ block: 'center' });
-    }
-  });
-  document.addEventListener('drinkiq:theme', () => {
-    if (typeof isDark !== 'undefined') isDark = document.documentElement.dataset.theme === 'dark';
-    const canvas = document.getElementById('bacCanvas');
-    const chart = document.getElementById('chartWrap');
-    if (canvas && chart.style.display !== 'none') {
-      const bac = parseFloat(document.getElementById('bacText').textContent);
-      const rate = parseFloat(document.getElementById('rateText').textContent);
-      const end = document.getElementById('stillDrinking').checked ? new Date() : new Date(document.getElementById('endTime').value);
-      if (bac > 0 && rate > 0) drawChart(bac, rate, end);
     }
   });
   syncDialogs();

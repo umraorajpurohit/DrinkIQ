@@ -6,7 +6,7 @@
 <title>Hangover Recovery Guide — DrinkIQ</title>
 <meta name="description" content="Evidence-based hangover recovery guidance. What actually helps, what doesn't, and when to seek emergency care."/>
 <meta name="theme-color" content="#0a0e27"/>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
 <link rel="icon" type="image/svg+xml" href="./favicon.svg">
 <link rel="stylesheet" href="./styles.css">
 <script src="./theme.js"></script>
@@ -18,7 +18,7 @@
 <a class="tb-btn" href="/">Calculator</a>
 <a class="tb-btn" href="/hangover-recovery" aria-current="page">Recovery guide</a>
 <a class="tb-btn" href="/about">About</a>
-<button class="tb-btn theme-toggle" data-theme-toggle onclick="let d=document.documentElement;d.setAttribute('data-theme',d.getAttribute('data-theme')==='light'?'dark':'light')" aria-label="Switch theme">Theme</button>
+<button class="tb-btn theme-toggle" data-theme-toggle aria-label="Switch theme">Theme</button>
 </nav>
 
 <main id="main-content" tabindex="-1" class="document-page">
@@ -64,13 +64,6 @@
 </div>
 </section>
 
-<div class="ad-unit">
-<div class="ad-container">
-<div class="ad-label">Sponsored</div>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="4444444444" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-</div>
-</div>
 
 <hr>
 
@@ -125,13 +118,6 @@
 </ul>
 </section>
 
-<div class="ad-unit">
-<div class="ad-container">
-<div class="ad-label">Sponsored</div>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="5555555555" data-ad-format="fluid" data-ad-layout="in-article" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-</div>
-</div>
 
 <hr>
 
@@ -167,13 +153,6 @@ Consuming alcohol to manage hangover delays symptoms by extending intoxication. 
 </div>
 </section>
 
-<div class="ad-unit">
-<div class="ad-container">
-<div class="ad-label">Sponsored</div>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="6666666666" data-ad-format="autorelaxed" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-</div>
-</div>
 
 <hr>
 
@@ -195,7 +174,7 @@ Consuming alcohol to manage hangover delays symptoms by extending intoxication. 
 </div>
 
 <div class="emergency-cta">
-Call emergency services immediately — 112 in India, 999 in UK, 911 in US.<br>
+<span data-country-emergency>Call local emergency services immediately.</span><br>
 Place person in recovery position. Stay with them until help arrives.
 </div>
 </div>
@@ -203,12 +182,13 @@ Place person in recovery position. Stay with them until help arrives.
 
 </main>
 
+
 <footer>
 <div class="footer-grid">
 <div class="footer-col">
 <h3>DrinkIQ</h3>
-<p>Free BAC calculator for responsible drinking in India.</p>
-<p style="margin-top:8px">Made in Rajasthan</p>
+<p>Free blood alcohol content calculator.</p>
+<p class="footer-credit">Made in Jodhpur/Adelaide</p>
 </div>
 <div class="footer-col">
 <h3>Tools</h3>
@@ -223,8 +203,8 @@ Place person in recovery position. Stay with them until help arrives.
 </div>
 <div class="footer-col">
 <h3>Safety</h3>
-<p>Emergency: <strong>112</strong></p>
-<p>India BAC limit: <strong>0.03%</strong></p>
+<p data-country-emergency>Call local emergency services immediately.</p>
+<p><a data-country-driving hidden>Official drink-driving information</a></p>
 <a href="https://github.com/umraorajpurohit/DrinkIQ" target="_blank" rel="noopener">GitHub</a>
 </div>
 </div>
@@ -233,5 +213,7 @@ Place person in recovery position. Stay with them until help arrives.
 <span><a href="/privacy-policy">Privacy</a> / <a href="/terms">Terms</a> / <a href="/">Home</a></span>
 </div>
 </footer>
+<script src="./country-config.js"></script>
+<script src="./country.js"></script>
 </body>
 </html>

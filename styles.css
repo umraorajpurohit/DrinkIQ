@@ -42,7 +42,7 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--space-xl) 0; 
 .tb-btn:hover, .tb-btn[aria-current="page"] { background: var(--surface2); color: var(--text); text-decoration: none; }
 .theme-toggle { border: 1px solid var(--border); color: var(--text); gap: var(--space-xs); }
 .theme-toggle svg { width: 17px; height: 17px; }
-#userChip { display: none; font-size: 14px; padding-inline: var(--space-xs); }
+#userChip { display: flex; font-size: 14px; padding-inline: var(--space-xs); }
 .user-dot, .status-dot { display: none; }
 .wrap, .faq-section, footer { max-width: var(--container); padding-inline: var(--gutter); margin-inline: auto; }
 .wrap { padding-top: var(--space-xl); }
@@ -98,7 +98,14 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--space-xl) 0; 
 .primary:hover, .auth-submit:hover, .disc-agree-btn.enabled:hover, .tc-close:hover { background: var(--accent-hover); }
 .ghost { min-width: 48px; min-height: 48px; border: 1px solid var(--field-border); border-radius: var(--radius-input); background: var(--surface); color: var(--text); font-size: 23px; }
 .ghost:hover { background: var(--surface3); }
+.footer-col [data-country-emergency] a { display: inline; margin: 0; text-decoration: underline; }
 .error, .auth-msg.err { color: var(--danger); font-size: 14px; line-height: 1.6; margin-top: var(--space-sm); }
+.error { display: flex; }
+.legal-link.inline-terms { font-size: 13px; padding: 0; }
+.content-link { color: var(--neon-cyan); }
+.hint.clearance-hint { margin-top: 6px; margin-bottom: 0; }
+.drinking-toggle { margin-top: 10px; }
+.footer-col .footer-credit { margin-top: 8px; }
 .auth-msg.ok { color: var(--safe); }
 .faq-section { padding-top: var(--space-2xl); padding-bottom: var(--space-lg); }
 .faq-section > h2 { font-size: 28px; margin-bottom: var(--space-lg); }
@@ -109,12 +116,6 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--space-xl) 0; 
 .faq-icon { font-size: 22px; line-height: 1; flex-shrink: 0; }
 .faq-a { display: none; padding-bottom: var(--space-lg); color: var(--muted); max-width: 75ch; }
 .faq-item.open .faq-a { display: block; }
-.ad-unit { max-width: var(--container); margin: 32px auto; padding-inline: var(--gutter); }
-.calculator-inputs .ad-unit { padding-inline: 0; }
-.ad-container { background: var(--surface); padding: var(--space-md); border-radius: var(--radius-input); }
-.ad-label { color: var(--muted); font-size: 12px; text-align: center; margin-bottom: var(--space-xs); }
-.adsbygoogle { display: block; }
-.ad-unit:has(ins[data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"]) { display: none; }
 footer { margin-top: var(--space-2xl); padding-top: var(--space-xl); padding-bottom: var(--space-xl); border-top: 1px solid var(--border); }
 .footer-grid { display: grid; grid-template-columns: minmax(0, 1.8fr) repeat(3, minmax(0, 1fr)); gap: var(--space-xl); margin-bottom: var(--space-xl); }
 .footer-col h3 { font-size: 15px; margin-bottom: var(--space-md); }
@@ -162,6 +163,7 @@ footer { margin-top: var(--space-2xl); padding-top: var(--space-xl); padding-bot
 .emergency-cta { font-weight: 600; line-height: 1.7; color: var(--danger); margin-top: var(--space-lg); }
 .hidden { display: none !important; }
 .overlay { position: fixed; inset: 0; z-index: var(--z-modal); display: flex; align-items: center; justify-content: center; background: var(--overlay-bg); padding: var(--space-lg); }
+.overlay.overlay-active { z-index: 401; }
 .modal { position: relative; background: var(--result-bg); border: 1px solid var(--border); border-radius: 20px; max-width: 600px; width: 100%; max-height: calc(100dvh - 48px); overflow-y: auto; overscroll-behavior: contain; padding: 32px; }
 .modal-title { font-size: 27px; font-weight: 700; line-height: 1.25; letter-spacing: -.03em; padding-right: 28px; margin-bottom: var(--space-sm); }
 .modal-sub { font-size: 14px; color: var(--muted); margin-bottom: var(--space-lg); }
@@ -183,6 +185,7 @@ footer { margin-top: var(--space-2xl); padding-top: var(--space-xl); padding-bot
 .auth-msg { font-size: 14px; margin-top: var(--space-sm); }
 .hist-item { padding-block: var(--space-md); border-bottom: 1px solid var(--border); }
 .hist-date, .hist-note { font-size: 13px; color: var(--muted); }
+.hist-details { margin-top: var(--space-xs); font-size: 12px; color: var(--muted); }
 .hist-row { display: flex; justify-content: space-between; gap: var(--space-md); margin-block: var(--space-xs); font-size: 15px; }
 .hist-bac { font-variant-numeric: tabular-nums; font-weight: 600; }
 .safe-bac { color: var(--safe); }.warn-bac { color: var(--warning); }.danger-bac { color: var(--danger); }
